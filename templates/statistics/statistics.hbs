@@ -1,0 +1,41 @@
+<div class="container settings">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Reports summary'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Reports summary title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <ul class="pl">
+                        <li>
+                            <div class="text-center">
+                                <a href="statistics/agentreports">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-bar-chart fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Agent tickets summary'}}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Reports summary help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>
+

@@ -1,0 +1,117 @@
+.roles{
+    .role-info-page{
+    }
+    .alert{
+        background-color: #fcf8e3;
+        border: 1px solid #fbeed5;
+        border-radius: 4px;
+        margin: 20px;
+        padding: 8px 35px 8px 14px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        color: #82683c;
+    }
+    .row-fluid{
+        width : 100%;
+        content: "";
+        display: table;
+        line-height: 0;
+        clear: both;
+            label{
+                margin-bottom: 0px;
+                margin-top: 12px;
+            }
+    }
+    ul{
+        list-style: outside none none;
+    }
+    ul.unstyled, ol.unstyled {
+        list-style: outside none none;
+    }
+    ul{
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .input-class{
+        margin-bottom: 15px;
+    }
+
+    p.lead-title{
+        border-top: 1px solid #878787;
+        margin-top: 15px;
+        span{
+            border-top: 3px solid #878787;
+            @extend .text-muted;
+        }
+    }
+    p.lead{
+        font-size: 24px;
+        font-weight: 200;
+        line-height: 27px;
+        margin-bottom: 16px;
+    }
+    .role-nav{
+        li:first-child {
+            /* padding-left: 0; */
+        }
+        li:last-child a{
+            border: 0 none;
+        }
+        li{
+            float: left;
+            padding: 0 0 30px 10px;
+            a{
+                border-right: 1px solid #f6f6f6;
+                padding-right: 10px;
+            }
+        }
+    }
+    p.lead-sub{
+        @extend .text-muted;
+        font-size: 20px;
+        line-height: 15px;
+        margin: 0 0 8px;
+    }
+    .role-section{
+        border-left: 1px solid #bebebe;
+        margin-bottom: 40px;
+        padding-left: 20px;
+        label{
+            display: block;
+            color: #323232;
+            padding: 0 0 6px;
+        }
+        .nested-ul{
+            input[type="radio"], input[type="checkbox"]{
+                margin-top: 0px;
+                margin-left: -18px;
+                margin-right: 5px;
+                position: static;
+                width: auto;
+            }
+            .nested-ul{
+                li{
+                    margin-left: 20px;
+                }
+            }
+            label{
+                margin-bottom: 0;
+                margin-top: 15px;
+                padding: 0 0 0 20px;
+                display: block;
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                outline: 0 none;
+                vertical-align: baseline;
+            }
+        }
+    }
+    .permission-name{
+    }
+    .margin-bottom{
+        margin-bottom: 10px;
+    }
+
+}

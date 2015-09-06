@@ -1,0 +1,109 @@
+.search{
+    .no-search{
+        text-align: center;
+    }
+    .now-search{
+        text-align: center;
+    }
+    .search-body{
+        padding-top: 0px;
+    }
+    .icolor{
+        color : #555;
+    }
+    .resultlist{
+        td, th {
+            vertical-align: top;
+            border-left: 0;
+            border-right: 0;
+        }
+        .contact.contacts {
+            vertical-align: middle;
+            line-height: 30px;
+            margin: 0;
+            width: 20%;
+            }
+        .contact.avatar {
+                font-size: 36px;
+                text-align: center;
+                width: 5%;
+                height: 32px;
+            }
+        .contact.informations {
+                width: 75%;
+                span {
+                    @extend .text-muted;
+                }
+            }
+        .corporation.avatar {
+                font-size: 36px;
+                text-align: center;
+                width: 5%;
+                height: 32px;
+                i{
+                    @extend .icolor;
+                }
+            }
+        .corporation.informations {
+                //width: 90%;
+                span {
+                    @extend .text-muted;
+                }
+            }
+        .ticket.avatar {
+                font-size: 36px;
+                text-align: center;
+                width: 5%;
+                height: 32px;
+                i{
+                    @extend .icolor;
+                }
+            }
+        .ticket.informations {
+                width: 75%;
+                span {
+                    @extend .text-muted;
+                }
+                p{
+                    @extend .text-muted;
+                    border-left: 1px dotted #ccc;
+                    padding-left: 15px;
+                    font-size: 13px;
+                    margin-bottom: 0px;
+                }
+                .info-head{
+
+                }
+                .info-head-property{
+                    @extend .text-muted;
+                }
+                .info-body{
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+                .info-body-status{
+                    ul{
+                        list-style: none;
+                    }
+                    li{
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                    }
+                    /* padding内边距 */
+                    /* margin外边据 */
+                }
+            }
+        .ticket.rightinfo {
+            width : 20%;
+            .search-label{
+                float: left;
+                width : 50px;
+            }
+            .search-info{
+                cursor: default;
+                display: inline-block;
+                vertical-align: bottom;
+            }
+        }
+    }
+}

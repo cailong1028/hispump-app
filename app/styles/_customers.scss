@@ -1,0 +1,168 @@
+.customers {
+    .nav  {
+        padding-left: 1em;
+    }
+    .filter {
+        padding: 10px 0 10px 15px;
+        margin: 5px 0 10px 0;
+        height: 40px;
+        line-height: 30px;
+        .form-group:first-child {
+            margin-right: 1em;
+        }
+        .state {
+            label {
+                display: inline-block;
+                margin-right: 15px;
+            }
+            select {
+                // height: 28px;
+                padding: 2px 12px;
+                width: 180px;
+            }
+        }
+        .alphabet {
+            text-align: right;
+            label {
+                display: none;
+            }
+            a {
+                // display: inline-block;
+                // text-decoration: none;
+                @extend .label;
+                padding: 0.2em 0.17em 0.3em;
+                color: #777;
+                cursor: pointer;
+                &:hover {
+                    color: #777
+                }
+                &.active {
+                    @extend .label;
+                    @extend .label-default;
+                    // font-size: larger;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+            a:hover {
+                //font-size: larger;
+                /*font-weight: 900;*/
+                color: #000;
+                // background-color: skyblue;
+            }
+        }
+    }
+    .cc-filter {
+        padding-bottom:20px;
+    }
+    .list {
+        table .multiple-restore {
+            display: none;
+        }
+        table.state-delete {
+            .multiple-send-mail,
+            .multiple-delete {
+                display: none;
+            }
+            .multiple-restore {
+                display: inline-block;
+            }
+        }
+        td, th {
+            vertical-align: middle;
+            border-left: 0;
+            border-right: 0;
+            line-height: 1.1em;
+        }
+        th.pick, td.pick {
+            width: 36px;
+            text-align: center;
+            p {
+                vertical-align: middle;
+                height: 60px;
+                line-height: 60px;
+                margin: 0;
+            }
+        }
+        td.avatar {
+            text-align: center;
+            width: 32px;
+            height: 32px;
+        }
+        td.informations {
+            p {
+                margin-bottom: 2px;
+                width: 130px;
+                @extend .text-muted;
+                @include text-overflow();
+            }
+        }
+        td.contacts {
+            p {
+                margin-bottom: 2px;
+                width: 190px;
+                @include text-overflow();
+                @extend .text-muted;
+            }
+        }
+        .actions {
+            text-align: right;
+        }
+        .loading {
+            text-align: center;
+        }
+        .non-items {
+            display: none;
+            text-align: center;
+        }
+    }
+}
+p.btn-actions {
+    text-align: right;
+    margin: 15px 0 0;
+}
+.timeline{
+    ul{
+        padding-left: 12px;
+        margin: 30px 0 20px 3px;
+        list-style: outside none none;
+    }
+    .timeline-list{
+        li:last-child{
+            border-left: 3px solid transparent;
+        }
+        .timeline-list-item{
+            border-left: 3px solid #ddd;
+            padding-bottom: 32px;
+            padding-left: 20px;
+            position: relative;
+            i {
+                /*color : #9C5CB7;*/
+                color: $gray;
+                left: -16px;
+                position: absolute;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                box-shadow: -8px 0 12px 8px #fff;
+                background:none repeat scroll 0 0 #fff;
+            }
+            p {
+                @extend .text-muted;
+            }
+        }
+    }
+    .more-results{
+        /*background-color: white;*/
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+        padding: 0;
+        margin: 10px 0 10px 0;
+        a{
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}

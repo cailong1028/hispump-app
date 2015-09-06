@@ -1,0 +1,175 @@
+.settings {
+    ul.pl {
+        @extend .list-unstyled;
+        @extend .list-inline;
+        li {
+            width: 15%;
+        }
+    }
+    .upload-logo {
+        margin: $logo-margin;
+        .preview.logo {
+            width: $logo-width;
+            height: $logo-height;
+        }
+    }
+    h4 {
+        @extend .text-muted;
+        @include text-overflow();
+    }
+
+    h1 {
+        margin-top: 0px;
+    }
+}
+.st {
+    .create-buttons {
+        margin-top: 20px;
+    }
+    .nav  {
+        padding-left: 1em;
+    }
+    .list {
+        table .multiple-restore {
+            display: none;
+        }
+        td, th {
+            vertical-align: middle;
+            border-left: 0;
+            border-right: 0;
+            line-height: 1.1em;
+        }
+        td.agentnames {
+            p {
+                margin-bottom: 2px;
+                width: 4cm;
+                @extend .text-muted;
+                @include text-overflow();
+            }
+        }
+        .loading {
+            text-align: center;
+        }
+        .non-items {
+            display: none;
+            text-align: center;
+        }
+    }
+}
+@keyframes ticket-types-notation
+{
+    0%   {background:red;}
+    25%   {background:yellow;}
+    50%   {background:red;}
+    75%   {background:yellow;}
+    100% {background:white;}
+}
+@-moz-keyframes ticket-types-notation /* Firefox */
+{
+    0%   {background:red;}
+    25%   {background:yellow;}
+    50%   {background:red;}
+    75%   {background:yellow;}
+    100% {background:white;}
+}
+@-webkit-keyframes ticket-types-notation /* Safari and Chrome */
+{
+    0%   {background:red;}
+    25%   {background:yellow;}
+    50%   {background:red;}
+    75%   {background:yellow;}
+    100% {background:white;}
+}
+@-o-keyframes ticket-types-notation /* Opera */
+{
+    0%   {background:red;}
+    25%   {background:yellow;}
+    50%   {background:red;}
+    75%   {background:yellow;}
+    100% {background:white;}
+}
+.ticket-types-notation{
+    animation:ticket-types-notation 2s;
+    -moz-animation:ticket-types-notation 2s; /* Firefox */
+    -webkit-animation:ticket-types-notation 2s; /* Safari and Chrome */
+    -o-animation:ticket-types-notation 2s; /* Opera */
+}
+.ticket-types{
+
+    .list{
+        overflow: auto;
+        margin: 0 40px 0 40px;
+        $ticket-types-ul-li-padding: 1%;
+        $ticket-types-opacity: .3;
+        $ticket-types-input-width: 60%;
+        $ticket-types-ul-padding-left: 20px;
+        #addOneTicketTypesDiv{
+            width: $ticket-types-input-width;
+            #hide-minus{
+                visibility: hidden;
+            }
+            #addOneTicketTypes{
+                color: #008000;
+            }
+        }
+        ul#ticket-types-ul{
+            padding-left: $ticket-types-ul-padding-left;
+            li{
+                position: relative;
+                padding: $ticket-types-ul-li-padding $ticket-types-ul-li-padding $ticket-types-ul-li-padding 0;
+                list-style-type: none;
+                @mixin ticket-types-ul-li-a-hover{
+                    opacity: 1;
+                }
+                a{
+                    &.minus{
+                        position: absolute;
+                        left: -$ticket-types-ul-padding-left;
+                        top: 13px;
+                        i{
+                            color: #ff0000;
+                            opacity: 1;
+                            &:hover{
+                                @include ticket-types-ul-li-a-hover;
+                            }
+                        }
+                    }
+                    &.up i, &.down i{
+                        color: #0000ff;
+                        opacity: 1;
+                        &:hover{
+                            @include ticket-types-ul-li-a-hover;
+                        }
+                    }
+                }
+                &:hover{
+                    a{
+                        @include ticket-types-ul-li-a-hover;
+                    }
+                }
+                input{
+                    display: inline;
+                    width: $ticket-types-input-width;
+                }
+                /*只有一个时*/
+                &:first-child:last-child{
+                    a.minus{
+                        visibility: hidden;
+                    }
+                }
+                @mixin ticket-types-ul-li-no-action{
+                    //visibility: hidden;
+                    pointer-events: none;
+                    cursor: default;
+                    opacity: $ticket-types-opacity;
+                }
+                &:first-child a.up{
+                    @include ticket-types-ul-li-no-action;
+                }
+                &:last-child a.down{
+                    @include ticket-types-ul-li-no-action;
+                }
+            }
+        }
+    }
+}

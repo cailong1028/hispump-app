@@ -1,0 +1,29 @@
+<div class="panel panel-sidebar">
+    <div class="panel-heading">
+        <h5>{{gettext 'Select the time zone'}}</h5>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <div>
+                    <select id="selectedMethod" name="selectedMethod" class="form-control" placeholder="Gender">
+                        <option value="24hours" selected="true">{{gettext 'Yesterday'}}</option>
+                        <option value="3days">{{gettext 'The last three days'}}</option>
+                        <option value="5days">{{gettext 'The last five days'}}</option>
+                        <option value="7days">{{gettext 'The last seven days'}}</option>
+                        <option value="15days">{{gettext 'The last fifteen days'}}</option>
+                        <option value="30days">{{gettext 'The last thirty days'}}</option>
+                    </select>
+                </div>
+            </div>
+            <div id="selectedMethod_required" class="error-messages form-group">
+                <div>
+                    <span class="text-danger">{{gettext 'selectedMethod required'}}</span>
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary">{{gettext 'Display Report'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

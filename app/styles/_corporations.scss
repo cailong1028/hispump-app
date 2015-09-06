@@ -1,0 +1,150 @@
+@mixin border-radius($radius){
+    -webkit-border-radius:$radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: inline-block;
+}
+
+.layer-obsolete{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background:#000;
+    opacity:.3;
+    /*filter:alpha(opacity: 30);*/
+    z-index:-998;
+    left:0;
+    top:0;
+}
+
+.confirm-obsolete{
+    padding: 20px 5px 20px 5px;
+    boder: 1px solid blue;
+    width: 400px;
+    height: 150px;
+    background-color: rgb(51,122,183);
+    //opacity:.6;
+    position: fixed;
+    z-index: 999;
+    text-align:center;
+    @include border-radius(10);
+    /*left: 30%;
+    top: 30%;*/
+}
+
+.corporations-white-font{
+    colore: white;
+}
+
+.corporations-close{
+    cursor: hand;
+}
+.corporations-close:hover{
+    font-size: larger;
+    color: #ffffff;
+}
+
+.corporations {
+    .create-buttons {
+        margin-top: 20px;
+    }
+    .nav  {
+        padding-left: 1em;
+    }
+    .filter {
+        padding: 10px 0 10px 15px;
+        .form-group:first-child {
+            margin-right: 1em;
+        }
+        .state {
+            select {
+                height: 28px;
+                padding: 2px 12px;
+                width: 180px;
+            }
+        }
+        .alphabet {
+            label {
+                display: none;
+            }
+            a {
+                // display: inline-block;
+                // text-decoration: none;
+                @extend .label;
+                padding: 0.2em 0.17em 0.3em;
+                color: #777;
+                cursor: pointer;
+                &:hover {
+                    color: #777
+                }
+                &.active {
+                    @extend .label;
+                    @extend .label-default;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .list {
+        table {
+            @include border-radius(10);
+        }
+        td, th {
+            vertical-align: middle;
+            border-left: 0;
+            border-right: 0;
+        }
+        tbody td {
+            height: 1.5em;
+        }
+        .pick {
+            width: 36px;
+            text-align: center;
+        }
+        .avatar {
+            font-size: 36px;
+            text-align: center;
+            width: 40px;
+        }
+        .corporation-info {
+            width: 30%;
+        }
+        .contacts {
+
+        }
+        .actions {
+            width: 30%;
+        }
+    }
+}
+.corporation-contacts-list li {
+    //margin: 2px;
+    padding-top: 3px;
+    text-align: center;
+    padding-left: 0px;
+    //border: 1px solid skyblue;
+    a {
+        //border: 1px solid skyblue;
+        display: inline-block;
+    }
+    a:hover{
+        //background-color: skyblue;
+    }
+}
+
+.corporation-contacts-list li:hover{
+    background-color: skyblue;
+}
+.corporations-contacts-quickadd .panel-sidebar{
+    box-shadow: 0 0 0;
+}

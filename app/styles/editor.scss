@@ -1,0 +1,20 @@
+$icon-font-path: "https://static.yunkefu.com/css/fonts/bootstrap";
+$fa-font-path: "https://static.yunkefu.com/css/fonts/fontawesome";
+@import 'bootstrap-variables';
+
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'fontawesome/scss/font-awesome';
+@import 'geoffgraham.animate.scss/animate';
+
+body.form-control {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    padding: 0;
+    transition: none;
+    &:focus {
+        border-color: auto;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,3 @@
+[submodule "libs"]
+	path = libs
+	url = git@gitlab.unicall.cc:helpdesk/static-yunkefu-com.git

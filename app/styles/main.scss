@@ -1,0 +1,107 @@
+$icon-font-path: "https://static.yunkefu.com/css/fonts/bootstrap/";
+$fa-font-path: "https://static.yunkefu.com/css/fonts/fontawesome";
+@import 'bootstrap-variables';
+
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'fontawesome/scss/font-awesome';
+@import 'geoffgraham.animate.scss/animate';
+
+@import 'variables';
+
+@import 'bootstrap-datetimepicker4';
+@import 'jquery-file-upload';
+@import 'wysihtml5';
+@import 'select2';
+@import 'dropzone';
+
+@import 'themes';
+@import 'navbar';
+@import 'agent';
+@import 'customers';
+@import 'corporations';
+@import 'settings';
+@import 'tickets';
+@import 'groups';
+@import 'search';
+@import 'roles';
+@import 'mail';
+/* Space out content a bit */
+body {
+    background-color: #f4f4f2;
+}
+#logo {
+    margin: $logo-margin;
+    img {
+        width: $logo-width;
+        height: $logo-height;
+    }
+}
+#header {
+    background-color: $header-bg;
+    h1 {
+        font-size: 28px;
+        line-height: 48px;
+        margin: 5px 0 5px 50px;
+    }
+    #avatar {
+
+        margin: 16px 0 5px;
+        a {
+            text-decoration: none;
+            color: $text-color;
+        }
+        img {
+            width: 32px;
+            height: 32px;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+    }
+}
+#footer {
+    p {
+        @extend .text-center;
+        @extend .text-muted;
+    }
+    margin-bottom: 20px;
+}
+.pagination {
+    li.page a {
+        cursor: pointer;
+    }
+}
+.error-messages {
+    display: none;
+    &.show {
+        display: block;
+    }
+}
+.break-word {
+    p {
+        word-wrap: break-word;
+    }
+}
+.word-break{
+    word-break: break-all;
+}
+label.required {
+    &:before {
+        @extend .text-danger;
+        content: '*';
+        font-size: .83em;
+        vertical-align: super;
+        line-height: 0;
+    }
+}
+
+.popover.datetimepicker-popover {
+    min-width: 280px;
+    .date.expires {
+        min-height: 280px;
+    }
+}

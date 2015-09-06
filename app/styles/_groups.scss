@@ -1,0 +1,68 @@
+.groups {
+    .create-buttons {
+        margin-top: 20px;
+    }
+    .nav  {
+        padding-left: 1em;
+    }
+
+    .filter {
+        padding: 10px 0 10px 15px;
+        margin: 5px 0 10px 0;
+        .form-group:first-child {
+            margin-right: 1em;
+        }
+        .state {
+            label {
+                display: inline-block;
+                margin-right: 15px;
+            }
+            select {
+                // height: 28px;
+                padding: 2px 12px;
+                width: 180px;
+            }
+        }
+    }
+    .list {
+        table {
+            table-layout: fixed;
+        }
+        td, th {
+            vertical-align: middle;
+            border-left: 0;
+            border-right: 0;
+        }
+        .pick {
+            width: 36px;
+            text-align: center;
+        }
+        .avatar {
+            font-size: 36px;
+            text-align: center;
+            width: 32px;
+            height: 32px;
+        }
+        .informations {
+            width: 85%;
+            word-wrap: break-word;
+            span {
+                @extend .text-muted;
+            }
+        }
+        .actions {
+            text-align: right;
+        }
+        .loading {
+            text-align: center;
+        }
+        .non-items {
+            display: none;
+            text-align: center;
+        }
+    }
+}
+p.btn-actions {
+    text-align: right;
+    margin: 15px 0 0;
+}
