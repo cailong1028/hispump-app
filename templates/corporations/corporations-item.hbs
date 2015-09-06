@@ -1,0 +1,11 @@
+<td class="pick">{{#isPermitted 'corporations:delete'}}<input type="checkbox" class="picker_td" name="id" value="{{id}}">{{/isPermitted}}</td>
+<td class="informations">
+    <a href="/corporations/{{id}}">{{name}}</a><br>
+    <span class="text-muted"> {{{sprintf (gettext '<a href="/corporations/%s/contacts">%d Corporation Contacts</a>') id contacts}}}</span>
+</td>
+<td class="text-right">
+    <a href="/corporations/{{id}}/form" class="btn btn-default btn-xs">{{gettext "Update"}}</a>
+    {{#isPermitted 'corporations:delete'}}
+    <a class="corporation-delete btn btn-default btn-xs"><i class="fa fa-trash"></i></a>
+    {{/isPermitted}}
+</td>

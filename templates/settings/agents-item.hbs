@@ -1,0 +1,28 @@
+<td class="avatar">
+    <img src="{{assets '/images/avatar-32.png'}}" alt="avator" />
+</td>
+<td class="contacts">
+    <p><a href="/settings/agents/{{id}}">{{name}}</a></p><br>
+    {{#if post}}{{post}}<br>{{/if}}
+</td>
+<td class="contacts">
+    {{#if username}}{{gettext 'User Name'}}: {{username}}<br>{{/if}}
+    {{#if workNum}}{{gettext 'WorkNum'}}: {{workNum}}<br>{{/if}}
+    {{#if mobile}}{{gettext 'Mobile'}}: {{mobile}}{{/if}}
+</td>
+<td class="contacts">
+    {{#if status}} {{status}}{{/if}}
+</td>
+<td class="text-right">
+{{#unless deleted}}
+    <a href="/settings/agents/{{id}}/roles" class="btn btn-default btn-xs">{{gettext 'Roles'}}</a>
+    <a href="/settings/agents/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Update'}}</a>
+    {{#if isCurrentManager}}
+    <button class="btn btn-default btn-xs delete"  disabled="disabled"><i class="fa fa-trash"></i></button>
+    {{else}}
+    <button class="btn btn-default btn-xs delete"><i class="fa fa-trash"></i></button>
+    {{/if}}
+{{else}}
+    <button class="btn btn-default btn-xs restore">{{gettext 'Restore'}}</button>
+{{/unless}}
+</td>

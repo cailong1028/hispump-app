@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        <span class="pull-right">
+                            <a href="/corporations/{{id}}/form"
+                            class="corporation-update btn btn-default btn-sm">
+                            {{gettext 'Update'}}</a>
+                            {{#isPermitted 'corporations:delete'}}
+                            <a class="delete-corporation btn btn-default btn-sm">
+                            {{gettext 'Delete'}}</a>
+                            {{/isPermitted}}
+                            <a href="/corporations" class="btn btn-default btn-sm">
+                            {{gettext 'Cancel'}}</a>
+                        </span>
+                        {{gettext 'Corporation Infomations'}}
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <img src="{{assets '/images/corporation-100.png'}}" alt="Anonymous" class="img-thumbnail"/>
+                    </div>
+                    <p class="text-center">
+                        {{name}}
+                        <br>{{{sprintf (gettext  '<a href="/corporations/%s/contacts">%d Corporation Contacts</a>') id contacts}}}
+                    </p>
+                    <hr/>
+                    {{#if description}}
+                    <div>
+                        <label class="control-label">{{gettext "Description"}}</label>
+                        <p>{{description}}</p>
+                    </div>
+                    {{/if}} 
+                    {{#if domain}}
+                    <div>
+                        <label class="control-label">{{gettext "Domain"}}</label>
+                        <p>{{domain}}</p>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <h4>{{gettext "Memo"}}</h4>
+                    <form class="save-corporation">
+                        <div class="form-group">
+                            <textarea name="memo" maxlength="500" rows="6" class="form-control memo">{{memo}}</textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-default">{{gettext "Save"}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="corporations-contacts-quickadd col-lg-3 col-md-3"></div>
+            </div>
+        </div>
+        <div class="confirm-layer"></div>
+        <div class="prompt-view"></div>
+    </div>
+</div>
+
+

@@ -1,0 +1,51 @@
+<div class="container ticket-types">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Ticket types'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Ticket types Title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="clearfix"></div>
+                            <label>{{gettext 'Ticket types options'}}</label>
+                            <div class="list">
+                                <ul id="ticket-types-ul">
+                                    {{#each this}}
+                                        <li id="li_{{@index}}">
+                                            <a modelIndex="{{@index}}" href="javascript:void(0);" class="minus" title="{{gettext 'Delete'}}"><i modelIndex="{{@index}}" class="fa fa-minus-circle"></i></a>
+                                            <input modelIndex="{{@index}}" class="ticket-types-input form-control" type="text" maxlength="16" value="{{name}}">
+                                            <a href="javascript:void(0);" class="down" title="{{gettext 'down'}}"><i modelIndex="{{@index}}" class="fa fa-arrow-circle-down "></i></a>
+                                            <a href="javascript:void(0);" class="up" title="{{gettext 'Up'}}"><i modelIndex="{{@index}}" class="fa fa-arrow-circle-up"></i></a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                                <div id="addOneTicketTypesDiv">
+                                    <a id="addOneTicketTypes" class="" href="javascript:void(0);" title="{{gettext 'Add one Ticket types'}}"><i class="fa fa-plus-circle"> {{gettext "Add one Ticket types"}}</i></a>
+                                </div>
+                                <div class="actions pull-right">
+                                    <a id="back" href="javascript:window.history.back();" class="btn btn-default">{{gettext "Back"}}</a>
+                                    <a id="reset" href="javascript:void(0);" class="btn btn-default">{{gettext "Reset"}}</a>
+                                    <a id="submit" href="javascript:void(0);" class="btn btn-primary">{{gettext "Submit"}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Ticket types help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

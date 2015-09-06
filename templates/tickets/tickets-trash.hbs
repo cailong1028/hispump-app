@@ -1,0 +1,54 @@
+<div class="customers">
+    <div class="list">
+        <!--<dl class="pull-left dl-horizontal">
+            <dt>aaa</dt>
+            <dd>bbb</dd>
+        </dl>-->
+        <table class="table table-striped table-bordered contacts">
+            <thead>
+            <tr>
+                <th class="pick"><input type="checkbox" class="picker"></th>
+                <th colspan="4">
+                    <a id="assign-to-me" href="#" class="btn btn-primary btn-xs disabled">{{gettext "Get It"}}</a>
+                    <a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Assign"}}</a>
+                    <a id="ticket-close" href="#" class="btn btn-primary btn-xs disabled">{{gettext "Close"}}</a>
+                    <a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Batch"}}</a>
+                    <a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Merge"}}</a>
+                    <a id="mark-as-trash" href="#" class="btn btn-primary btn-xs disabled">{{gettext "Mark As Trash"}}</a>
+                    <a id="ticket-delete" href="#" class="btn btn-primary btn-xs disabled">{{gettext "Delete"}}</a>
+                    {{!--
+                    <ul class="list-inline pull-left">
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Get It"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Assign"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Close"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Batch"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Merge"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Mark As Trash"}}</a></li>
+                        <li><a href="#" class="btn btn-primary btn-xs disabled">{{gettext "Delete"}}</a></li>
+                    </ul>
+                    --}}
+                </th>
+                <th class="text-right">
+                    <a href="#">{{gettext "Export"}}</a>
+                </th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr class="loading hide">
+                <td colspan="6"><p>{{gettext 'Now Loading...'}}</p></td>
+            </tr>
+            <tr class="non-items">
+                <td colspan="6"><p>{{gettext 'Non Items'}}</p></td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <ul id="pagination" class="pagination pagination-sm"></ul>
+        </div>
+    </div>
+</div>

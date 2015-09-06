@@ -1,0 +1,39 @@
+<div class="panel panel-sidebar">
+    <div class="panel-heading">
+        <h5>{{gettext "Quickly add current contact to the company"}}</h5>
+    </div>
+    <div class="panel-body">
+        <form class="quick-add-contact form-horizontal form-group">
+            <div class="form-group">
+                <input type="text" name="name" maxlength="16" class="form-control" placeholder="{{gettext 'Contact Name'}}">
+            </div>
+            <div id="name_required" class="error-messages">
+                <span class="text-danger">{{gettext "Name required"}}</span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" maxlength="32" class="form-control" placeholder="{{gettext 'Email'}}">
+            </div>
+            <div id="mobile_or_email_required" class="error-messages form-group">
+                <span class="text-danger">
+                {{gettext "Email or Mobile required"}}</span>
+            </div>
+            <div id="invalidation_email" class="error-messages form-group">
+                <span class="text-danger">{{gettext "Invalidation Email"}}</span>
+            </div>
+            <div id="email_duplicate" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Email Duplicate'}}</span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="mobile" maxlength="32" class="form-control" placeholder="{{gettext 'Mobile'}}">
+            </div>
+            <div id="mobile_duplicate" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Mobile Duplicate'}}</span>
+            </div>
+            <p class="text-right">
+                <button type="submit" class="btn  btn-primary save">{{gettext "Create"}}</button>
+            </p>
+        </form>
+        <div class="corporations-contacts">{{!#each contacts}}{{!/each}}
+        </div>
+    </div>
+</div>

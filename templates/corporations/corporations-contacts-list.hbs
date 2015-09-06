@@ -1,0 +1,7 @@
+<ul class="list-inline corporation-contacts-list">
+    {{#each content}}
+    <li><a title="{{name}}" alt="{{name}}" href="/contacts/{{id}}"><img src="{{assets '/images/anonymous-32.png'}}" class="img-circle"/></a></li>
+    {{/each}}
+    <li class="more-img hide"><a href="/corporations/{{corporationId}}/contacts"><img src="{{assets '/images/icon_more.png'}}" class="img-circle"/></a>
+    </li>
+</ul>

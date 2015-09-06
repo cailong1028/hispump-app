@@ -1,0 +1,22 @@
+<div class="panel panel-sidebar"{{!style="position: fixed;"}}>
+    <div class="panel-heading">
+    <h5>{{gettext "Qucik Add"}}</h5>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <input type="text" name="name" maxlength="32" class="form-control" placeholder="{{gettext 'Corporation Name Placeholder'}}">
+            </div>
+            <div id="invalidCorporationName" class="error-messages form-group">
+                <span class="text-danger">{{gettext "Invalid Corporation Name"}}</span>
+            </div>
+            <div id="corporation_already_exists" class="error-messages form-group">
+                <span class="text-danger">{{gettext "Corporation Already Exists"}}</span>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-primary save" type="submit">{{gettext 'Add'}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+

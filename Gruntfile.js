@@ -165,7 +165,7 @@ module.exports = function(grunt) {
                     middleware: function(connect, options, middlewares) {
                         return [
                             // Include the proxy first
-                            connect().use('/hispumpapp', connect.static('dist')),
+                            connect().use('/linkdeskapp', connect.static('dist')),
                             connect.static('libs')
                         ].concat(middlewares);
                     }
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        'hispumpapp-*.zip',
+                        'linkdeskapp-*.zip',
                         '.tmp',
                         '<%= config.dist %>/*',
                         '!<%= config.dist %>/.git*'
@@ -347,10 +347,31 @@ module.exports = function(grunt) {
                             'app',
                             'helpers/confirm-view',
                             'templates/main',
+                            // 座席首页
+                            'templates/agent',
+                            'agent',
+                            // 联系人公司
+                            'templates/contacts',
+                            'templates/corporations',
+                            'customers',
+                            // 设置
+                            'templates/settings',
+                            'settings',
+                            // 工单
+                            'templates/tickets',
+                            'tickets',
+                            // 搜索
+                            'templates/search',
+                            'search',
+                            // 个人信息
                             'templates/profile',
                             'profile',
+                            // 报表
                             'templates/statistics',
                             'statistics',
+                            // 工单客服页面
+                            'templates/agents',
+                            'agents'
                         ],
                         exclude: [
                             'jquery',
@@ -601,7 +622,7 @@ module.exports = function(grunt) {
             options: {
                 // amd: ['handlebars'],
                 wrapped: false,
-                namespace: 'hispumpTemplates',
+                namespace: 'LinkDeskTemplates',
                 // partialsPathRegex: /\/partials\//,
                 processName: function(filename) {
                     // funky name processing here
@@ -621,8 +642,16 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     '.tmp/scripts/templates/main.js': 'templates/main/{,*/}*.hbs',
+                    '.tmp/scripts/templates/agent.js': 'templates/agent/{,*/}*.hbs',
+                    '.tmp/scripts/templates/contacts.js': 'templates/contacts/{,*/}*.hbs',
+                    '.tmp/scripts/templates/corporations.js': 'templates/corporations/{,*/}*.hbs',
+                    '.tmp/scripts/templates/settings.js': 'templates/settings/*.hbs',
+                    '.tmp/scripts/templates/tickets.js': 'templates/tickets/**/*.hbs',
+
+                    '.tmp/scripts/templates/search.js': 'templates/search/*.hbs',
                     '.tmp/scripts/templates/profile.js': 'templates/profile/*.hbs',
-                    '.tmp/scripts/templates/statistics.js': 'templates/statistics/*.hbs'
+                    '.tmp/scripts/templates/statistics.js': 'templates/statistics/*.hbs',
+                    '.tmp/scripts/templates/agents.js': 'templates/agents/*.hbs'
                 }
             }
         },
@@ -633,9 +662,16 @@ module.exports = function(grunt) {
             messages: {
                 files: [{
                     'translations/LC_MESSAGES': [
+                        'app/scripts/agent/*.js',
+                        'app/scripts/contacts/*.js',
+                        'app/scripts/corporations/*.js',
                         'app/scripts/helpers/*.js',
                         'app/scripts/profile/*.js',
+                        'app/scripts/search/*.js',
+                        'app/scripts/settings/*.js',
                         'app/scripts/statistics/*.js',
+                        'app/scripts/tickets/*.js',
+                        'app/scripts/agents/*.js',
                         'templates/**/*.hbs'
                     ]
                 }]
@@ -662,7 +698,7 @@ module.exports = function(grunt) {
         compress: {
             nightly: {
                 options: {
-                    archive: 'hispumpapp-<%= buildId %>.zip'
+                    archive: 'linkdeskapp-<%= buildId %>.zip'
                 },
                 files: [{
                     expand: true,
@@ -682,7 +718,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
-        grunt.file.write('.tmp/scripts/templates.js', 'define([], function() {return this.hispumpTemplates = this.hispumpTemplates || {};})');
+        grunt.file.write('.tmp/scripts/templates.js', 'define([], function() {return this.LinkDeskTemplates = this.LinkDeskTemplates || {};})');
     });
 
 

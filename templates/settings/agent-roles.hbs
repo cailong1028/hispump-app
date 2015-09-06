@@ -1,0 +1,116 @@
+<div class="container agents">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Agent roles configure'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Agent roles configure title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <img src="{{assets '/images/anonymous-100.png'}}" alt="Anonymous" class="img-thumbnail avatar">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <form class="form-horizontal">
+                        <h4>{{gettext 'Agent Info'}}</h4>
+                        {{#if username}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'User Name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if name}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{name}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if workNum}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'WorkNum'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{workNum}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if mobile}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Mobile'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{mobile}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if post}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Post'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{post}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if remark}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{remark}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <h4>{{gettext 'Configure Roles'}}</h4>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext "Agent Roles"}}</label>
+                        </div>
+                        <div>
+                            <label class="col-lg-3 col-md-3 control-label"><input checked="checked" class="agent" disabled="" id="agent" name="agent" type="checkbox" value="Agent"></label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{gettext 'Agent'}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            {{#if isCurrentManager}}
+                            <label class="col-lg-3 col-md-3 control-label"><input class="leader" id="leader" name="leader" type="checkbox" disabled="disabled" value="Leader"></label>
+                            {{else}}
+                            <label class="col-lg-3 col-md-3 control-label"><input class="leader" id="leader" name="leader" type="checkbox" value="Leader"></label>
+                            {{/if}}
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{gettext 'Leader'}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            {{#if isCurrentManager}}
+                            <label class="col-lg-3 col-md-3 control-label"><input class="administrator" disabled="" checked="checked" id="administrator" name="administrator" type="checkbox" value="Administrator"></label>
+                            {{else}}
+                            <label class="col-lg-3 col-md-3 control-label"><input class="administrator" id="administrator" name="administrator" type="checkbox" value="Administrator"></label>
+                            {{/if}}
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{gettext 'Administrator'}}</p>
+                            </div>
+                        </div>
+                        <p>{{{gettext 'roles title'}}}</p>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-default cancel">{{gettext 'Cancel'}}</button>
+                            <button type="submit" class="btn btn-primary save">{{gettext 'Save'}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Agent roles configure document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

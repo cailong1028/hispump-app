@@ -1,0 +1,44 @@
+<div class="container search">
+    <div class="panel panel-content">
+        <div class="panel-heading search-head">
+            {{! 文本检索 }}
+            <div class="searchrow">
+                {{! 全文检索的搜索框 }}
+            </div>
+            <div class="searchrow">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            {{! 全文检索的左侧排序下拉 }}
+                            <ul id="search-navbar" class="nav navbar-nav navbar-right">
+                                <p class="navbar-text"></p>
+                                <li class="all active"><a href="/search/all?term={{term}}">{{gettext 'all'}}</a></li>
+                                <li class="contacts"><a href="/search/contact?term={{term}}">{{gettext 'contacts'}}</a></li>
+                                <li class="corporations"><a href="/search/corporation?term={{term}}">{{gettext 'corporations'}}</a></li>
+                                <li class="tickets"><a href="/search/ticket?term={{term}}">{{gettext 'tickets'}}</a></li>
+                            </ul>
+                        </div>{{! /.navbar-collapse }}
+                    </div>{{! /.container-fluid }}
+                </nav>
+            </div>
+        </div>
+        <div class="panel-body search-body">
+            <div id="search-main">
+                <div class="searchrow">
+                    <!-- 结果 -->
+                    <div class="resultlist">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{! 属性需没有被使用过 }}
+{{#if gettextPriroity}}
+{{gettext 'Priroity 20'}}
+{{gettext 'Priroity 40'}}
+{{gettext 'Priroity 60'}}
+{{gettext 'Priroity 80'}}
+{{gettext 'nowSearch'}}
+{{gettext 'noSearchResult'}}
+{{/if}}

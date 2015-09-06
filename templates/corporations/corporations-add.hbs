@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>{{gettext "Create Corporation"}}</h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Create corporation title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name" class="col-lg-3 col-md-3 control-label required">{{gettext "Corporation Name"}}</label>
+                            <div class="col-lg-9 col-md-9"><input name="name" id="name" maxlength="32" type="text" class="form-control" placeholder="{{gettext 'Corporation Name Placeholder'}}"></div>
+                        </div>
+                        <div id="invalidCorporationName" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'Invalid Corporation Name'}}</span>
+                            </div>
+                        </div>
+                        <div id="corporation_already_exists" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext "Corporation Already Exists"}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="memo" class="col-lg-3 col-md-3 control-label">{{gettext "Memo"}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <textarea name="memo" id="memo" maxlength="500" class="form-control" placeholder="{{gettext 'Corporation Memo Placeholader'}}"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-lg-3 col-md-3 control-label">{{gettext "Description"}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <textarea name="description" maxlength="500" class="form-control" id="description" placeholder="{{gettext 'Corporation Description Placeholder'}}"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="domain" class="col-lg-3 col-md-3 control-label">{{gettext "Domain"}}</label>
+                            <div class="col-lg-9 col-md-9"><input name="domain" id="domain" maxlength="32" type="text" class="form-control" placeholder="{{gettext 'Corporation Domain Placeholder'}}"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3"><p class="text-muted form-control-static">{{gettext 'Corporation Domain Help text'}}</p></div>
+                        </div>
+                        <div class="text-right">
+                            <a href="/corporations" class="btn btn-default">{{gettext "Cancel"}}</a>
+                            <button type="submit" class="btn btn-primary save">{{gettext "Submit"}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Create corporation help document'}}}</div>
+            </div>
+        </div>
+        <div class="promptView"></div>
+    </div>
+</div>
+

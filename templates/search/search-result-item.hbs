@@ -1,0 +1,37 @@
+{{#if contactId}}
+<td class="contact avatar"><img src="{{assets '/images/avatar-32.png'}}" alt="avator" class="img-rounded" /></td>
+<td class="contact informations">
+    <a href="/contacts/{{contactId}}">{{{name}}}</a><br>
+    {{#if title}}<span>{{{title}}}</span><br>{{/if}}
+    {{#if corporation}}<span>{{corporation.name}}</span>{{/if}}
+</td>
+<td class="contact contacts text-muted">
+    {{#if email}}{{{email}}}<br>{{/if}}
+    {{#if mobile}}{{{mobile}}}{{/if}}
+</td>
+{{/if}}
+{{! /.contact }}
+{{#if corporationId}}
+<td class="corporation avatar"><i class="fa fa-building"></i></td>
+<td class="corporation informations">
+    <a href="/corporations/{{corporationId}}" class="to-corporationinfo-view">{{{name}}}</a><br>
+    {{#if memo}}<span class="text-muted">{{{memo}}}</span><br>{{/if}}
+</td>
+<td class="text-right">
+</td>
+{{/if}}
+{{! /.corporation }}
+{{#if ticketId}}
+<td class="ticket avatar"><i class="fa fa-ticket"></i></td>
+<td class="ticket informations">
+    <div class="info-head"><a href="/tickets/{{ticketId}}" class="to-corporationinfo-view">{{{subject}}}</a> <span>#{{serialNumber}}</span></div>
+    <div class="info-head-property">{{gettext "From"}}: <a href="/contacts/{{requester.id}}">{{requester.name}}</a> , {{gettext "Create At"}}: <span class="text-muted">{{datetimeFormat createdDate}}</span></div>
+    <div class="info-body"><p>{{{description}}}</p></div>
+    <div class="info-body-status">
+    <ul class="status-child">
+    </ul></div>
+</td>
+<td>
+</td>
+{{/if}}
+{{! /.ticket }}

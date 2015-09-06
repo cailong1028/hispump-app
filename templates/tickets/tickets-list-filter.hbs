@@ -1,0 +1,103 @@
+<form class="get-tickets-list-form">
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label><input id="assigned-to-me" name="assigned-to-me" type="checkbox"  value="me"> {{gettext 'Me'}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label><input id="create-by-me" name="createdBy" type="checkbox"> {{gettext 'Create By Me'}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label><input id="unassigned" name="unassigned" type="checkbox"  value="unassigned"> {{gettext 'Not Assign'}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{gettext "Group"}}</label>
+        <select id="ticket-groups" name="group" class="form-control" multiple>
+            {{#each groups}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "Agents"}}</label>
+        <input id="ticket-assignee" type="hidden">
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "Created"}}</label>
+        <select name="createdIn" class="form-control">
+            <option value="">{{gettext "All Times"}}</option>
+            <option value="4h">{{gettext "4 Hours ago"}}</option>
+            <option value="today">{{gettext "Today"}}</option>
+            <option value="3d">{{gettext "3 days ago"}}</option>
+            <option value="7d">{{gettext "7 days ago"}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "ExpiredDate"}}</label>
+        <select id="expiresIn" name="expiresIn" class="form-control">
+            <option value="">{{gettext "All Times"}}</option>
+            <option value="expired">{{gettext "Over due"}}</option>
+            <option value="today">{{gettext "Due Today"}}</option>
+            <option value="8h">{{gettext "8 Hours"}}</option>
+            <option value="1d">{{gettext "24 Hours"}}</option>
+            <option value="2d">{{gettext "48 Hours"}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "State"}}</label>
+        <select id="ticket-state" name="state" class="form-control" multiple>
+            {{#each ticketState}}
+            <option value="{{agentDisplay}}">{{gettext agentDisplay}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group priorities">
+        <label>{{gettext "Priority"}}</label>
+        <div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="priority[]" value="20"> {{gettext 'Priority 20'}}</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="priority[]" value="40"> {{gettext 'Priority 40'}}</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="priority[]" value="60"> {{gettext 'Priority 60'}}</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="priority[]" value="80">{{gettext 'Priority 80'}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "Type"}}</label>
+        <select id="ticket-type" name="type" class="form-control" multiple>
+            {{#each type}}
+            <option value="{{this}}">{{gettext this}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "Requester"}}</label>
+        <input id="ticket-requester" type="hidden" >
+    </div>
+
+    <div class="form-group">
+        <label>{{gettext "Source"}}</label>
+        <select id="ticket-source" name="source" class="form-control" multiple>
+            <option value="web">{{gettext "Ticket Source WEB"}}</option>
+            <option value="weixin">{{gettext "Ticket Source Weixin"}}</option>
+        </select>
+    </div>
+</form>

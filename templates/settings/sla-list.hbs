@@ -1,0 +1,81 @@
+<table class="table sla">
+    <thead>
+        <tr>
+            <th>
+                {{gettext 'Priority'}}
+            </th>
+            <th>
+                {{gettext 'To solve in a given period of time'}}
+            </th>
+            <th>
+                {{gettext 'Service time'}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{gettext 'Emergency'}}
+            </td>
+            <td>
+                <input type="text" value="1"  readonly="readonly">
+                <select>
+                    <option >{{gettext 'Day(s)'}}</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>{{gettext 'Calendar Time'}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{gettext 'High'}}
+            </td>
+            <td>
+                <input type="text" value="2"  readonly="readonly">
+                <select>
+                    <option >{{gettext 'Day(s)'}}</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>{{gettext 'Calendar Time'}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{gettext 'Middle'}}
+            </td>
+            <td>
+                <input type="text" value="3"  readonly="readonly">
+                <select>
+                    <option >{{gettext 'Day(s)'}}</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>{{gettext 'Calendar Time'}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{gettext 'Low'}}
+            </td>
+            <td>
+                <input type="text" value="5" readonly="readonly">
+                <select>
+                    <option >{{gettext 'Day(s)'}}</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>{{gettext 'Calendar Time'}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

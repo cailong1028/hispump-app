@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Agent Information'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Info agent title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <img src="{{assets '/images/anonymous-100.png'}}" alt="Anonymous" class="img-thumbnail avatar">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <form class="form-horizontal">
+                        <h4>{{gettext 'Agent Info'}}</h4>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'User Name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{name}}</p>
+                            </div>
+                        </div>
+                        {{#if workNum}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'WorkNum'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{workNum}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if mobile}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Mobile'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{mobile}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if post}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Post'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{post}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if remark}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">{{remark}}</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <h4>{{gettext 'Recently assigned jobs'}}</h4>
+                        <div class="agentTicketList"></div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Info agent help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

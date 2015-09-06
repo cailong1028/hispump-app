@@ -1,0 +1,30 @@
+<div class="container ticket-info {{#if deleted}} deleted {{/if}}">
+    <div class="panel panel-content">
+        <div class="panel-heading fixed-actions {{#if deleted}} deletedCan {{/if}}">
+            <h3>
+                <div class="pull-right">
+                    <button id="hide-activity" class="btn btn-default btn-sm"> {{gettext "Show Activity"}} <div class="yes">YES<div></button>
+                    <button id="show-activity" class="btn btn-default btn-sm"> {{gettext "Show Activity"}} <div class="no">NO<div></button>
+                    <a id="fix-memo" href="#" class="btn btn-default btn-sm">{{gettext "Commit"}}</a>
+                    <a id="edit"href="/tickets/{{id}}/form" class="btn btn-default btn-sm">{{gettext "Edit"}}</a>
+                    {{#isPermitted 'tickets:delete'}}<button id="delete" class="btn btn-default btn-sm"> {{gettext "Delete"}}</button>{{/isPermitted}}
+                    <a id="fix-close" href="#" class="btn btn-default btn-sm">{{gettext "Close"}}</a>
+                    {{#isPermitted 'tickets:restore'}}<button id="recovery" class="btn btn-default btn-sm"> {{gettext "Restore"}}</button>{{/isPermitted}}
+                    <button id="cancelDeleted" class="btn btn-default btn-sm"> {{gettext "Cancel"}}</button>
+                    <button id="cancel" class="btn btn-default btn-sm"> {{gettext "Cancel"}}</button>
+                </div>
+                {{gettext 'Ticket'}}
+            </h3>
+            <hr>
+        </div>
+        <div class="clearfix"></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="tickets-flow col-md-8 col-lg-8">
+                </div>
+                <div class="tickets-detail col-md-4 col-lg-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

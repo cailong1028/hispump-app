@@ -1,0 +1,53 @@
+<td class="pick pick_td"><p><input type="checkbox" value="{{id}}"></p></td>
+<td class="avatar"><img src="{{assets '/images/avatar-32.png'}}" alt="avator" /></td>
+<td class="informations">
+    <p><a href="/tickets/{{id}}">{{subject}}</a><small> #{{serialNumber}}</small></p>
+    {{gettext "From"}}: <a href="/contacts/{{requester.id}}">{{requester.name}}</a><br>
+    {{gettext "Create At"}}: <span class="text-muted">{{datetimeFormat createdDate}}</span>
+</td>
+<td class="ifoverdue">
+{{#if_not_eq state 'Closed'}}
+    <div class="{{isoverdue}}">{{isoverdueI18n}}</div>
+{{/if_not_eq}}
+</td>
+<td class="display_source">
+{{#if_eq source 'web'}}
+    <div class="webimage"><img src="{{assets '/images/web.png'}}" title="{{gettext "by web"}}"/></div>
+{{else}}
+    <div class="weixinimage"><img src="{{assets '/images/LY_weixinduokefu_icon_22.png'}}" title="{{gettext "by weixin"}}"/></div>
+{{/if_eq}}
+</td>
+<td class="text-right">
+    <div class="action">
+        <span class="text-muted text-center">{{gettext "Agent"}}: </span>
+        <div id = "assignee" class="dropdown assignee" role="presentation">
+            <button class="dropdown-toggle" data-toggle="dropdown" role="button"> <span>{{#if assignee}}{{assignee.name}}{{else}}--{{/if}}</span> <b class="caret"></b> </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li><a>Loading</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="action">
+        <span class="text-muted">{{gettext "Ticket State"}}: </span>
+        <div class="state dropdown" role="presentation">
+            <button id = "type" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span>{{gettext state}}</span> <b class="caret"></b> </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                {{#each ticketDomain.ticketState}}
+                    <li><a data-value="{{agentDisplay}}" role="menu-item">{{gettext agentDisplay}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="action">
+        <span class="text-muted text-center">{{gettext 'Priority'}}: </span>
+        <div class="priority dropdown" role="presentation">
+            <button id = "priority" class="dropdown-toggle" data-toggle="dropdown" role="button"><span>{{gettext (sprintf 'Priority %d' priority)}}</span> <b class="caret"></b></button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li><a data-value="20" role="menu-item">{{gettext 'Priority 20'}}</a></li>
+                <li><a data-value="40" role="menu-item">{{gettext 'Priority 40'}}</a></li>
+                <li><a data-value="60" role="menu-item">{{gettext 'Priority 60'}}</a></li>
+                <li><a data-value="80" role="menu-item">{{gettext 'Priority 80'}}</a></li>
+            </ul>
+        </div>
+    </div>
+</td>

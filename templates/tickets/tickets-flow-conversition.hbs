@@ -1,0 +1,80 @@
+<div class="conversation">
+    <a target="_blank" data-bypass href="/agents?{{createdBy.username}}" class="avatar-wrap"><i class="preview_pic image-lazy-load fa fa-user fa-3x"></i></a>
+
+    <div class="ticket-timeline commentbox-gray">
+        {{#if_eq type 'Activity'}}
+        <div class="author-mail-detail">
+            <div class="title-memo">
+                <a target="_blank" data-bypass href="/agents?{{createdBy.username}}">{{createdBy.name}}</a> {{gettext "At"}}: <abbr>{{datetimeFormat createdDate}} {{#if description.subject}} {{gettext description.subject}} {{else}} {{gettext 'operate ticket timeline'}}{{/if}}</abbr><br>
+                {{#if description.from.expiredDate}}
+                    {{gettext "ticket expiredDate from"}} {{datetimeFormat description.from.expiredDate}} {{gettext "ticket expiredDate to"}} {{datetimeFormat description.to.expiredDate}}<br>
+                {{/if}}
+                {{#if description.from.requester}}
+                    {{gettext "ticket requester from"}} {{description.from.requester.name}} {{gettext "ticket requester to"}} {{description.to.requester.name}}<br>
+                {{/if}}
+                {{#if description.from.subject}}
+                    {{gettext "ticket subject from"}} {{description.from.subject}} {{gettext "ticket subject to"}} {{description.to.subject}}<br>
+                {{/if}}
+                {{#if description.from.description}}
+                    {{gettext "ticket description from"}} {{description.from.description}} {{gettext "ticket description to"}} {{description.to.description}}<br>
+                {{/if}}
+                {{#if description.from.type}}
+                    {{gettext "ticket type from"}} {{description.from.type}} {{gettext "ticket type to"}} {{description.to.type}}<br>
+                {{/if}}
+                {{#if description.from.state}}
+                    {{gettext "ticket state from"}} {{gettext description.from.state}} {{gettext "ticket state to"}} {{gettext description.to.state}}<br>
+                {{/if}}
+                {{#if description.from.priority}}
+                    {{gettext "ticket priority from"}} {{gettext description.from.priority}} {{gettext "ticket priority to"}} {{gettext description.to.priority}}<br>
+                {{/if}}
+                {{#if description.from.assignee}}
+                    {{gettext "ticket assignee from"}} {{description.from.assignee.name}} {{gettext "ticket assignee to"}} {{description.to.assignee.name}}<br>
+                {{/if}}
+                {{#if description.from.group}}
+                    {{gettext "ticket group from"}} {{description.from.group.name}} {{gettext "ticket group to"}} {{description.to.group.name}}
+                {{/if}}
+            </div>
+        </div>
+        {{/if_eq}}
+        {{#if_eq type 'Memo'}}
+        <div class="author-mail-detail">
+            <div class="title-memo">
+                <a target="_blank" data-bypass href="/agents?{{createdBy.username}}">{{createdBy.name}}</a> {{gettext "At"}}: <abbr>{{datetimeFormat createdDate}} {{gettext "To ticket add memo"}}</abbr>
+            </div>
+            <div>
+                <div class="deleted-edit">
+                    <div class="action pull-right">
+                        <a href="#" class="ticket-conversation-edit btn-ticket-edit btn-default btn-xs"><i class="fa fa-edit fa-2x"></i></a>
+                        <a href="#" class="ticket-conversation-trash btn-ticket-deleted btn-default btn-xs"><i class="fa fa-trash fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <div class="timeline-description">{{description}}</div>
+            </div>
+        </div>
+        {{/if_eq}}
+        <div class="ticket-conversation-reply-div hide">
+            <div class="form-group">
+                <div>
+                    <textarea row="10" class="ticket-conversation-content form-control"></textarea>
+                    <div class="clear-fix"></div>
+                </div>
+            </div>
+            {{!--
+            <div class="form-group">
+                {{gettext "Add Attach"}}
+                <input type="file">
+            </div>
+            --}}
+            <div>
+                <span id="EditDescriptionNotAllowEmpty" class="text-danger">{{gettext "Description not allow empty"}}</span>
+                <span id="DescriptionSizeExceedsTheAllowableLimitUpdate" class="text-danger">{{gettext "Description length exceeds the allowable limit"}}</span>
+            </div>
+            <div class="form-group text-right">
+                <button class="ticket-conversation-reply-cancel btn btn-default">{{gettext "Cancel"}}</button>
+                <button class="ticket-conversation-reply-submit btn btn-primary">{{gettext "Update Memo"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

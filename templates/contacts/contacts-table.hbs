@@ -1,0 +1,27 @@
+<table class="table table-striped table-bordered contacts">
+    <thead>
+        <tr>
+            <th class="pick">{{#isPermitted 'contacts:delete'}}<input type="checkbox" class="picker">{{/isPermitted}}</th>
+            <th colspan="4">
+            {{! 隐藏验证邮件的按钮 }}
+            {{!--
+            <button class="btn btn-default btn-xs pickact multiple-send-mail" disabled>{{gettext 'Send Verification Mail'}}</button>
+            --}}
+            {{#isPermitted 'contacts:delete'}}
+            <button class="batch btn btn-default btn-xs pickact multiple-delete" disabled>{{gettext 'Contact Delete'}}</button>
+            {{/isPermitted}}
+            {{#isPermitted 'contacts:restore'}}
+            <button class="batch btn btn-default btn-xs pickact multiple-restore" disabled>{{gettext 'Contact Restore'}}</button>
+            {{/isPermitted}}
+        </th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr><td colspan="5"></td></tr>
+    </tfoot>
+    <tbody>
+        <tr class="loading"><td colspan="5"><p>{{gettext 'Now Loading...'}}</p></td></tr>
+        <tr class="non-items"><td colspan="5"><p>{{gettext 'Non Contacts'}}</p></td></tr>
+    </tbody>
+</table>
+<ul id="pagination" class="pagination pagination-sm"></ul>

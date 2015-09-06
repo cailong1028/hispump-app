@@ -1,0 +1,59 @@
+<div class="container agents">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Invitation Agents'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Tickets type configuration'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <form>
+                        <p>{{{gettext 'Invitation agents title'}}}</p>
+                        <div class="form-group">
+                            <textarea id="email" name="email" class="form-control invitation" rows="6"></textarea>
+                        </div>
+                        <div id="mail_required" class="error-messages form-group">
+                            <div class="col-lg-9 col-md-9">
+                                <span class="text-danger">{{gettext 'Mail required'}}</span>
+                            </div>
+                        </div>
+                        <div id="invalid_email_fromat" class="error-messages form-group">
+                            <div class="col-lg-9 col-md-9">
+                                <span class="text-danger">{{gettext 'Mail'}}</span>
+                                <span id="errormail" class="text-danger"></span>
+                                <span class="text-danger">{{gettext 'Mail error required'}}</span>
+                            </div>
+                        </div>
+                        <div id="emails_duplicated" class="error-messages form-group">
+                            <div class="col-lg-9 col-md-9">
+                                <span class="text-danger">{{gettext 'Mail'}}</span>
+                                <span id="repeatmail" class="text-danger"></span>
+                                <span class="text-danger">{{gettext 'Mail repeat required'}}</span>
+                            </div>
+                        </div>
+                        <div id="invitations_exceeds_maximum_limit" class="error-messages form-group">
+                            <div class="col-lg-9 col-md-9">
+                                <span class="text-danger">{{gettext 'Mail max required'}}</span>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/settings/agents" class="btn btn-default">{{gettext 'Cancel'}}</a>
+                            <button type="submit" class="btn btn-primary save">{{gettext 'Send invitation email'}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Tickets type configuration help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>

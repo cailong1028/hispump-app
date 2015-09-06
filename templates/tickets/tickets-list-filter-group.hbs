@@ -1,0 +1,63 @@
+{{!--下拉可控
+<div>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
+        <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled
+            link</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
+    </ul>
+</div>
+--}}
+
+<li class="dropdown" id="dropdown_1">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="/tickets">
+        <span id="selectedQuickQ">所有工单</span>
+        <b class="caret"></b>
+    </a>
+    <ul id="quickQ" class="dropdown-menu tickets-toggle">
+        {{#each quick}}
+            <li class="history-query"><span class="tickets-quickQ-icon"></span><a
+                    href="#">{{gettext "My Open And Pending Tickets"}}</a></li>
+        {{/each}}
+        <li id="quick-divider" class="divider"></li>
+        {{!<li><a href="#"><span class="tickets-quickQ-icon ticksymbol"><b>*</b> 新 & 处理中的工单</a>
+        </li>
+        <li><span class="tickets-quickQ-icon"></span><a href="#">所有工单</a></li>
+        <li><span class="tickets-quickQ-icon"></span><a href="#">我正在关注的工单</a></li>
+        <li><span class="tickets-quickQ-icon"></span><a href="#">垃圾邮件</a></li>
+        <li><span class="tickets-quickQ-icon"></span><a href="#">回收站</a></li>}}
+        <li id="quick-new-doing-tickets" data-fix-type="" class="quick-fix-action"><a href=""><span
+                class="fa fa-check"></span>我的 & 处理中的工单</a></li>
+        <li id="quick-all-tickets" data-fix-type="" class="quick-fix-action active"><a href=""><span
+                class="fa fa-check"></span>所有工单</a></li>
+        {{!<li id="quick-attention" data-fix-type="" class="quick-fix-action"><a href=""><span class="fa fa-check"></span>我正在关注的工单</a></li>
+        <li id="quick-trash" data-fix-type="" class="quick-fix-action"><a href=""><span class="fa fa-check"></span>垃圾邮件</a>
+        </li>
+        <li id="quick-recycle" data-fix-type="" class="quick-fix-action"><a href=""><span
+                class="fa fa-check"></span>回收站</a></li>}}
+    </ul>
+</li>
+<li class="hide">
+    <span><b>|</b></span>
+    <a data-toggle="dropdown" href="#dropdown_1">
+        点击我看看
+    </a>
+    <span><b>|</b></span>
+</li>
+<li id="quickQActions" class="hide">
+    <!-- div middle center 方式 -->
+    <!--<div id="floater" style="float:left; height:50%;"></div>-->
+    <!--<div style="clear:both;position:relative;">-->
+    <div style="height:40px; line-height:40px;">
+        <span class="text-muted">|</span>
+        <a class="quickQAction" href="#"><span title="{{gettext 'Edit'}}"
+                                               class="fa fa-edit"></span></a>
+        <span class="text-muted">|</span>
+        <a class="quickQAction" href="#"><span title="{{gettext 'Delete'}}"
+                                               class="fa fa-trash"></span></a>
+        <span class="text-muted">|</span>
+        <a class="quickQAction" href="#"><span title="{{gettext 'Save As'}}" class="fa fa-plus"></span></a>
+        <span class="text-muted">|</span>
+    </div>
+</li>
+

@@ -12,6 +12,12 @@ define([
         // 理论上来说这玩意时延时加载的...
         // body...
         app.loadModules([
+            'agent',
+            'customers',
+            'agents',
+            'settings',
+            'tickets',
+            'search',
             'profile',
             'statistics'
         ]).done(function() {

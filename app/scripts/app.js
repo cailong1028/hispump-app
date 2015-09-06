@@ -287,7 +287,7 @@ define([
     //     return Handlebars.compile(text);
     // };
     // 设置Backbone Layoutmanager
-    var templates = window.hispumpTemplates = window.hispumpTemplates || {};
+    var templates = window.LinkDeskTemplates = window.LinkDeskTemplates || {};
     var getTemplate = function(name, path) {
         var template = templates[name];
         if (template) {

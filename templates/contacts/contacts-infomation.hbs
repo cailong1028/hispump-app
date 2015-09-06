@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        <span class="pull-right">
+                            {{#unless deleted}}
+                            <a href="/contacts/{{id}}/form" class="btn btn-sm btn-default update">{{gettext 'Update'}}</a>
+                            {{#isPermitted 'contacts:delete'}}
+                            <button class="btn btn-sm btn-default delete">{{gettext 'Delete'}}</button>
+                            {{/isPermitted}}
+                            <a href="/contacts" class="btn btn-sm btn-default">{{gettext 'Cancel'}}</a>
+                            {{else}}
+                            {{#isPermitted 'contacts:restore'}}
+                            <button class="btn btn-sm btn-default restore">{{gettext 'Restore'}}</button>
+                            {{/isPermitted}}
+                            <a href="/contacts/blocked" class="btn btn-sm btn-default">{{gettext 'Cancel'}}</a>
+                            {{/unless}}
+                        </span>
+                        {{gettext 'Contacts Informations'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Info contacts title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center" class="avatar">
+                        {{#if avatar}}
+                        <img src="avatar" alt="Avator" class="img-thumbnail">
+                        {{else}}
+                        <img src="{{assets '/images/anonymous-100.png'}}" alt="Anonymous" class="img-thumbnail">
+                        {{/if}}
+                    </div>
+                    <p class="text-center">
+                        {{name}}
+                        {{#if title}}<br>{{gettext title}}{{/if}}
+                        {{#if corporation}}<br>{{corporation.name}}{{/if}}
+                    </p>
+                    <hr>
+                    <form class="break-word">
+                        {{#if gender}}
+                        <div class="form-group">
+                            <label>{{gettext 'Gender'}}</label>
+                            <p class="form-control-static text-overflow">
+                                {{gettext gender}}
+                            </p>
+                        </div>
+                        {{/if}}
+                        {{#if email}}
+                        <div class="form-group">
+                            <label>{{gettext 'Email'}}</label>
+                            <p class="form-control-static text-overflow">
+                            {{#unless verified}}
+                            {{!隐藏验证邮箱按钮}}
+                            {{!--
+                            <button class="btn btn-default btn-xs pull-right send-verify-email">{{gettext 'Send Verification Mail'}}</button>
+                            --}}
+                            {{/unless}}
+                            {{email}}
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                        {{/if}}
+                        {{#if mobile}}
+                        <div class="form-group">
+                            <label>{{gettext 'Mobile'}}</label>
+                            <p class="form-control-static text-overflow">{{mobile}}</p>
+                        </div>
+                        {{/if}}
+                        {{#if telephone}}
+                        <div class="form-group">
+                            <label>{{gettext 'Telephone'}}</label>
+                            <p class="form-control-static text-overflow">{{telephone}}</p>
+                        </div>
+                        {{/if}}
+                        {{#if birthday}}
+                        <div class="form-group">
+                            <label>{{gettext 'Birthday'}}</label>
+                            <p class="form-control-static text-overflow">{{dateFormat birthday}}</p>
+                        </div>
+                        {{/if}}
+                        {{#if adderss}}
+                        <div class="form-group">
+                            <label>{{gettext 'Address'}}</label>
+                                <p class="form-control-static text-overflow">{{address}} {{adderss2}}</p>
+                            </div>
+                        {{/if}}
+                    </form>
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <form class="description">
+                        <h4>{{gettext 'Memo'}}</h4>
+                        {{#unless deleted}}
+                        <p><textarea name="memo" maxlength="500" class="memo form-control">{{memo}}</textarea></p>
+                        <p class="text-right"><button type="submit" class="btn btn-default">{{gettext 'Submit'}}</button></p>
+                        {{else}}
+                        <p><div name="memo" maxlength="500" class="memo well">{{memo}}</div></p>
+                        {{/unless}}
+                    </form>
+                    <hr>
+                    <div class="timeline"></div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Info contacts help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

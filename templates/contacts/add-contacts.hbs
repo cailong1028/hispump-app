@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <h3>
+            {{gettext 'Add Contacts'}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <img src="{{assets '/images/anonymous-100.png'}}" alt="Anonymous" class="img-thumbnail avatar contacts-avatar-img">
+                    </div>
+                   {{!--
+                    <p class="text-center">
+                        <span class="btn btn-link fileinput-button file-left"><i class="fa fa-plus"></i> {{_ 'Add Avatar'}}<input class="fileupload" name="attachment" type="file"/></span>
+                    </p>--}}
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name" class="col-lg-2 col-md-2 control-label required">{{gettext 'Contacts Name'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <input id="name" name="name" maxlength="16" class="form-control" aria-describedby="name" placeholder="{{gettext 'Contacts Name'}}">
+                            </div>
+                            <label for="nickname" class="col-lg-2 col-md-2 control-label">{{gettext 'Nickname'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <input id="nickname" name="nickname" maxlength="64" class="form-control" placeholder="{{gettext 'Nickname'}}">
+                            </div>
+                        </div>
+                        <div id="name_required" class="error-messages form-group">
+                            <div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-10">
+                                <span class="text-danger">{{gettext 'Name required'}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col-lg-2 col-md-2 control-label">{{gettext 'Gender'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <select id="gender" name="gender" class="form-control" placeholder="{{gettext 'Gender'}}">
+                                    <option value="Unknown">{{gettext 'Unknown'}}</option>
+                                    <option value="Male">{{gettext 'Male'}}</option>
+                                    <option value="Female">{{gettext 'Female'}}</option>
+                                </select>
+                            </div>
+                            <label for="birthday" class="col-lg-2 col-md-2 control-label">{{gettext 'Birthday'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <div class='input-group date birthday'>
+                                    <input id="birthday" name="birthday" readonly class="form-control"  placeholder="{{gettext 'Birthday'}}">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="date_pattern_error" class="error-messages form-group">
+                            <div class="col-lg-offset-8 col-lg-4 col-md-offset-8 col-md-4">
+                                <span class="text-danger">{{sprintf (gettext  'Date pattern, example: %s') (dateFormat '2011-04-03')}} </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-2 col-md-2 control-label">{{gettext 'Email'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <input id="email" name="email" maxlength="32" class="form-control" placeholder="{{gettext 'Email'}}">
+                            </div>
+                            <label for="mobile" class="col-lg-2 col-md-2 control-label">{{gettext 'Mobile'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <input id="mobile" name="mobile" maxlength="32" class="form-control" placeholder="{{gettext 'Mobile'}}">
+                            </div>
+                        </div>
+                        <div id="invalidation_email" class="error-messages form-group">
+                            <div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-10">
+                                <span class="text-danger">{{gettext 'Invalidation Email'}}</span>
+                            </div>
+                        </div>
+                        <div id="email_duplicate" class="error-messages form-group">
+                            <div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-10">
+                                <span class="text-danger">{{gettext 'Email Duplicate'}}</span>
+                            </div>
+                        </div>
+                        <div id="mobile_duplicate" class="error-messages form-group">
+                            <div class="col-lg-offset-8 col-lg-4 col-md-offset-8 col-md-4">
+                                <span class="text-danger">{{gettext 'Mobile Duplicate'}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="col-lg-2 col-md-2 control-label">{{gettext 'Telephone'}}</label>
+                            <div class="col-lg-4 col-md-4">
+                                <input id="telephone" name="telephone" maxlength="32" class="form-control" placeholder="{{gettext 'Telephone'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-lg-2 col-md-2 control-label">{{gettext 'Address'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input id="address" name="address" maxlength="128" class="form-control" placeholder="{{gettext 'Address'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address2" class="col-lg-2 col-md-2 control-label">{{gettext 'Address 2'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input id="address2" name="address2" maxlength="128" class="form-control" placeholder="{{gettext 'Address 2'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="corporation" class="col-lg-2 col-md-2 control-label">{{gettext 'Corporation'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input name="corporationId" type="hidden">
+                                <input id="corporation" name="corporationName" maxlength="32" class="form-control" placeholder="{{gettext 'Corporation'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="col-lg-2 col-md-2 control-label">{{gettext 'Title'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input id="title" name="title" maxlength="16" class="form-control" placeholder="{{gettext 'Title'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="memo" class="col-lg-2 col-md-2 control-label">{{gettext 'Memo'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <textarea id="memo" name="memo" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Memo'}}"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <a href="/contacts" class="btn btn-default">{{gettext 'Cancel'}}</a>
+                            <button type="submit" class="btn btn-primary save">{{gettext 'Save'}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

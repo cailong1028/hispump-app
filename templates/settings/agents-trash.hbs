@@ -1,0 +1,52 @@
+<div class="container agents">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Trash Agents'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Trash agents title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="agent-filter">
+                                <div class="dropdown" role="presentation">
+                                    <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="title">{{gettext "Deleted Agents"}}</span>
+                                        <b class="caret"></b>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="all-agentss"><a href="settings/agents"><i class="fa fa-check"></i> <span class="title">{{gettext "All Agents"}}</span></a></li>
+                                        <li class="deleted-agents active"><a href="settings/agents/trash"><i class="fa fa-check"></i> <span class="title">{{gettext "Deleted Agents"}}</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {{!--
+                            <div class="agents-filter">
+                                <select class="agents_state"  href="settings/agents">
+                                    <option value="All">{{gettext 'Agents All'}}</option>
+                                    <option value="Deleted" selected>{{gettext 'Agents Deleted'}}</option>
+                                </select>
+                            </div>
+                            --}}
+                            <div class="clearfix"></div>
+                            <div class="list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Trash agents help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>
+<div class="confirm-view"></div>

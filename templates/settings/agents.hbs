@@ -1,0 +1,65 @@
+<div class="container agents">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        <span class="pull-right">
+                            <a href="/settings/agents/invitation" class="btn btn-default btn-sm">{{gettext 'Invitation Agent'}}</a>
+                            <a href="/settings/agents/form" class="btn btn-default btn-sm">{{gettext 'Create Agent'}}</a>
+                        </span>
+                        {{gettext 'Agents'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Agent title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="agent-filter pull-right">
+                                <ul class="nav nav-pills">
+                                    <li class="dropdown" id="dropdown_1">
+                                        <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                           <span class="title" id="selectedSort" data-sort="createdDate" data-type="desc">{{gettext "Create Time"}}</span>
+                                           <b class="caret"></b>
+                                        </button>
+                                        <ul id="sortUl" class="dropdown-menu tickets-toggle pull-right">
+                                            <li data-sort="createdDate" class="active"><a href="#"><i class="fa fa-check"></i><span class="title"> {{gettext "Create Time"}}</span></a></li>
+                                            <li data-sort="username"><a href="#"><i class="fa fa-check"></i><span class="tilte"> {{gettext "User Name"}}</span></a></li>
+                                            <li class="divider"></li>
+                                            <li data-type="asc"><a href="#"><i class="fa fa-check"></i><span class="title"> {{gettext "Asc"}}</span></a></li>
+                                            <li data-type="desc" class="active"><a href="#"><i class="fa fa-check"></i><span class="title"> {{gettext "Desc"}}</span></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="agent-filter">
+                                <div class="dropdown" role="presentation">
+                                    <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="title">{{gettext "All Agents"}}</span>
+                                        <b class="caret"></b>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="all-agentss active"><a href="settings/agents"><i class="fa fa-check"></i> <span class="title">{{gettext "All Agents"}}</span></a></li>
+                                        <li class="deleted-agents"><a href="settings/agents/trash"><i class="fa fa-check"></i> <span class="title">{{gettext "Deleted Agents"}}</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Agent help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>
+<div class="confirm-view"></div>

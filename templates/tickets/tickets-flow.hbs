@@ -1,0 +1,88 @@
+<div class="conversation_thread">
+    <div class="conversation origin">
+        <a target="_blank" data-bypass href="/agents?{{createdBy.username}}" class="avatar-wrap"><i class="preview_pic image-lazy-load fa fa-user fa-3x"></i></a>
+        <div class="commentbox commentbox-gray-info private-note">
+            <h4>
+                {{subject}} <small>#{{serialNumber}}</small>
+            </h4>
+            <div class="author-mail-detail">
+                <div>
+                    {{createdBy.name}} {{gettext "Requeste At"}}: <abbr>{{datetimeFormat createdDate}}</abbr>
+                </div>
+                {{gettext "from"}}: <a href="/contacts/{{requester.id}}" class="username" data-contact-id="5004943476"
+                       data-contact-url="/contacts/5004943476/hover_card" rel="contact-hover"
+                       data-original-title="">{{requester.name}}</a>
+                <div class="description-info">
+                    <div class="ticket-description">{{description}}</div>
+                </div>
+                {{#if attachments}}
+                <div class="accessory-info">
+                    <div class="accessory"><i class="fa fa-paperclip"></i> {{gettext "accessory"}}
+                        <ul>
+                        {{#each attachments}}
+                        <li class="li_style"><a href='{{uri}}' data-bypass target="_blank" title="{{filename}} {{numeralFormat size format='0.0b'}}"class="svn_btn3 " ><p><i class="fa fa-file-o fa-1x"></i> {{filename}}</p></a></li>
+                        {{/each}}
+                        </ul>
+
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            <div id="ticket_original_request" class="hide" data-quoted="true">
+                <p>{{gettext "Description"}}: </p>
+                <div>{{description}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="conversation_thread hide" id="show_more">
+    <div class="conversation">
+        <a href="#" class="count_number_action commentbox commentbox-more">
+            <div>{{gettext "Show"}}</div>
+        </a>
+    </div>
+</div>
+
+<div class="flows">
+</div>
+<div class="redactor conversation_thread">
+    <div class="deleted-addRemark">
+        <div class="conversation">
+            <a href="#" data-bypass class="avatar-wrap fwd"><i class="preview_pic image-lazy-load fa fa-user fa-3x"></i></a>
+            <div class="commentbox-add-memo commentbox-dark">
+                <div id="TicketPseudoReply" class="pseudo_reply">
+                    {{!--
+                    <a href="" id="FwdButton_reply" rel="note-button" data-note-type="reply" data-replyto-handle="">回复</a>
+                    <a href="" id="FwdButton_forward" rel="note-button" data-note-type="fwd">转发</a>
+                    --}}
+                    <a href="#" id="FwdButton_description" rel="note-button" data-note-type="note"><div class="title-memo">{{gettext "Add Memo"}}</div></a>
+                </div>
+                <div id="reply-div" class="hide">
+                    <form id="reply-form">
+                        <div class="form-group">
+                            <div>
+                                <textarea id="ticket-attr-reply" row="10" class="form-control"></textarea>
+                                <div class="clear-fix"></div>
+                            </div>
+                        </div>
+                        {{!--
+                        <div class="form-group">
+                            {{gettext "Add Attach"}}
+                            <input type="file">
+                        </div>
+                        --}}
+                        <div>
+                            <span id="DescriptionNotAllowEmpty" class="text-danger">{{gettext "Description not allow empty"}}</span>
+                            <span id="DescriptionSizeExceedsTheAllowableLimit" class="text-danger">{{gettext "Description length exceeds the allowable limit"}}</span>
+                        </div>
+                        <div class="form-group text-right">
+                            <button id="reply-cancel" class="btn btn-default">{{gettext "Cancel"}}</button>
+                            <button type="submit" class="btn btn-primary save">{{gettext "Save Remark"}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

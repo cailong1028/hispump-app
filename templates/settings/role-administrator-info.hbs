@@ -1,0 +1,182 @@
+<div class="tab-pane fade in active" role="tabpanel">
+    <div rel="permanent" class="alert">{{gettext 'Role alert'}}</div>
+    <form class="edit_role" id="role_form" method="post">
+        <div class="row-fluid new-role">
+            <div>
+                <ul class="clearfix unstyled">
+                    <li class="row-fluid"><label class="control-label col-lg-2 col-md-2" for="role_name">{{gettext 'Definition'}}</label><div class="col-lg-10 col-md-10 input-class"><input type="text" name="" placeholder="" id="role_name" class="form-control" value="{{gettext 'Super admin'}}" disabled=""/></div></li>
+                    <li class="row-fluid"><label class="control-label col-lg-2 col-md-2" for="role_description">{{gettext 'Describe'}}</label><div class="col-lg-10 col-md-10 input-class"><textarea cols="40" id="role_description" name="" placeholder="" rows="5" class="form-control" disabled="">{{gettext 'Role description'}}</textarea></div></li>
+                </ul>
+                <div>
+                    <p class="lead-title lead">
+                    <span>{{gettext 'Authority'}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row-fluid">
+            {{! /. anchor}}
+                <ul class="role-nav">
+                    <li>{{gettext 'Scroll to'}}</li>
+                    <li><a href="#permission-tickets" data-bypass>{{gettext 'Tickets'}}</a></li>
+                    <li><a href="#permission-customers" data-bypass>{{gettext 'Customer'}}</a></li>
+                    <li><a href="#permission-reports" data-bypass>{{gettext 'Report form'}}</a></li>
+                    <li><a href="#permission-admin" data-bypass>{{gettext 'Configure'}}</a></li>
+                </ul>
+            </div>
+            {{! /.roles information权限 工单}}
+            <div class="row-fluid margin-bottom" id="permission-tickets">
+                <div class="col-lg-2 col-md-2 permission-name">
+                    <p class="lead-sub">{{gettext 'Tickets'}}</p>
+                </div>
+                <div class="col-lg-10 col-md-10 role-section">
+                    <ul class="nested-ul">
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="tickets " id="reply_ticket" name="role[privilege_list][]" type="checkbox" value="reply_ticket" disabled="">{{gettext 'Check tickets'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets " id="forward_ticket" name="role[privilege_list][]" type="checkbox" value="forward_ticket" disabled="">{{gettext 'Add tickets'}}
+                            </label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets nested permanent_disable" id="edit_note_choice" name="role[privilege_list][]" type="checkbox" value="0" disabled="">{{gettext 'Update tickets'}}
+                            </label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets " id="edit_conversation" name="role[privilege_list][]" type="checkbox" value="edit_conversation" disabled="">{{gettext 'Delete tickets'}}
+                            </label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets " id="merge_or_split_ticket" name="role[privilege_list][]" type="checkbox" value="merge_or_split_ticket" disabled="">{{gettext 'Add remark'}}
+                            </label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets " id="edit_ticket_properties" name="role[privilege_list][]" type="checkbox" value="edit_ticket_properties" disabled="">{{gettext 'Update remark'}}
+                            </label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox">
+                                <input checked="checked" class="tickets " id="delete_ticket" name="role[privilege_list][]" type="checkbox" value="delete_ticket" disabled="">{{gettext 'Delete remark'}}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{! /.roles information权限 解决方案}}
+            {{! /.roles information权限 论坛}}
+            {{! /.roles information权限 客户}}
+            <div class="row-fluid margin-bottom" id="permission-customers">
+                <div class="col-lg-2 col-md-2 permission-name"><p class="lead-sub">{{gettext 'Customer'}}</p></div>
+                <div class="col-lg-10 col-md-10 role-section">
+                    <ul class="nested-ul">
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Check contacts'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Check company'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Add customers'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Add company'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Update customers'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Update company'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Delete customers'}}</label>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="customers nested" id="view_contacts" name="role[privilege_list][]" type="checkbox" value="view_contacts" disabled="">{{gettext 'Delete company'}}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{! /.roles information权限 报表}}
+            <div class="row-fluid margin-bottom" id="permission-reports">
+                <div class="col-lg-2 col-md-2 permission-name"><p class="lead-sub">{{gettext 'Report form'}}</p></div>
+                <div class="col-lg-10 col-md-10 role-section">
+                    <ul class="nested-ul">
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="reports " id="view_reports" name="role[privilege_list][]" type="checkbox" value="view_reports" disabled="">{{gettext 'Check report from'}}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{! /.roles information权限 管理}}
+            <div class="row-fluid margin-bottom" id="permission-admin">
+                <div class="col-lg-2 col-md-2 permission-name"><p class="lead-sub">{{gettext 'Configure'}}</p></div>
+                <div class="col-lg-10 col-md-10 role-section">
+                    <ul class="nested-ul">
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="admin nested" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'Basic configuration'}}</label>
+                            <ul class="nested-ul">
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="operational_admin " disabled="" id="manage_users" name="role[privilege_list][]" type="checkbox" value="manage_users">{{gettext 'Configure company name'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="operational_admin " disabled="" id="manage_users" name="role[privilege_list][]" type="checkbox" value="manage_users">{{gettext 'Configure company logo and link address'}}</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="admin nested" id="admin_tasks" name="role[privilege_list][admin][]" type="checkbox" value="admin_tasks" disabled="">{{gettext 'Agent'}}</label>
+                            <ul class="nested-ul">
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="agent" id="not_administrator" name="role[privilege_list][admin][]" type="checkbox" value="0" disabled="">{{gettext 'Add agent'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="agent" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'Update agent'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="agent" id="admin_tasks" name="role[privilege_list][admin][]" type="checkbox" value="admin_tasks" disabled="">{{gettext 'Delete agent'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="agent" id="admin_tasks" name="role[privilege_list][admin][]" type="checkbox" value="admin_tasks" disabled="">{{gettext 'Reset password'}}</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="admin nested" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'Group'}}</label>
+                            <ul class="nested-ul">
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="group" id="not_administrator" name="role[privilege_list][admin][]" type="checkbox" value="0" disabled="">{{gettext 'Add group'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="group" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'Update group'}}</label>
+                                </li>
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="group" id="admin_tasks" name="role[privilege_list][admin][]" type="checkbox" value="admin_tasks" disabled="">{{gettext 'Delete group'}}</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="admin nested" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'Role'}}</label>
+                            <ul class="nested-ul">
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="group" id="not_administrator" name="role[privilege_list][admin][]" type="checkbox" value="0" disabled="">{{gettext 'Check roles info'}}</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label class="check_box checkbox"><input checked="checked" class="admin nested" id="operational_admin" name="role[privilege_list][admin][]" type="checkbox" value="view_admin" disabled="">{{gettext 'ticket types'}}</label>
+                            <ul class="nested-ul">
+                                <li>
+                                    <label class="check_box checkbox"><input checked="checked" class="group" id="not_administrator" name="role[privilege_list][admin][]" type="checkbox" value="0" disabled="">{{gettext 'configure ticket types'}}</label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

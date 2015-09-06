@@ -1,0 +1,10 @@
+<td class="contact avatar"><img src="{{assets '/images/avatar-32.png'}}" alt="avator" class="img-rounded" /></td>
+<td class="contact informations">
+<a href="/contacts/{{id}}">{{{name}}}</a><br>
+    {{#if title}}<span>{{{title}}}</span><br>{{/if}}
+    {{#if corporation}}<span>{{{corporation.name}}}</span>{{/if}}
+</td>
+<td class="contact contacts">
+    {{#if email}}{{{email}}}<br>{{/if}}
+    {{#if mobile}}{{{mobile}}}{{/if}}
+</td>

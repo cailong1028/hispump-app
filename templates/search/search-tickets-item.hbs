@@ -1,0 +1,11 @@
+<td class="ticket avatar"><i class="fa fa-ticket"></i></td>
+<td class="ticket informations">
+    <div class="info-head"><a href="/tickets/{{id}}" class="to-corporationinfo-view">{{{subject}}}</a> <span>#{{serialNumber}}</span></div>
+    <div class="info-head-property">{{gettext "From"}}: <a href="/contacts/{{requester.id}}">{{requester.name}}</a> , {{gettext "Create At"}}: <span class="text-muted">{{datetimeFormat createdDate}}</span></div>
+    <div class="info-body"><p>{{{description}}}</p></div>
+    <div class="info-body-status">
+    <ul class="status-child">
+    </ul></div>
+</td>
+<td>
+</td>

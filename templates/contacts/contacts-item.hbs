@@ -1,0 +1,31 @@
+<td class="pick pick-id">{{#isPermitted 'contacts:delete'}}<p><input type="checkbox" class="picker_td" name="id" value="{{id}}"></p>{{/isPermitted}}</td>
+<td class="avatar"><img src="{{assets '/images/avatar-32.png'}}" alt="avator"/></td>
+<td class="informations">
+    <p><a href="/contacts/{{id}}">{{name}}</a></p>
+    {{#if title}}<p>{{title}}</p>{{/if}}
+    {{#if corporation}}<p title="{{corporation.name}}">{{corporation.name}}</p>{{/if}}
+</td>
+<td class="contacts">
+    {{#if email}}<p>{{gettext 'Email'}}: {{email}}</p>{{/if}}
+    {{#if mobile}}<p>{{gettext 'Mobile'}}: {{mobile}}</p>{{/if}}
+</td>
+<td class="actions">
+{{#unless deleted}}
+    {{#if email}}
+    {{#unless verified}}
+    {{! 隐藏验证邮件的按钮 }}
+    {{!--
+    <button class="btn btn-default btn-xs send-verify-email">{{gettext 'Send Verification Mail'}}</button>
+    --}}
+    {{/unless}}
+    {{/if}}
+    <a href="/contacts/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Update'}}</a>
+    {{#isPermitted 'contacts:delete'}}
+    <button class="btn btn-default btn-xs delete"><i class="fa fa-trash"></i></button>
+    {{/isPermitted}}
+{{else}}
+    {{#isPermitted 'contacts:restore'}}
+    <button class="btn btn-default btn-xs restore">{{gettext 'Restore'}}</button>
+    {{/isPermitted}}
+{{/unless}}
+</td>

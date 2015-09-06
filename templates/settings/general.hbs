@@ -1,0 +1,78 @@
+<div class="container settings">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'General'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'General title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="title" class="col-lg-3 col-md-3 control-label required">{{gettext 'Global Title'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="title" name="title" maxlength="32" class="form-control" value="{{title}}">
+                            </div>
+                        </div>
+                        <div id="title_required_error" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'General Settings Title Required'}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Logo'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                {{! 保留type=text以及disabled属性}}
+                                <input id="logo" class="hide" name="logo" type="text" disabled="disabled">
+                                <div id="logo-uploader"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="help-text">{{gettext 'Upload image title'}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="href" class="col-lg-3 col-md-3 control-label">{{gettext 'Logo Anchor'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="href" name="href" maxlength="128" class="form-control" value="{{href}}" placeholder="{{gettext 'Logo Anchor'}}">
+                            </div>
+                        </div>
+                        <div id="href_pattern_error" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'home anchor error, example: http://yourcompany.com'}}</span>
+                            </div>
+                        </div>
+                        {{!-- 目前没有描述的需求
+                        <div class="form-group">
+                            <label for="description" class="col-lg-2 col-md-2">{{gettext 'Global Description'}}</label>
+                            <div class="col-lg-10 col-md-10">
+                                <textarea id="description" name="description" rows="10" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        --}}
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 text-right">
+                                <a href="/settings" class="btn btn-default">{{gettext 'Cancel'}}</a>
+                                <button class="btn btn-default" type="reset">{{gettext 'Reset'}}</button>
+                                <button class="btn btn-primary upload" type="submit">{{gettext 'Save'}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'General help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>

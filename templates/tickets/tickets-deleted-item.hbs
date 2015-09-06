@@ -1,0 +1,15 @@
+<td class="pick pick_td">{{#isPermitted 'tickets:restore'}}<p><input type="checkbox" name="pick" value="{{id}}"></p>{{/isPermitted}}</td>
+<td class="avatar"><img src="{{assets '/images/avatar-32.png'}}" alt="avator" /></td>
+<td>
+    <a href="/tickets/{{id}}" class="to-corporationinfo-view">{{subject}}</a><br>
+    {{gettext "From"}}: <a href="/contacts/{{requester.id}}">{{requester.name}}</a><br>
+    {{gettext "Create At"}}: <span class="text-muted">{{datetimeFormat createdDate}}</span>
+</td>
+<td>
+    {{!--{{gettext "Last Update Date"}}: <span class="text-muted">{{datetimeFormat expiredDate}}</span>--}}
+</td>
+<td>
+    {{#isPermitted 'tickets:restore'}}<button class="btn btn-default btn-xs pickactinlist restore">{{gettext 'Restore Ticket'}}</button>{{/isPermitted}}
+</td>
+<td class="text-right">
+</td>

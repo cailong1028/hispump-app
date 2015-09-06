@@ -1,0 +1,34 @@
+<li>
+    <i class="fa fa-ticket"></i>
+    <dl>
+    <dt><a href="/tickets/{{serialNumber}}">{{subject}}</a> <span>#{{serialNumber}}</span></dt>
+        <dt>{{agent.name}} {{gettext "At"}} {{datetimeFormat activityTime}} {{#if description.subject}} {{gettext description.subject}} {{else}} {{gettext 'operate ticket timeline'}}{{/if}}</dt>
+        {{#if description.from.expiredDate}}
+            <dt>{{gettext "ticket expiredDate from"}} {{datetimeFormat description.from.expiredDate}} {{gettext "ticket expiredDate to"}} {{datetimeFormat description.to.expiredDate}}</dt>
+        {{/if}}
+        {{#if description.from.requester}}
+            <dt>{{gettext "ticket requester from"}} {{description.from.requester.name}} {{gettext "ticket requester to"}} {{description.to.requester.name}}</dt>
+        {{/if}}
+        {{#if description.from.subject}}
+            <dt>{{gettext "ticket subject from"}} {{description.from.subject}} {{gettext "ticket subject to"}} {{description.to.subject}}</dt>
+        {{/if}}
+        {{#if description.from.description}}
+            <dt>{{gettext "ticket description from"}} {{description.from.description}} {{gettext "ticket description to"}} {{description.to.description}}</dt>
+        {{/if}}
+        {{#if description.from.type}}
+            <dt>{{gettext "ticket type from"}} {{description.from.type}} {{gettext "ticket type to"}} {{description.to.type}}</dt>
+        {{/if}}
+        {{#if description.from.state}}
+            <dt>{{gettext "ticket state from"}} {{gettext description.from.state}} {{gettext "ticket state to"}} {{gettext description.to.state}}</dt>
+        {{/if}}
+        {{#if description.from.priority}}
+            <dt>{{gettext "ticket priority from"}} {{gettext description.from.priority}} {{gettext "ticket priority to"}} {{gettext description.to.priority}}</dt>
+        {{/if}}
+        {{#if description.from.assignee}}
+            <dt>{{gettext "ticket assignee from"}} {{description.from.assignee.name}} {{gettext "ticket assignee to"}} {{description.to.assignee.name}}</dt>
+        {{/if}}
+        {{#if description.from.group}}
+            <dt>{{gettext "ticket group from"}} {{description.from.group.name}} {{gettext "ticket group to"}} {{description.to.group.name}}</dt>
+        {{/if}}
+    </dl>
+</li>

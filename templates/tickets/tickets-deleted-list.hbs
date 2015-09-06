@@ -1,0 +1,35 @@
+<div class="container tickets-deleted">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-content">
+                <div class="panel-heading">
+                    <h3>{{gettext "Deleted Tickets List"}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="ticket-sort pull-left">
+                                <ul class="nav nav-pills">
+                                    <li class="dropdown" id="dropdown_1">
+                                        <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <span class="title">{{gettext "Deleted Tickets"}}</span>
+                                            <b class="caret"></b>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li class="my-tickets"><a href="/tickets/filters/my-tickets"><i class="fa fa-check"></i> <span class="title">{{gettext "My Opened Tickets"}}</span></a></li>
+                                            <li class="all-tickets"><a href="/tickets"><i class="fa fa-check"></i> <span class="title">{{gettext "All Tickets"}}</span></a></li>
+                                            <li class="deleted-tickets active"><a href="/tickets/trash"><i class="fa fa-check"></i> <span class="title">{{gettext "Deleted Tickets"}}</span></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="list"></div>
+                        </div>
+                    </div>
+                </div>{{! panel-body end}}
+            </div>{{! panel end}}
+        </div>
+    </div>
+</div>
+

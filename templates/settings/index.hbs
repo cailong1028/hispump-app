@@ -1,0 +1,183 @@
+<div class="container settings">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Settings'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Setting title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h4>{{gettext 'General'}}</h4>
+                    <ul class="pl">
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/general">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-cogs fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Settings HelpDesk Configuration'}}
+                                </a>
+                            </div>
+                        </li>
+                        {{!--
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-tasks fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Ticket Form'}}
+                                </a>
+                            </div>
+                        </li>
+                        --}}
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/agents">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-user fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Agents'}}
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/roles">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-puzzle-piece fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Roles'}}
+                                </a>
+                            </div>
+                        </li>
+                        <!--
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-tty fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'SLA Policy'}}
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-clock-o fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Business Times'}}
+                                </a>
+                            </div>
+                        </li>
+                        -->
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/group">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-users fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Group'}}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <h4>{{gettext 'Settings Connect Configuration'}}</h4>
+                    <ul class="pl">
+                        <li>
+                            <div class="text-center">
+                                <a data-bypass href="http://support.yunkefu.com/duokefu/" target="_blank">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-weixin fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Settings Connect Title'}}
+                                </a>
+                            </div>
+                        </li>
+                        {{!-- <li>
+                            <div class="text-center">
+                                <a data-bypass href="/settings/mail">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-envelope-o fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Settings connect mail'}}
+                                </a>
+                            </div>
+                        </li> --}}
+                    </ul>
+                    <br>
+                    <h4>{{gettext 'Settings Ticket Types Configuration'}}</h4>
+                    <ul class="pl">
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/ticket-types">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-ticket fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Settings Ticket Types Title'}}
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/sla">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-gavel fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Settings sla rule'}}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Setting help docunment'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>

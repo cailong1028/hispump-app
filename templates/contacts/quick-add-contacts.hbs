@@ -1,0 +1,42 @@
+<div class="panel panel-sidebar">
+    <div class="panel-heading">
+        <h5>
+        {{#if corpContactsFlag}}
+            {{gettext 'Quickly add current contact to the company'}}
+        {{else}}
+            {{gettext 'Quick Add Contacts'}}
+        {{/if}}
+        </h5>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <input name="name" maxlength="16" class="form-control" placeholder="{{gettext 'Contact Name'}}">
+            </div>
+            <div id="name_required" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Name required'}}</span>
+            </div>
+            <div class="form-group">
+                <input name="email" maxlength="32" class="form-control" placeholder="{{gettext 'Email'}}">
+            </div>
+            <div id="mobile_or_email_required" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Email or Mobile required'}}</span>
+            </div>
+            <div id="invalidation_email" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Invalidation Email'}}</span>
+            </div>
+            <div id="email_duplicate" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Email Duplicate'}}</span>
+            </div>
+            <div class="form-group">
+                <input name="mobile" maxlength="32" class="form-control" placeholder="{{gettext 'Mobile'}}">
+            </div>
+            <div id="mobile_duplicate" class="error-messages form-group">
+                <span class="text-danger">{{gettext 'Mobile Duplicate'}}</span>
+            </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary save">{{gettext 'Add'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

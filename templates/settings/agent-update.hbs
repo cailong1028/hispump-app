@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Update Agent'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Update agent title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <img src="{{assets '/images/anonymous-100.png'}}" alt="Anonymous" class="img-thumbnail avatar">
+                        {{!-- <span class="btn btn-link fileinput-button"><i class="fa fa-plus"></i> {{gettext 'Add Avatar'}}<input class="fileupload" name="attachment" type="file"/></span> --}}
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <form class="form-horizontal">
+                        <h4>{{gettext 'Agent Info'}}</h4>
+                        <div class="form-group">
+                            <label for="username" class="col-lg-3 col-md-3 control-label">{{gettext 'User Name'}}</label>
+                            <div class="col-lg-9 col-md-9"><p class="form-control-static">{{username}}</p>
+                                <input name="username" id="username1" type="hidden" value="{{username}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-3 col-md-3 control-label required">{{gettext 'Name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="name" name="name" class="form-control" maxlength="16" value="{{name}}">
+                            </div>
+                        </div>
+                        <div id="name_required" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'Name required'}}</span>
+                            </div>
+                        </div>
+                        {{!-- 工号--}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'WorkNum'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="workNum" name="workNum" maxlength="16" class="form-control" value="{{workNum}}" placeholder="{{gettext 'Agent WorkNum Placeholder'}}">
+                            </div>
+                        </div>
+                        <div id="alreadyExists_workNum" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'workNum has been exists'}}</span>
+                            </div>
+                        </div>
+                        {{!-- 手机--}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Mobile'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="mobile" name="mobile" maxlength="32" class="form-control" value="{{mobile}}" placeholder="{{gettext 'Mobile'}}">
+                            </div>
+                        </div>
+                        {{!-- 职位--}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext 'Post'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="post" name="post" maxlength="16" class="form-control" value="{{post}}" placeholder="{{gettext 'Agent Post Placeholder'}}">
+                            </div>
+                        </div>
+                        {{!-- 备注--}}
+                        <div class="form-group">
+                            <label for="remark" class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <textarea id="remark" name="remark" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}">{{remark}}</textarea>
+                            </div>
+                        </div>
+                        {{!-- <h4>{{gettext 'Roles information'}}</h4>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-md-3 control-label">{{gettext "Agent Roles"}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <p class="form-control-static">Agent</p>
+                            </div>
+                        </div> --}}
+                        <div class="text-right">
+                            <button type="button" class="btn btn-default cancel">{{gettext 'Cancel'}}</button>
+                            <button type="reset" id="reset" class="btn btn-default reset">{{gettext 'Reset'}}</button>
+                            <button type="submit" class="btn btn-primary save">{{gettext 'Save'}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Update agent help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>
