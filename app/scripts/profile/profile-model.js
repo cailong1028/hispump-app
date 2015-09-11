@@ -18,32 +18,31 @@ define([
     username: 用户名
     */
     var ProfileModel = Backbone.Model.extend({
-        urlRoot: 'profile',
+        urlRoot: 'user',
         attributes: [
             'id',
-            'name', // 姓名
-            'username', // 邮箱
+            'username', // 姓名
+            'loginname', // 邮箱
             'avatar', // 头像
-            'mobile', // 手机
-            'telephone' // 电话
+            'mobile'
         ],
         validate: function(attrs) {
             //姓名不存在
-            if (!attrs.name) {
+            if (!attrs.username) {
                 return 'name_required';
             }
             //姓名为空格
-            if (_s.trim(attrs.name) === '') {
+            if (_s.trim(attrs.username) === '') {
                 return 'name_required';
             }
             // 如果email不存在
-            if (!attrs.username) {
+            if (!attrs.loginname) {
                 return 'userName_required';
             }
             // 如果email存在，但是检查没有通过
-            if (attrs.username && !app.validateEmail(attrs.username)) {
+            /*if (attrs.loginname && !app.validateEmail(attrs.username)) {
                 return 'invalidation_userName';
-            }
+            }*/
         }
     });
     return ProfileModel;

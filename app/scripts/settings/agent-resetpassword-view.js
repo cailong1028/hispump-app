@@ -3,21 +3,22 @@
 define([
     'underscore',
     'backbone',
-    'settings/agent-model'
-], function(_, Backbone, AgentModel) {
+    'settings/agent-model',
+    'helpers/sha1'
+], function(_, Backbone, AgentModel, sha1) {
     var passwordPattern = /^[a-zA-Z0-9!@#\$%\^&\*\(\)-=_\+\[\]\{\}\|;':",\.\/<>\?`~]*$/;
     var ResetPasswordModel = Backbone.Model.extend({
         initialize: function(data, options) {
             this.options = options || {};
         },
         url: function() {
-            return 'agents/' + this.options.userId + '/reset-password';
+            return 'user/' + this.options.userId + '/reset-password';
         },
         attributes: [
             'password'
         ],
         isNew: function() {
-            return true;
+            return false;
         },
         validate: function(attrs) {
             // 新密码不存在
@@ -98,7 +99,11 @@ define([
             }
             // model.unset('id');
             model.unset('confirmPassword');
+            model.unset('loginname');
             model.unset('username');
+            //crypt password
+            model.set('id', id);
+            model.set('password', sha1(model.get('password')));
             model.save({}, {
                 validate: false
             }).done(function() {

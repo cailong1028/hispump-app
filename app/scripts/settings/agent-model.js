@@ -7,11 +7,11 @@ define([
 ], function(_, _s, Backbone) {
     var passwordPattern = /^[a-zA-Z0-9!@#\$%\^&\*\(\)-=_\+\[\]\{\}\|;':",\.\/<>\?`~]*$/;
     var AgentModel = Backbone.Model.extend({
-        urlRoot: 'agents',
+        urlRoot: 'user',
         attributes: [
             'id',
-            'name',//姓名
-            'username',//邮箱
+            'username',//姓名
+            'loginname',//用户名
             'avatar',//头像
             'mobile',//手机
             'telephone',//电话
@@ -19,25 +19,24 @@ define([
             'confirmPassword',
             'post',//职位
             'workNum',//工号
-            'remark'//备注
+            'memo'//备注
         ],
         validate: function(attrs) {
             //姓名不存在
-            if (!attrs.name) {
+            if (!attrs.username) {
                 return 'name_required';
             }
              //姓名不存在
-            if (_s.trim(attrs.name) === '') {
+            if (_s.trim(attrs.username) === '') {
                 return 'nameError_required';
             }
-            // 如果email不存在
-            if (!attrs.username) {
+            if (!attrs.loginname) {
                 return 'userName_required';
             }
             // 如果email存在，但是检查没有通过
-            if (attrs.username && !app.validateEmail(attrs.username)) {
+            /*if (attrs.loginname && !app.validateEmail(attrs.loginname)) {
                 return 'invalidation_userName';
-            }
+            }*/
             // 密码不存在
             if (!attrs.password) {
                 return 'password_required';
@@ -73,14 +72,14 @@ define([
         },
         restore: function(o) {
             o = _.extend({}, o, {
-                url: _.result(this, 'url')+'?unblock',
+                url: _.result(this, 'url'),
                 validate:false
             });
             return this.save({}, o);
         },
-        //判断是否为当前登录管理员
+        //判断是否为当前登录用户或者管理员
         isCurrentManager: function(o){
-            if(client.profile().get('username') === o.get('username')){
+            if(app.profile.userInfo.loginname === o.get('loginname') || o.get('loginname') === 'admin'){
                 return true ;
             }else{
                 return false ;

@@ -6,7 +6,9 @@ define([
 ], function(_, Backbone) {
     var PasswordPattern=/^[a-zA-Z0-9!@#\$%\^&\*\(\)-=_\+\[\]\{\}\|;':",\.\/<>\?`~]*$/;
     var PasswordModel = Backbone.Model.extend({
-        urlRoot: 'profile/change-password',
+        url: function(){
+            return 'user/'+this.get('id')+'/update-password';
+        },
         attributes: [
             'id',
             'password',//旧密码

@@ -15,16 +15,15 @@ define([
             'click button.restore': '_clickRestoreButton',
             'click button.Reset password': '_clickResetPassword'
         },
+        serialize: function(){
+            return this.model.toJSON();
+        },
         beforeRender: function() {
             if (!this.model) {
-                var userName;
                 var done = this.async();
                 this.model = new AgentModel(this.options);
-                this.model.fetch({
-                    success:function(model){
-                        userName = model.get('username');
-                }},{wait: true}).done(_.bind(function(){
-                    this.setView('.agentTicketList', new AgentTicketsView({username: userName}));
+                this.model.fetch({},{wait: true}).done(_.bind(function(){
+                    //this.setView('.agentTicketList', new AgentTicketsView({loginname: loginname}));
                     done();
                 },this));
             }
@@ -224,7 +223,7 @@ define([
                 .done(_.bind(this.setViewAllTicket, this));
             // end function ;
             this._resetPicker();
-        },
+        }
     });
 
     return AgentInfoView;

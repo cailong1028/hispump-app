@@ -104,5 +104,6 @@
             }
         }
     });
+    window.DEBUG = true;
     require(['main']);
 }).call(window, document);

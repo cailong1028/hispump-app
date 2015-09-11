@@ -52,7 +52,7 @@ define([
             Backbone.history.navigate('/search/all?term=' + data.term, true);
         },
         serialize: function() {
-            return this.model.toJSON();
+            return _.extend(this.model.toJSON(), {authority: app.profile.resourceAuthority});
         },
         beforeRender: function() {
             var done = this.async();

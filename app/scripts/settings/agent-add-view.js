@@ -5,8 +5,9 @@ define([
     'jquery',
     'underscore.string',
     'backbone',
-    'settings/agent-model'
-], function(_, $, _s, Backbone, AgentModel) {
+    'settings/agent-model',
+    'helpers/sha1'
+], function(_, $, _s, Backbone, AgentModel, sha1) {
     var AddAgentFormView = Backbone.View.extend({
         template: 'templates:settings:agent-add',
         events: {
@@ -22,7 +23,7 @@ define([
             var data = this.$('form').serializeObject();
             // 提取model定义的attributes
             model.set(_.pick(data, AgentModel.prototype.attributes));
-            _.each(model.pick('name', 'workNum', 'mobile', 'post', 'confirmPassword', 'password', 'username', 'remark'),
+            _.each(model.pick('username', 'workNum', 'mobile', 'post', 'confirmPassword', 'password', 'loginname', 'memo'),
                 function(value, key) {
                     if (_s.trim(value) === '') {
                         model.unset(key);
@@ -37,6 +38,8 @@ define([
                 return;
             }
             model.unset('confirmPassword');
+            //sha1 加密后传递
+            model.set('password', sha1(model.get('password')));
             // wait true 等待服务器端返回内容，原文大概是这样写的
             // Pass {wait: true} if you'd like to wait for the server before setting the new attributes on the model.
             // save的头一个参数是attrs
@@ -48,12 +51,11 @@ define([
                     $(window).info(gettext('Add agent successful'));
                     Backbone.history.navigate('settings/agents', true);
                 })
-                .fail(_.bind(function(resp) {
-                    var data = resp.responseJSON;
-                    if (data.type === 'UserAlreadyExists') {
+                .fail(_.bind(function(data) {
+                    if (data.responseJSON.type === 'UserAlreadyExists') {
                         this.$('#alreadyExists_userName').addClass('show');
                     }
-                    if (data.type === 'WorkNumAlreadyExists') {
+                    if (data.responseJSON.type === 'WorkNumAlreadyExists') {
                         this.$('#alreadyExists_workNum').addClass('show');
                     }
                     else

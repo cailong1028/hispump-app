@@ -137,7 +137,7 @@ define([
     var originalParse = Backbone.Collection.prototype.originalParse = Backbone.Collection.prototype.parse;
     Backbone.Collection.prototype.parse = function(response) {
         response = response || {};
-        if (response.links && response.page) {
+        if (/*response.links && */response.page) {
             this.page = response.page;
             return response.content;
         }
@@ -208,7 +208,14 @@ define([
         }
         return context.inverse(this);
     });
-
+    //his 权限前端控制
+    Handlebars.registerHelper('permit', function(action) {
+        var context = _.last(arguments);
+        if (window.client.permit(action) === true) {
+            return new Handlebars.SafeString(context.fn(this));
+        }
+        return context.inverse(this);
+    });
     Handlebars.registerHelper('option', function(value, label, selectedValue) {
         var selectedProperty = value === selectedValue ? 'selected="selected"' : '';
         return new Handlebars.SafeString('<option value="' + value + '"' +  selectedProperty + '>' + label + '</option>');
@@ -281,6 +288,15 @@ define([
         else{
             return opts.inverse(this);
         }
+    });
+    Handlebars.registerHelper('in_array', function(a, b, opts) {
+        var i = 0;
+        for(; i < b.length; i++){
+            if(a === b[i]){
+               return opts.fn(this);
+            }
+        }
+        return opts.inverse(this);
     });
     /* 设置ajax回调 */
     // var compile = function(text) {

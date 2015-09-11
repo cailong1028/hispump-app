@@ -19,11 +19,13 @@ define([
     'settings/role-info-view',
     'settings/ticket-types-view',
     'settings/mail-view',
-    'settings/sla-view'
+    'settings/sla-view',
+    'settings/agent-authority-view'
 ], function(Backbone, SettingsView, GeneralView,
         GroupView, GroupAddView, GroupUpdateView,
         AgentView, AgentsDeletedView, AgentAddView,AgentUpdateView,
-        AgentInfoView, AgentResetpasswordView, AgentInvitationView, AgentRoleView, RoleView, RoleInfoView, TicketTypesView, MailView, SlaView) {
+        AgentInfoView, AgentResetpasswordView, AgentInvitationView, AgentRoleView,
+        RoleView, RoleInfoView, TicketTypesView, MailView, SlaView, AgentAuthority) {
     var activedLayoutNavigation = function() {
         app.vent.trigger('navbar:active', 'settings');
     };
@@ -39,6 +41,7 @@ define([
             'settings/agents/trash': '_agentsTrash',
             'settings/agents/invitation': '_invitation',
             'settings/agents/\:id/roles': '_agentRole',
+            'settings/agents/\:id/authority': '_agentAuthority',
             'settings/agents/\:id/form': '_agentUpdate',
             'settings/agents/\:id': '_agentInfo',
             'settings/agents/\:id/resetpassword': '_resetpassword',
@@ -122,6 +125,10 @@ define([
         _slaview: function(){
             activedLayoutNavigation();
             app.$layout.setMainView(new SlaView()).render();
+        },
+        _agentAuthority: function(id){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new AgentAuthority({userid: id})).render();
         }
     });
     return SettingsRouter;

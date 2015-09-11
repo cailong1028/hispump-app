@@ -190,8 +190,9 @@
         }
         td.contacts {
             p {
+                display: inline-block;
                 margin-bottom: 2px;
-                width: 190px;
+                width: 60px;
                 @include text-overflow();
                 @extend .text-muted;
             }

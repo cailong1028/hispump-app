@@ -8,6 +8,7 @@ define([
 ], function (Backbone, Client, Application, LayoutView) {
     var app = window.app = new Application();
     var client = window.client = new Client();
+    // 获取用户信息
     app.vent.on('initialize:before', function() {
         // 理论上来说这玩意时延时加载的...
         // body...
@@ -23,15 +24,22 @@ define([
         ]).done(function() {
             setTimeout(function(){
                 Backbone.history.start({ pushState: true });
+                var indexOptions = _.extend({}, $('base#options').data());
+                if(indexOptions.navigation && indexOptions.navigation !== '' && indexOptions.navigation !== 'null'){
+                    Backbone.history.navigate(indexOptions.navigation);
+                }
             });
         });
     });
-    // 获取用户信息
-    client.fetch().done(function() {
+    client.fetch().done(function(profile) {
+        app.profile = profile;
         app.$layout = new LayoutView();
         app.$layout.render();
         // 首先加载语言文件
         console.log('app start');
         app.start();
+    }).fail(function(){
+        //go to login
+        console.log('111111');
     });
 });

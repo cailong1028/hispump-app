@@ -43,7 +43,6 @@ define([
                     this.$('#' + model.validationError).addClass('show');
                     return;
                 }
-                model.unset('id');
                 model.unset('confirmPassword');
                 model.save({}, {validate: false})
                     .done(function() {

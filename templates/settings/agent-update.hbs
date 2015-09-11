@@ -27,14 +27,14 @@
                         <h4>{{gettext 'Agent Info'}}</h4>
                         <div class="form-group">
                             <label for="username" class="col-lg-3 col-md-3 control-label">{{gettext 'User Name'}}</label>
-                            <div class="col-lg-9 col-md-9"><p class="form-control-static">{{username}}</p>
-                                <input name="username" id="username1" type="hidden" value="{{username}}">
+                            <div class="col-lg-9 col-md-9"><p class="form-control-static">{{loginname}}</p>
+                                <input name="loginname" id="username1" type="hidden" value="{{loginname}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-lg-3 col-md-3 control-label required">{{gettext 'Name'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <input id="name" name="name" class="form-control" maxlength="16" value="{{name}}">
+                                <input id="username" name="username" class="form-control" maxlength="16" value="{{username}}">
                             </div>
                         </div>
                         <div id="name_required" class="error-messages form-group">
@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'WorkNum'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <input id="workNum" name="workNum" maxlength="16" class="form-control" value="{{workNum}}" placeholder="{{gettext 'Agent WorkNum Placeholder'}}">
+                                <input id="worknum" name="worknum" maxlength="16" class="form-control" value="{{worknum}}" placeholder="{{gettext 'Agent WorkNum Placeholder'}}">
                             </div>
                         </div>
                         <div id="alreadyExists_workNum" class="error-messages form-group">
@@ -61,18 +61,18 @@
                                 <input id="mobile" name="mobile" maxlength="32" class="form-control" value="{{mobile}}" placeholder="{{gettext 'Mobile'}}">
                             </div>
                         </div>
-                        {{!-- 职位--}}
+                        {{!-- 职位
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'Post'}}</label>
                             <div class="col-lg-9 col-md-9">
                                 <input id="post" name="post" maxlength="16" class="form-control" value="{{post}}" placeholder="{{gettext 'Agent Post Placeholder'}}">
                             </div>
-                        </div>
+                        </div>--}}
                         {{!-- 备注--}}
                         <div class="form-group">
                             <label for="remark" class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <textarea id="remark" name="remark" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}">{{remark}}</textarea>
+                                <textarea id="memo" name="memo" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}">{{memo}}</textarea>
                             </div>
                         </div>
                         {{!-- <h4>{{gettext 'Roles information'}}</h4>

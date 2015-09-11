@@ -40,20 +40,20 @@
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'User Name'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <p class="form-control-static">{{username}}</p>
+                                <p class="form-control-static">{{loginname}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'Name'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <p class="form-control-static">{{name}}</p>
+                                <p class="form-control-static">{{username}}</p>
                             </div>
                         </div>
-                        {{#if workNum}}
+                        {{#if worknum}}
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'WorkNum'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <p class="form-control-static">{{workNum}}</p>
+                                <p class="form-control-static">{{worknum}}</p>
                             </div>
                         </div>
                         {{/if}}
@@ -73,15 +73,15 @@
                             </div>
                         </div>
                         {{/if}}
-                        {{#if remark}}
+                        {{#if memo}}
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <p class="form-control-static">{{remark}}</p>
+                                <p class="form-control-static">{{memo}}</p>
                             </div>
                         </div>
                         {{/if}}
-                        <h4>{{gettext 'Recently assigned jobs'}}</h4>
+                        {{!--<h4>{{gettext 'Recently assigned jobs'}}</h4>--}}
                         <div class="agentTicketList"></div>
                     </form>
                 </div>

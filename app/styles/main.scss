@@ -25,6 +25,7 @@ $fa-font-path: "https://static.yunkefu.com/css/fonts/fontawesome";
 @import 'search';
 @import 'roles';
 @import 'mail';
+@import 'hispump';
 /* Space out content a bit */
 body {
     background-color: #f4f4f2;
@@ -97,6 +98,10 @@ label.required {
         vertical-align: super;
         line-height: 0;
     }
+}
+
+.modal-dialog{
+    z-index: 1060;
 }
 
 .popover.datetimepicker-popover {

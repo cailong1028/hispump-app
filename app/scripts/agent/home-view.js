@@ -118,6 +118,7 @@ define([
         initialize: function(){
         },
         serialize: function(){
+
         },
         beforeRender: function(){
         },

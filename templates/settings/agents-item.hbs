@@ -2,20 +2,20 @@
     <img src="{{assets '/images/avatar-32.png'}}" alt="avator" />
 </td>
 <td class="contacts">
-    <p><a href="/settings/agents/{{id}}">{{name}}</a></p><br>
+    <p><a href="/settings/agents/{{id}}" title="{{loginname}}">{{loginname}}</a></p><br>
     {{#if post}}{{post}}<br>{{/if}}
 </td>
 <td class="contacts">
-    {{#if username}}{{gettext 'User Name'}}: {{username}}<br>{{/if}}
+    {{#if username}}{{gettext 'Name'}}: {{username}}<br>{{/if}}
     {{#if workNum}}{{gettext 'WorkNum'}}: {{workNum}}<br>{{/if}}
     {{#if mobile}}{{gettext 'Mobile'}}: {{mobile}}{{/if}}
 </td>
 <td class="contacts">
-    {{#if status}} {{status}}{{/if}}
+    {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}
 </td>
 <td class="text-right">
 {{#unless deleted}}
-    <a href="/settings/agents/{{id}}/roles" class="btn btn-default btn-xs">{{gettext 'Roles'}}</a>
+    <a href="/settings/agents/{{id}}/authority" class="btn btn-default btn-xs">{{gettext 'Authority'}}</a>
     <a href="/settings/agents/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Update'}}</a>
     {{#if isCurrentManager}}
     <button class="btn btn-default btn-xs delete"  disabled="disabled"><i class="fa fa-trash"></i></button>

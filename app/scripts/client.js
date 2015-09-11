@@ -112,6 +112,17 @@ define([
         doBeforeSend: function() {
             // TODO append Authenticated token
         },
+        //his 权限判断
+        permit: function(action) {
+            var actionAuths = app.profile.actionAuthority;
+            var i = 0;
+            for(; i < actionAuths.length; i++){
+                if(action === actionAuths[i].code){
+                    return true;
+                }
+            }
+            return false;
+        },
         isPermitted: function() {
             if (this.claim === undefined) {
                 this.claim = considerPermissions(profile.get('permissions'));

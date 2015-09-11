@@ -13,15 +13,15 @@
                                     <div class="form-group">
                                         <label for="username1" class="control-label col-lg-2 col-md-2">{{gettext 'User Name'}}</label>
                                         <div class="col-lg-10 col-md-10">
-                                            <p class="form-control-static">{{username}}</p>
-                                            <input name="username" id="username1" type="hidden" value="{{username}}">
+                                            <p class="form-control-static">{{loginname}}</p>
+                                            <input name="loginname" id="loginname" type="hidden" value="{{loginname}}">
                                             <input name="id" id="id" type="hidden" value="{{id}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="col-lg-2 col-md-2 control-label required">{{gettext 'Name'}}</label>
                                         <div class="col-lg-10 col-md-10">
-                                            <input id="name" name="name" class="form-control" maxlength="16"value="{{name}}">
+                                            <input id="name" name="username" class="form-control" maxlength="16"value="{{username}}">
                                         </div>
                                     </div>
                                     <div id="name_required" class="error-messages form-group">
@@ -33,7 +33,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-lg-2 col-md-2">{{gettext 'WorkNum'}}</label>
                                         <div class="col-lg-10 col-md-10">
-                                            <input id="workNum" name="workNum" maxlength="16" class="form-control" value="{{workNum}}" placeholder="{{gettext 'Agent WorkNum Placeholder'}}">
+                                            <input id="worknum" name="worknum" maxlength="16" class="form-control" value="{{worknum}}" placeholder="{{gettext 'Agent WorkNum Placeholder'}}">
                                         </div>
                                     </div>
                                     <div id="alreadyExists_workNum" class="error-messages form-group">
@@ -48,18 +48,18 @@
                                             <input id="mobile" name="mobile" maxlength="32" class="form-control" value="{{mobile}}" placeholder="{{gettext 'Mobile'}}">
                                         </div>
                                     </div>
-                                    {{!-- 职位--}}
+                                    {{!-- 职位-
                                     <div class="form-group">
                                         <label class="control-label col-lg-2 col-md-2">{{gettext 'Post'}}</label>
                                         <div class="col-lg-10 col-md-10">
                                             <input id="post" name="post" maxlength="16" class="form-control" value="{{post}}" placeholder="{{gettext 'Agent Post Placeholder'}}">
                                         </div>
-                                    </div>
+                                    </div>-}}
                                     {{!-- 备注--}}
                                     <div class="form-group">
                                         <label for="remark" class="control-label col-lg-2 col-md-2">{{gettext 'Remark'}}</label>
                                         <div class="col-lg-10 col-md-10">
-                                            <textarea id="remark" name="remark" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}">{{remark}}</textarea>
+                                            <textarea id="memo" name="memo" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}">{{memo}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

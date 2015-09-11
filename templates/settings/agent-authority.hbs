@@ -1,0 +1,128 @@
+<div class="container agent-authority">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Agent'}} {{gettext 'Authority'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Agent authority title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="clearfix"></div>
+                            <div class="list">
+                                <table id="agent-authority-table" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td class="pick-all"><input class="pick-all-input" type="checkbox"></td>
+                                        <td>
+                                            {{gettext 'Resource'}}
+                                        </td>
+                                        <td>
+                                            {{gettext 'Code'}}
+                                        </td>
+                                        <td>
+                                            {{gettext 'Url'}}
+                                        </td>
+                                        <td>
+                                            {{gettext 'Memo'}}
+                                        </td>
+                                        <td>
+                                            {{gettext 'Type'}}
+                                        </td>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="5"></td>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr class="loading hide">
+                                        <td colspan="5"><p>{{gettext 'Now Loading...'}}</p></td>
+                                    </tr>
+                                    <tr class="non-items hide">
+                                        <td colspan="5"><p>{{gettext 'Non Items Agents'}}</p></td>
+                                    </tr>
+                                    {{#each allRes}}
+                                        <tr class="one-resource">
+                                            <td class="resource pick pick_td">
+                                                <input class="pick-input" type="checkbox" value="{{id}}"
+                                                    {{#in_array id ../currUserRes}}
+                                                       checked="checked"
+                                                    {{/in_array}}
+                                                >
+                                            </td>
+                                            <td class="resource">
+                                                <p class="content-container">{{name}}</p>
+                                            </td>
+                                            <td class="resource">
+                                                <p class="content-container">{{code}}</p>
+                                            </td>
+                                            <td class="resource">
+                                                <p class="content-container">{{url}}</p>
+                                            </td>
+                                            <td class="resource memo">
+                                                {{#if memo}}
+                                                    <p class="memo-container">{{memo}}</p>
+                                                {{/if}}
+                                            </td>
+                                            <td class="resource memo">
+                                                {{#if_eq type 0}}
+                                                    <p class="content-container">{{gettext 'Memu'}}</p>
+                                                {{/if_eq}}
+                                                {{#if_eq type 1}}
+                                                    <p class="content-container">{{gettext 'Action'}}</p>
+                                                {{/if_eq}}
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                                <div class="text-right">
+                                    <button class="btn btn-default cancel">{{gettext 'Cancel'}}</button>
+                                    <button class="btn btn-primary save">{{gettext 'Save'}}</button>
+                                </div>
+                                <!-- Modal -->
+                                <div id="forbiddenModel" class="modal fade" role="dialog"
+                                     aria-labelledby="dialog_model">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title">{{gettext 'Delete Agent Forbidden Title'}}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>{{gettext 'Delete Agent Forbidden Content'}}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                        class="btn btn-primary forbidden-btn">{{gettext 'Submit Button'}}</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Agent authority help document'}}}</div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>

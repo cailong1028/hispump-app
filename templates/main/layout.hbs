@@ -13,7 +13,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="/authz/logout" data-bypass>{{gettext "Logout"}}</a>
+                        <a href="/auth/out" data-bypass>{{gettext "Logout"}}</a>
                     </li>
                 </ul>
             </span>
@@ -25,11 +25,11 @@
             <a href="/">
             {{/if}}
             {{#if logo}}
-            <img src="{{logo}}" alt="logo">
+                <img src="{{logo}}" alt="logo">
             {{else}}
-            <img src="{{assets '/images/logo.png'}}" alt="logo">
+                <img src="{{assets '/images/logo.png'}}" alt="logo">
             {{/if}}
-            </a>
+        </a>
         </div>
         <div class="title">
             <h1>{{title}}</h1>
@@ -44,23 +44,31 @@
             <div>
                 <ul id="prog-mods" class="nav navbar-nav">
                     <li class="home"><a href="/">{{gettext 'Home'}}</a></li>
-                    {{#isPermitted 'navbar:tickets'}}
+                    {{!--{{#isPermitted 'navbar:tickets'}}
                     <li class="tickets"><a href="/tickets/filters/my-tickets">{{gettext 'Tickets'}}</a></li>
                     {{/isPermitted}}
-                    {{!--
+
                     {{#isPermitted 'navbar:solutions'}}
                     <li class="solutions"><a href="/solutions">{{gettext 'Solutions'}}</a></li>
                     {{/isPermitted}}
-                    --}}
+
                     {{#isPermitted 'navbar:customers'}}
                     <li class="customers"><a href="/contacts">{{gettext 'Customers'}}</a></li>
-                    {{/isPermitted}}
-                    {{#isPermitted 'navbar:statistics'}}
-                    <li class="statistics"><a href="/statistics">{{gettext 'Statistics'}}</a></li>
                     {{/isPermitted}}
                     {{#isPermitted 'navbar:settings'}}
                     <li class="settings"><a href="/settings">{{gettext 'Settings'}}</a></li>
                     {{/isPermitted}}
+
+                    {{#isPermitted 'navbar:statistics'}}
+                        <li class="statistics"><a href="/statistics">{{gettext 'Statistics'}}</a></li>
+                    {{/isPermitted}}
+                    {{#isPermitted 'navbar:register-machine'}}
+                        <li class="register-machine"><a href="/register-machine">{{gettext 'Statistics'}}</a></li>
+                    {{/isPermitted}}
+                    --}}
+                    {{#each authority}}
+                        <li class="{{code}} top-nav-li"><a href="{{url}}">{{name}}</a></li>
+                    {{/each}}
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group search">

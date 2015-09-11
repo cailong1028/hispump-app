@@ -1,0 +1,33 @@
+.agent-authority{
+    table#agent-authority-table{
+        thead{
+            font-weight: bolder;
+            background-color: #eee;
+            tr{
+                td{
+                    &.pick-all{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        tr{
+            td{
+                vertical-align: middle;
+                border: none;
+                &.pick{
+                    text-align: center;
+                }
+                &.memo{
+                    .memo-container{
+                        width: 100px;
+                        display: inline-block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+}

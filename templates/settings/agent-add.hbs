@@ -29,9 +29,9 @@
                         <h4>{{gettext 'Agent Info'}}</h4>
 
                         <div class="form-group">
-                            <label for="username" class="col-lg-3 col-md-3 control-label required">{{gettext 'User Name'}}</label>
+                            <label for="loginname" class="col-lg-3 col-md-3 control-label required">{{gettext 'User Name'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <input id="username" name="username" placeholder="{{gettext 'Agent User Name Placeholder'}}" maxlength="32" class="form-control" autocomplete="off">
+                                <input id="loginname" name="loginname" placeholder="{{gettext 'Agent User Name Placeholder'}}" maxlength="32" class="form-control" autocomplete="off">
                             </div>
                         </div>
                         <div id="userName_required" class="error-messages form-group">
@@ -46,14 +46,14 @@
                         </div>
                         <div id="alreadyExists_userName" class="error-messages form-group">
                             <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
-                                <span class="text-danger">{{gettext 'Mail has been registered'}}</span>
+                                <span class="text-danger">{{gettext 'Loginname has been registered'}}</span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="name" class="col-lg-3 col-md-3 control-label required">{{gettext "Name"}}</label>
+                            <label for="username" class="col-lg-3 col-md-3 control-label required">{{gettext "Name"}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <input id="name" name="name" placeholder="{{gettext 'Name'}}" maxlength="16" class="form-control">
+                                <input id="username" name="username" placeholder="{{gettext 'Name'}}" maxlength="16" class="form-control">
                             </div>
                         </div>
                         <div id="name_required" class="error-messages form-group">
@@ -137,18 +137,18 @@
                                 <input id="mobile" name="mobile" maxlength="32" class="form-control" placeholder="{{gettext 'Mobile'}}">
                             </div>
                         </div>
-                        {{!-- 职位--}}
+                        {{!-- 职位-
                         <div class="form-group">
                             <label class="col-lg-3 col-md-3 control-label">{{gettext 'Post'}}</label>
                             <div class="col-lg-9 col-md-9">
                                 <input id="post" name="post" maxlength="16" class="form-control" placeholder="{{gettext 'Agent Post Placeholder'}}">
                             </div>
-                        </div>
+                        </div>-}}
                         {{!-- 备注--}}
                         <div class="form-group">
-                            <label for="remark" class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
+                            <label for="memo" class="col-lg-3 col-md-3 control-label">{{gettext 'Remark'}}</label>
                             <div class="col-lg-9 col-md-9">
-                                <textarea id="remark" name="remark" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}"></textarea>
+                                <textarea id="memo" name="memo" maxlength="500" class="form-control" rows="8" placeholder="{{gettext 'Agent Remark Placeholder'}}"></textarea>
                             </div>
                         </div>
                         <h4>{{gettext 'Roles information'}}</h4>

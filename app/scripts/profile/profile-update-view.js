@@ -5,8 +5,9 @@ define([
     'underscore.string',
     'backbone',
     'profile/profile-model',
-    'profile/password-model'
-], function(_, _s, Backbone, ProfileModel, PasswordModel) {
+    'profile/password-model',
+    'helpers/sha1'
+], function(_, _s, Backbone, ProfileModel, PasswordModel, sha1) {
     var UpdatePasswordView = Backbone.View.extend({
         template: 'templates:profile:update-password',
         events: {
@@ -25,13 +26,19 @@ define([
                 this.$('#' + passwordModel.validationError).addClass('show');
                 return false;
             }
+            passwordModel.set('id', app.profile.userInfo.id);
             passwordModel.unset('confirmPassword');
+            passwordModel.set('password', sha1(passwordModel.get('password')));
+            passwordModel.set('newPassword', sha1(passwordModel.get('newPassword')));
             passwordModel.save({},{validate:false})
                 .done(function() {
                     $(window).info(gettext('Reset password successful'));
                     that.render();
                 })
-                .fail(function(){
+                .fail(function(res){
+                    if(res.responseJSON && res.responseJSON.type === 'passwordNotMatch'){
+                        that.$('#passwordNotMatch').addClass('show');
+                    }
                     $(window).info(gettext('Reset password failure'));
                  });
         }
@@ -53,6 +60,7 @@ define([
             if (!this.model) {
                 var done = this.async();
                 this.model = new ProfileModel();
+                this.model.set('id', app.profile.userInfo.id);
                 this.model.fetch({}, {wait: true}).done(function(){
                     done();
                 });
@@ -69,27 +77,17 @@ define([
         },
         _submitForm: function(e) {
             e.preventDefault();
-            var data = _.omit(this.$('#form1').serializeObject(), this.model.idAttribute);
+            var serObj = _.extend({username: '', worknum: '', mobile: '', memo: ''}, this.$('#form1').serializeObject());
+            var data = _.omit(serObj, this.model.idAttribute);
             var model = new ProfileModel({id: this.model.id});
             model.set(data);
-            _.each(model.pick('name', 'workNum', 'mobile', 'post', 'remark'),
-                function(value, key) {
-                    if (_s.trim(value) === '') {
-                        model.unset(key);
-                    }
-                    else {
-                        var v = _s.trim(value);
-                        model.set(key, v);
-                    }
-                });
-            model.unset('id');
             this.$('.error-messages').removeClass('show');
             if (!model.isValid()) {
                 this.$('#name_required').addClass('show');
                 return;
             }
             // wait true 等待服务器端返回内容，原文大概是这样写的
-            // Pass {wait: true} if you'd like to wait for the server before setting the new attributes on the model. 
+            // Pass {wait: true} if you'd like to wait for the server before setting the new attributes on the model.
             model.save({}, {wait: true})
                 .done(function() {
                     $(window).info(gettext('Update personal info successful'));

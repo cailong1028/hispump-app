@@ -14,6 +14,9 @@ define([
             'reset form': '_resetForm',
             'click button.cancel': '_clickCancelButton'
         },
+        serialize: function(){
+            return this.model.toJSON();
+        },
         beforeRender: function() {
             if (!this.model) {
                 var done = this.async();
@@ -33,10 +36,11 @@ define([
         },
         _submitForm: function(e) {
             e.preventDefault();
-            var data = _.omit(this.$('form').serializeObject(), this.model.idAttribute);
+            var serObj = _.extend({username: '', worknum: '', mobile: '', memo: ''}, this.$('form').serializeObject());
+            var data = _.omit(serObj, this.model.idAttribute);
             var model = new AgentModel({id: this.model.id});
             model.set(data);
-            _.each(model.pick('name', 'workNum', 'mobile', 'post', 'remark'),
+           /* _.each(model.pick('username', 'worknum', 'mobile', 'memo'),
                 function(value, key) {
                     if (_s.trim(value) === '') {
                         model.unset(key);
@@ -45,9 +49,9 @@ define([
                         var v = _s.trim(value);
                         model.set(key, v);
                     }
-                });
+                });*/
             this.$('.error-messages').removeClass('show');
-            if (!model.has('name') || _s.trim(model.get('name')) === '') {
+            if (!model.has('username') || _s.trim(model.get('username')) === '') {
                 this.$('#name_required').addClass('show');
                 return;
             }
