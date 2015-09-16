@@ -20,12 +20,21 @@ define([
     'settings/ticket-types-view',
     'settings/mail-view',
     'settings/sla-view',
-    'settings/agent-authority-view'
+    'settings/agent-authority-view',
+    'settings/dev-view',
+    'settings/dev-update-view',
+    'settings/dev-add-view',
+    'settings/dept-view',
+    'settings/dept-update-view',
+    'settings/dept-add-view',
+    'settings/dept-dev-view'
 ], function(Backbone, SettingsView, GeneralView,
         GroupView, GroupAddView, GroupUpdateView,
         AgentView, AgentsDeletedView, AgentAddView,AgentUpdateView,
         AgentInfoView, AgentResetpasswordView, AgentInvitationView, AgentRoleView,
-        RoleView, RoleInfoView, TicketTypesView, MailView, SlaView, AgentAuthority) {
+        RoleView, RoleInfoView, TicketTypesView, MailView, SlaView, AgentAuthority,
+        DevView, DevUpdateView, DevAddView, DeptView, DeptUpdateView, DeptAddView,
+        DeptDevView) {
     var activedLayoutNavigation = function() {
         app.vent.trigger('navbar:active', 'settings');
     };
@@ -49,7 +58,15 @@ define([
             'settings/roles/\:id': '_rolesInfo',
             'settings/ticket-types': '_ticketTypes',
             'settings/mail': '_mail',
-            'settings/sla': '_slaview'
+            'settings/sla': '_slaview',
+            'settings/dev?term=\:term': '_devList',
+            'settings/dev': '_devList',
+            'settings/dev/form': '_createDev',
+            'settings/dev/:id/form': '_modifyDev',
+            'settings/dept': '_deptList',
+            'settings/dept/form': '_createDept',
+            'settings/dept/:id/form': '_modifyDept',
+            'settings/dept/:id/dev': '_deptDev'
         },
         _settings: function() {
             activedLayoutNavigation();
@@ -129,6 +146,34 @@ define([
         _agentAuthority: function(id){
             activedLayoutNavigation();
             app.$layout.setMainView(new AgentAuthority({userid: id})).render();
+        },
+        _devList: function(term){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevView(term ? {term: term} : void 0)).render();
+        },
+        _createDev: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevAddView()).render();
+        },
+        _modifyDev: function(id){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevUpdateView({id: id})).render();
+        },
+        _deptList: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DeptView()).render();
+        },
+        _createDept: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DeptAddView()).render();
+        },
+        _modifyDept: function(id){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DeptUpdateView({id: id})).render();
+        },
+        _deptDev: function(id){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DeptDevView({deptid: id})).render();
         }
     });
     return SettingsRouter;

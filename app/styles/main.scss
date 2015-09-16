@@ -110,3 +110,9 @@ label.required {
         min-height: 280px;
     }
 }
+
+tr.loading, tr.non-items{
+    td{
+        text-align: center;
+    }
+}

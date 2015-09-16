@@ -19,7 +19,7 @@ define([
         template: 'templates:settings:general',
         events: {
             'submit form': '_submitForm',
-            'reset form': '_resetForm',
+            'reset form': '_resetForm'
         },
         serialize: function() {
             return this.model.toJSON();

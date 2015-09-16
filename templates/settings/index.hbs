@@ -47,6 +47,37 @@
                             </div>
                         </li>
                         {{/permit}}
+                        {{!--设备--}}
+                        {{#permit 'dev:setting'}}
+                        <li>
+                            <div class="text-center">
+                                <a href="/settings/dev">
+                                    <h1>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-android fa-inverse fa-stack-1x"></i>
+                                    </span>
+                                    </h1>
+                                    {{gettext 'Dev'}}
+                                </a>
+                            </div>
+                        </li>
+                        {{/permit}}
+                        {{#permit 'dept:setting'}}
+                            <li>
+                                <div class="text-center">
+                                    <a href="/settings/dept">
+                                        <h1>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-building fa-inverse fa-stack-1x"></i>
+                                    </span>
+                                        </h1>
+                                        {{gettext 'Dept'}}
+                                    </a>
+                                </div>
+                            </li>
+                        {{/permit}}
                         {{!--<li>
                             <div class="text-center">
                                 <a href="/settings/roles">

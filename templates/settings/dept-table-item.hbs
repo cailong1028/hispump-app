@@ -1,0 +1,14 @@
+<td class="avatar">
+    <i class="fa fa-building"></i>
+</td>
+<td class="dept">
+    {{#if name}}{{gettext 'Dept name'}}: {{name}}{{/if}}
+</td>
+<td class="dept">
+    {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}
+</td>
+<td class="text-right">
+<a href="/settings/dept/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Look/Update'}}</a>
+<a href="/settings/dept/{{id}}/dev" class="btn btn-default btn-xs">{{gettext 'Dev'}}</a>
+<button class="btn btn-default btn-xs delete"><i class="fa fa-trash"></i></button>
+</td>

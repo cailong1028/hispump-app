@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Update dev'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Update dev title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="text-center">
+                        <i class="fa fa-android fa-5x"></i>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7">
+                    <form class="form-horizontal">
+                        <h4>{{gettext 'Dev info'}}</h4>
+                        <div class="form-group">
+                            <label for="id" class="col-lg-3 col-md-3 control-label">{{gettext 'MAC'}}</label>
+                            <div class="col-lg-9 col-md-9"><p class="form-control-static">
+                                <input class="form-control" name="id" id="id" disabled="disabled" value="{{model.id}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-3 col-md-3 control-label required">{{gettext 'Dev name'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <input id="name" name="name" class="form-control" maxlength="16" value="{{model.name}}">
+                            </div>
+                        </div>
+                        <div id="name_required" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'Dev name required'}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dev-types" class="col-lg-3 col-md-3 control-label required">{{gettext 'Dev type'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <select id="dev-types" name="type" class="form-control">
+                                    <option value="0">--</option>
+                                    {{#each devTypeCollection}}
+                                        <option value="{{id}}" {{#if_eq ../model.type id}}
+                                            selected
+                                        {{/if_eq}}>{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div id="Dev_type_required" class="error-messages form-group">
+                            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9">
+                                <span class="text-danger">{{gettext 'Dev type required'}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="depts" class="col-lg-3 col-md-3 control-label">{{gettext 'Dept'}}</label>
+                            <div class="col-lg-9 col-md-9">
+                                <select id="depts" name="deptid" class="form-control">
+                                    <option value="0">--</option>
+                                    {{#each deptCollection}}
+                                        <option value="{{id}}" {{#if_eq ../model.deptid id}}
+                                            selected
+                                        {{/if_eq}}>{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-default cancel">{{gettext 'Cancel'}}</button>
+                            <button type="reset" id="reset" class="btn btn-default reset">{{gettext 'Reset'}}</button>
+                            <button type="submit" class="btn btn-primary save">{{gettext 'Save'}}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Update dev help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

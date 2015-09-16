@@ -585,7 +585,7 @@ define([
                 "Merge": [null, "合并"],
                 "Mark As Trash": [null, "标记为垃圾"],
                 "Export": [null, "导出"],
-                "Non Items": [null, "当前没有工单"],
+                "Non Items": [null, "没有数据"],
                 "Update Ticket": [null, "编辑工单"],
                 "Update ticket title": [null, "工单的提交"],
                 "File name": [null, "文件名"],
@@ -604,7 +604,9 @@ define([
                 "Code": [null, "编码"],
                 "Url": [null, "链接地址"],
                 "Memu": [null, "菜单"],
-                "Action": [null, "操作"]
+                "Action": [null, "操作"],
+                "Look/Update": [null, "查看/修改"],
+                "Dev name required": [null, "请输入正确设备名"]
             }
         }
     };

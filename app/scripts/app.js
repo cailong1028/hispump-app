@@ -73,6 +73,10 @@ define([
     Application.prototype.validateEmail = function(email) {
         return EMAIL_PATTERN.test(email);
     };
+    var MAC_PATTERN = /(([a-zA-Z0-9]{2}-){5})[a-zA-Z0-9]{2}/;
+    Application.prototype.validateMAC = function(mac) {
+        return MAC_PATTERN.test(mac);
+    };
     /**
     * ajax访问api的内容的url
     */

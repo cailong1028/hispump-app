@@ -1,0 +1,13 @@
+<td class="pick">
+    <input class="pick-input" type="checkbox" value="{{id}}">
+</td>
+<td class="avatar">
+    <i class="fa fa-android"></i>
+</td>
+<td class="pick">
+    {{id}}
+</td>
+<td class="pick">
+    {{#if name}}{{gettext 'Dev name'}}: {{name}}{{/if}}
+    {{#if typename}}<br>{{gettext 'Dev type name'}}: {{typename}}{{/if}}
+</td>

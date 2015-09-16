@@ -1,0 +1,42 @@
+<div class="container dept">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        <span class="pull-right">
+                            <a href="/settings/dept/form" class="btn btn-default btn-sm">{{gettext 'Create dept'}}</a>
+                        </span>
+                        {{gettext 'Dept'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Dept title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            {{!--<select id="dev-types" class="form-control pull-right">
+                                <option value="0">{{gettext 'All dev type'}}</option>
+                                {{#each devTypeCollection}}
+                                    <option value="{{id}}">{{name}}</option>
+                                {{/each}}
+                            </select>--}}
+                            <div class="clearfix"></div>
+                            <div class="list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Dept help document'}}}</div>
+            </div>
+            <div id="pop-view"></div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>
+<div class="confirm-view"></div>

@@ -49,7 +49,7 @@ define([
                 .done(function() {
                     // Backbone.history.navigate(url, true) 等同于 Backbone.history.navigate(url, {trigger:trur})
                     $(window).info(gettext('Add agent successful'));
-                    Backbone.history.navigate('settings/agents', true);
+                    Backbone.history.navigate('/settings/agents', true);
                 })
                 .fail(_.bind(function(data) {
                     if (data.responseJSON.type === 'UserAlreadyExists') {

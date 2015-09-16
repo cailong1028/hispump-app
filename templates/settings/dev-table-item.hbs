@@ -1,0 +1,19 @@
+<td class="avatar">
+    <i class="fa fa-android"></i>
+</td>
+<td class="dev">
+    {{id}}
+</td>
+<td class="dev">
+    {{#if name}}{{gettext 'Dev name'}}: {{name}}{{/if}}
+    {{#if deptname}}<br>{{gettext 'Dept name'}}: {{deptname}}{{/if}}
+    {{#if typename}}<br>{{gettext 'Dev type name'}}: {{typename}}{{/if}}
+</td>
+<td class="dev">
+    {{#if createtime}}{{gettext 'Create time'}}: {{datetimeFormat createtime}}{{/if}}
+    {{#if lastestmodifytime}}<br>{{gettext 'Lastest modify time'}}: {{datetimeFormat lastestmodifytime}}{{/if}}
+</td>
+<td class="text-right last-td">
+<a href="/settings/dev/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Look/Update'}}</a>
+<button class="btn btn-default btn-xs delete"><i class="fa fa-trash"></i></button>
+</td>

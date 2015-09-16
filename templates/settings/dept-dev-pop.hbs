@@ -1,0 +1,39 @@
+<div class="modal-dialog dept-dev-pop">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h2>{{gettext 'Unassgin devs'}}</h2>
+                </div>
+            </div>
+            <div class="row row-margin-top-10">
+                <div class="col-lg-12 col-md-12">
+                    <div class="btn-groups pull-right">
+                        <a class="btn btn-default" data-dismiss="modal">{{gettext "Cancel"}}</a>
+                        <a class="btn btn-primary save">{{gettext "Save"}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-margin-top-10">
+                <div class="col-lg-12 col-md-12">
+                    <select id="dev-types" class="pull-right form-control">
+                        <option value="0">{{gettext 'All dev type'}}</option>
+                        {{#each devtypes}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <div class="list"></div>
+                </div>
+            </div>
+            <div class="row row-margin-top-10">
+                <div class="col-lg-12 col-md-12">
+                    <div class="btn-groups pull-right">
+                        <a class="btn btn-default" data-dismiss="modal">{{gettext "Cancel"}}</a>
+                        <a class="btn btn-primary save">{{gettext "Save"}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -31,3 +31,68 @@
         }
     }
 }
+.dev{
+    select#dev-types{
+        width: 30%;
+    }
+    table.dev-table{
+        thead{
+            font-weight: bolder;
+            background-color: #eee;
+        }
+        tr{
+            td{
+                vertical-align: middle;
+                border: none;
+                &.last-td{
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+.dept{
+    table.dept-table{
+        thead{
+            font-weight: bolder;
+            background-color: #eee;
+        }
+        tr{
+            td{
+                vertical-align: middle;
+                border: none;
+            }
+        }
+    }
+}
+.dept-dev{
+    table.dept-dev-table{
+        thead{
+            font-weight: bolder;
+            background-color: #eee;
+        }
+        tr{
+            td{
+                vertical-align: middle;
+                border: none;
+            }
+        }
+    }
+}
+.dept-dev-pop{
+    #dev-types{
+        width: 30%;
+    }
+    table.dept-dev-pop-table{
+        thead{
+            font-weight: bolder;
+            background-color: #eee;
+        }
+        tr{
+            td{
+                vertical-align: middle;
+                border: none;
+            }
+        }
+    }
+}

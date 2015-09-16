@@ -70,6 +70,7 @@
                         <li class="{{code}} top-nav-li"><a href="{{url}}">{{name}}</a></li>
                     {{/each}}
                 </ul>
+                {{#permit 'dev:setting'}}
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group search">
                         <div class="input-group">
@@ -82,9 +83,10 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right create">
                     <li>
-                        <a href="/tickets/form" class="navbar-link"><i class="fa fa-plus"></i> {{gettext 'Create Ticket'}}</a>
+                        <a href="/settings/dev/form" class="navbar-link"><i class="fa fa-plus"></i> {{gettext 'Create Dev'}}</a>
                     </li>
                 </ul>
+                {{/permit}}
             </div>
         </div>
     </nav>
