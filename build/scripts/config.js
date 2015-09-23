@@ -6,7 +6,7 @@ require.config({
         underscore: '../../bower_components/underscore/underscore',
         'underscore.string': '../../bower_components/underscore.string/dist/underscore.string',
         backbone: '../../bower_components/backbone/backbone',
-        layoutmanager: '../../bower_components/layoutmanager/backbone.layoutmanager',
+        layoutmanager: '../../bower_components/layoutmanager/backbone.layoutmanager.js',
         //'backbone.localStorage': 'vendor/backbone.localStorage',
 
         // bootstrap

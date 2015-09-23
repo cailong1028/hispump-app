@@ -1,5 +1,5 @@
-$icon-font-path: "https://static.yunkefu.com/css/fonts/bootstrap/";
-$fa-font-path: "https://static.yunkefu.com/css/fonts/fontawesome";
+$icon-font-path: "http://static.yunkefu.cc/css/fonts/bootstrap/";
+$fa-font-path: "http://static.yunkefu.cc/css/fonts/fontawesome";
 @import 'bootstrap-variables';
 
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
@@ -30,6 +30,7 @@ $fa-font-path: "https://static.yunkefu.com/css/fonts/fontawesome";
 body {
     background-color: #f4f4f2;
 }
+
 #logo {
     margin: $logo-margin;
     img {
@@ -37,6 +38,7 @@ body {
         height: $logo-height;
     }
 }
+
 #header {
     background-color: $header-bg;
     h1 {
@@ -64,6 +66,7 @@ body {
         }
     }
 }
+
 #footer {
     p {
         @extend .text-center;
@@ -71,25 +74,30 @@ body {
     }
     margin-bottom: 20px;
 }
+
 .pagination {
     li.page a {
         cursor: pointer;
     }
 }
+
 .error-messages {
     display: none;
     &.show {
         display: block;
     }
 }
+
 .break-word {
     p {
         word-wrap: break-word;
     }
 }
-.word-break{
+
+.word-break {
     word-break: break-all;
 }
+
 label.required {
     &:before {
         @extend .text-danger;
@@ -100,7 +108,7 @@ label.required {
     }
 }
 
-.modal-dialog{
+.modal-dialog {
     z-index: 1060;
 }
 
@@ -111,8 +119,39 @@ label.required {
     }
 }
 
-tr.loading, tr.non-items{
-    td{
+tr.loading, tr.non-items {
+    td {
         text-align: center;
+    }
+}
+
+
+
+$main-color:       #1AA79A !default;
+$main-color-hover: #096D64;
+
+a {
+    color: $main-color;
+    &:hover {
+        color: $main-color-hover;
+    }
+}
+
+.pagination > .active > a, .pagination > .active > a:focus,
+.pagination > .active > a:hover, .pagination > .active > span,
+.pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: $main-color;
+    border-color: $main-color;
+}
+
+.pagination>li>a, .pagination>li>span{
+    color: $main-color;
+}
+
+.btn-primary {
+    background-color: $main-color;
+    border-color: #2D9289;
+    &:hover{
+        background-color: $main-color-hover;
     }
 }

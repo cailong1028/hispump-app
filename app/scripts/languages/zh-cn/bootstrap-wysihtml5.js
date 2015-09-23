@@ -5,7 +5,7 @@ define([
 ], function($) {
        // editor
     $.fn.wysihtml5.defaultOptions.locale = 'zh-CN';
-    $.fn.wysihtml5.defaultOptions.stylesheets = ['https://static.yunkefu.com/css/editor.css'];
+    $.fn.wysihtml5.defaultOptions.stylesheets = ['http://static.yunkefu.cc/css/editor.css'];
     $.fn.wysihtml5.defaultOptions.toolbar = {
         'font-styles': false,
         'color': false,
