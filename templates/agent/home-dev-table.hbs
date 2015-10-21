@@ -1,0 +1,56 @@
+<div class="panel-heading">
+    <h4>{{gettext 'Dev status information'}}</h4>
+</div>
+<div>
+    <ul class="nav nav-pills pull-right">
+        <li class="dropdown">
+            <button class="dropdown-toggle dropdown-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span id="selectedStatus" data-value="2" data-type="desc">{{gettext "Offline"}}</span>
+                <b class="caret"></b>
+            </button>
+            <ul class="dropdown-menu pull-right" style="min-width: 20px;">
+                <li data-value="1" class="dropdown-li"><a href="#"><i class="fa fa-check"></i><span class="title"> {{gettext "Online"}}</span></a></li>
+                <li data-value="2" class="dropdown-li active"><a href="#"><i class="fa fa-check"></i><span class="tilte"> {{gettext "Offline"}}</span></a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav nav-pills pull-right">
+        <li class="dropdown">
+            <button class="dropdown-toggle dropdown-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span id="selectedInterval" data-value="10" data-type="desc">10{{gettext 'Second'}}</span>
+                <b class="caret"></b>
+            </button>
+            <ul class="dropdown-menu pull-right" style="min-width: 20px;">
+                <li data-value="5" class="dropdown-li-interval"><a href="#"><i class="fa fa-check"></i><span class="title"> 5 {{gettext "Second"}}</span></a></li>
+                <li data-value="10" class="dropdown-li-interval active"><a href="#"><i class="fa fa-check"></i><span class="tilte"> 10 {{gettext "Second"}}</span></a></li>
+                <li data-value="30" class="dropdown-li-interval"><a href="#"><i class="fa fa-check"></i><span class="tilte"> 30 {{gettext "Second"}}</span></a></li>
+                <li data-value="0" class="dropdown-li-interval"><a href="#"><i class="fa fa-check"></i><span class="tilte"> {{gettext "Stop"}}</span></a></li>
+            </ul>
+        </li>
+    </ul>
+    <span class="pull-right"><span id="timer"></span> {{gettext 'Seconds after, auto flush'}}</span>
+    <!--<span class="btn-group dropdown pull-right">
+        <a class="btn btn-primary btn-xs export-to-file" data-type="csv">{{gettext "Export"}}</a>
+        <a class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="min-width: 60px;">
+            <li><a class="export-to-file" href="javascript: void(0);"  data-type="csv">{{gettext "Export"}}csv</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="xls">{{gettext "Export"}}xls</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="json">{{gettext "Export"}}json</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="doc">{{gettext "Export"}}doc</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="txt">{{gettext "Export"}}txt</a></li>
+        </ul>
+    </span>-->
+</div>
+<table class="table table-striped table-bordered dev-table">
+    <tfoot>
+    <tr><!--<td colspan="3"></td>--></tr>
+    </tfoot>
+    <tbody>
+    <tr class="loading"><td colspan="3"><p>{{gettext 'Now Loading...'}}</p></td></tr>
+    <tr class="non-items"><td colspan="3"><p>{{gettext 'Non Items'}}</p></td></tr>
+    </tbody>
+</table>
+<ul id="pagination" class="pagination pagination-sm"></ul>
+

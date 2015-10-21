@@ -1,5 +1,9 @@
 # Created by http://gitignore.io
 
+libs/*
+libs
+libs/**
+
 ### Node ###
 lib-cov
 *.seed
@@ -41,3 +45,5 @@ bower_components
 ### Yeoman ###
 dist
 test/temp
+
+

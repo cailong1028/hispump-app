@@ -2,7 +2,7 @@
     <i class="fa fa-building"></i>
 </td>
 <td class="dept">
-    {{#if name}}{{gettext 'Dept name'}}: {{name}}{{/if}}
+    {{#if name}}<span title="{{gettext 'Dept name'}}: {{name}}">{{name}}</span>{{/if}}
 </td>
 <td class="dept">
     {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}

@@ -2,16 +2,16 @@
     <img src="{{assets '/images/avatar-32.png'}}" alt="avator" />
 </td>
 <td class="contacts">
-    <p><a href="/settings/agents/{{id}}" title="{{loginname}}">{{loginname}}</a></p><br>
-    {{#if post}}{{post}}<br>{{/if}}
+    <p><a href="/settings/agents/{{id}}" title="{{loginname}}">{{loginname}}</a></p>
+    {{#if post}}<br>{{post}}{{/if}}
 </td>
 <td class="contacts">
-    {{#if username}}{{gettext 'Name'}}: {{username}}<br>{{/if}}
-    {{#if workNum}}{{gettext 'WorkNum'}}: {{workNum}}<br>{{/if}}
-    {{#if mobile}}{{gettext 'Mobile'}}: {{mobile}}{{/if}}
+    {{#if username}}<span title="{{username}}">{{gettext 'Name'}}: {{username}}</span>{{/if}}
+    {{#if workNum}}<br><span title="{{workNum}}">{{gettext 'WorkNum'}}: {{workNum}}</span>{{/if}}
+    {{#if mobile}}<br><span title="{{mobile}}">{{gettext 'Mobile'}}: {{mobile}}</span>{{/if}}
 </td>
 <td class="contacts">
-    {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}
+    {{#if createtime}} <span title="{{datetimeFormat createtime}}">{{gettext 'Create Time'}}: {{datetimeFormat createtime}}</span>{{/if}}
 </td>
 <td class="text-right">
 {{#unless deleted}}

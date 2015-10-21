@@ -366,7 +366,21 @@ define([
     $.ajaxSetup({
         statusCode : {
             401 : function(error) {
-                console.error(error);
+                //session expire
+                if(DEBUG){
+                    console.error('session expired: '+error);
+                }
+                app.vent.trigger('confirm', {
+                    callback: function (view) {
+                        view.hide();
+                        window.location = error.responseText.urlRedirect;
+                    },
+                    text: {
+                        title: 'Session expired',
+                        content: 'Confirm relogin'
+                    }
+                });
+
             },
             403 : function() {
                 Backbone.history.navigate('denied', true);

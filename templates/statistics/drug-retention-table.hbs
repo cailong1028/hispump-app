@@ -1,0 +1,24 @@
+<table class="table table-striped data">
+    <thead>
+        <tr class="text-center">
+            <td class="contacts">{{gettext 'Drug name'}}</td>
+            <td class="contacts">{{gettext 'Specifications'}}</td>
+            <td class="contacts">{{gettext 'Unit'}}</td>
+            <td class="contacts">{{gettext 'Amount'}}</td>
+            <td class="contacts">{{gettext 'Validity period'}}</td>
+            <td class="contacts">{{gettext 'Inpatient area'}}</td>
+            <td class="contacts">{{gettext 'Position'}}</td>
+            <td class="contacts">{{gettext 'Made from'}}</td>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="total text-center">
+            {{!--<td class="text-left">{{gettext 'total'}}</td>--}}
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr class="loading"><td colspan="8"><p>{{gettext 'Now Loading...'}}</p></td></tr>
+        <tr class="non-items"><td colspan="8"><p>{{gettext 'Non Items'}}</p></td></tr>
+    </tbody>
+</table>
+<ul id="pagination" class="pagination pagination-sm"></ul>

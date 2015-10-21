@@ -12,7 +12,12 @@ define([
         // 座席登录首页
         home: function() {
             app.vent.trigger('navbar:active', 'home');
-            app.$layout.setMainView(new HomeView()).render();
+            app.$layout.setMainView(app.homeView = new HomeView()).render();
+            /*setInterval(function(){
+                if(!app.homeView){
+
+                }
+            }, 10000);*/
         }
     });
     return IndexRouter;

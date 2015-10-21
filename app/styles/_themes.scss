@@ -171,9 +171,10 @@
 // Panel linkdesk
 .panel-content,
 .panel-sidebar {
+    padding: 15px 20px;
     .panel-heading,
     .panel-body {
-        padding: 15px 20px;
+        padding: 0 0;
     }
 }
 .panel-content {

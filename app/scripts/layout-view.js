@@ -73,6 +73,9 @@ define([
         setMainView: function(view) {
             var originView = this.getView(mainId);
             if (originView) {
+                if(originView.beforeRemove && _.isFunction(originView.beforeRemove)){
+                    originView.beforeRemove();
+                }
                 originView.remove();
             }
             return this.setView(mainId, view);

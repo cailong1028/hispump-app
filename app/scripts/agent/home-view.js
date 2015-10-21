@@ -6,109 +6,195 @@ define([
     'moment',
     'agent/home-package-model',
     'agent/home-activities-collection',
+    'settings/dev-collection',
+    'amcharts',
     'moment-timezone'
-], function(_,Backbone,moment,HomePackageModel,HomeActivitiesCollection) {
+], function(_,Backbone,moment,HomePackageModel,HomeActivitiesCollection, DevCollection, AmCharts) {
+
+    var homeDevTableView;
+    var chartView;
 
     //汇总
-    var TicketTotalView = Backbone.View.extend({
-        template : 'templates:agent:home-ticket-total',
-        events : {
-            'click ul li:eq(0)' : '_overdue',//我的逾期
-            'click ul li:eq(1)' : '_processing',//我的处理中
-            'click ul li:eq(2)' : '_paused',//我的等待回复
-            'click ul li:eq(3)' : '_today',//我的今日到期
-            'click ul li:eq(4)' : '_noassinged'//全部未指派
+    var ChartView = Backbone.View.extend({
+        template : 'templates:agent:home-chart',
+        afterRender: function(){
+            this._renderChart();
         },
-        _overdue: function() {
-            Backbone.history.navigate('/tickets?assigned-to-me=me&expiresIn=expired',true);
-        },
-        _processing: function() {
-            Backbone.history.navigate('/tickets/filters/my-tickets',true);
-        },
-        _paused: function() {
-            Backbone.history.navigate('/tickets?assigned-to-me=me&state=Pending',true);
-        },
-        _today: function() {
-            Backbone.history.navigate('/tickets?assigned-to-me=me&expiresIn=today',true);
-        },
-        _noassinged: function() {
-            Backbone.history.navigate('/tickets?unassigned=',true);
+        _renderChart: function(){
+            var chartData = [{
+                status: "在线",
+                count: 100
+            }, {
+                status: "离线",
+                count: 301
+            }];
+
+            var collection = new Backbone.Collection();
+            collection.url = function(){
+                return 'dev/status/info';
+            };
+
+            collection.fetch().done(function(data){
+                // PIE CHART
+                new AmCharts.AmPieChart({
+                    dataProvider: data,
+                    titleField: "status",
+                    valueField: "count",
+                    outlineColor: "#FFFFFF",
+                    outlineAlpha: 0.8,
+                    outlineThickness: 2,
+                    depth3D: 15,
+                    angle: 30,
+                    labelText: "[[title]]",
+                    urlTarget: "127.0.0.1:5000"
+                }).write("chartdiv");
+            });
         }
     });
 
-    var ActivateItemView = Backbone.View.extend({
-        template : 'templates:agent:home-ticket-item',
-        //tagName: 'tr',
-        tagName: 'li'
-    });
-
-    //工单列表 可以是一个集合
-    var ActiviesView = Backbone.View.extend({
-        template : 'templates:agent:home-activies',
-        events : {
-            'click .more' : '_more'
+    var HomeDevTableItemView = Backbone.View.extend({
+        template : 'templates:agent:home-dev-table-item',
+        tagName: 'tr',
+        events: {
         },
-        initialize: function() {
-            this.collection = new HomeActivitiesCollection();
-            this.timestamp = moment().toISOString();
+        serialize: function () {
+            return _.extend(this.model.toJSON(), {status: homeDevTableView.status});
         },
-        setItemViews: function() {
-            if(this.collection.length > 0){
-                //如果有数据的话
-                this.setViews({
-                    '.list': this.collection.map(function(model) {
-                        return new ActivateItemView({model: model});
-                    })
-                });
-                // 渲染子视图，显示结果。。。
-                this.renderViews()
-                    .promise()
-                    .done(function() {
-                        // 隐藏加载提示
-                        this.$('.loading').hide();
-                    });
-            }else{
-                //没有数据显示无数据的提示
-                this.$('.non-items').show();
-                //隐藏正在加载提示
-                this.$('.loading').hide();
-            }
-        },
-        beforeRender: function() {
-            //render 之前 界面还没有渲染
-        },
-        afterRender: function() {
-            this.fetchSearchResult();
-        },
-        fetchSearchResult : function(page){
-            //显示正在加载提示
-            this.$('.loading').show();
-            //隐藏无数据提示
-            this.$('.non-items').hide();
-            //fetch 数据之后，bind一个触发事件
-            this.collection.fetch({reset : false,push : true,data:{page:page,timestamp:this.timestamp}})
-                .done(_.bind(this.setItemViews, this))
-                .done(_.bind(function() {//处理分页
-                    var page = this.collection.page;
-                    //联调时放开注释进行测试
-                    if (page.totalPages < 1 || page.number+1 === page.totalPages) {
-                         this.$('.more').hide();
-                         return;
-                    }
-                }, this));
-        },
-        _more: function(e){
-            console.log();
-            e.preventDefault();
-            var page = this.collection.page;
-            this.fetchSearchResult(page.number+1);
+        initialize: function () {
         }
     });
 
     //个人侧写 profile
     //一个展示的view 一个编辑的view
-    var UserProfileView = Backbone.View.extend({
-        template : 'templates:agent:home-user-profile',
+    var HomeDevTableView = Backbone.View.extend({
+        template : 'templates:agent:home-dev-table',
+        collection: new DevCollection(),
+        status: '2',
+        initialize: function (o) {
+            if(o){
+                this.opts = o;
+            }
+        },
+        events: {
+            'click .dropdown-li, .dropdown-li a, .dropdown-li a span': '_clickLi',
+            'click .dropdown-li-interval, .dropdown-li-interval a, .dropdown-li-interval a span': '_clickIntervalLi'
+        },
+        beforeRender: function(){
+            this.collection.url = function(){
+                return 'dev/list/status';
+            };
+        },
+        afterRender: function () {
+            this._fetchResults();
+        },
+        _clickIntervalLi: function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var $tgt = $(e.target);
+            if(!$tgt.hasClass('dropdown-li-interval')){
+                $tgt = $tgt.parents('.dropdown-li-interval');
+            }
+            if($tgt.hasClass('active')){
+                return;
+            }
+            this.$('#selectedInterval').attr('data-value', $tgt.attr('data-value'));
+
+            this.$('#selectedInterval').text($tgt.find('a span').text());
+            $tgt.siblings().removeClass('active');
+            $tgt.addClass('active');
+            this.$('li.dropdown').removeClass('open');
+            //this.$('.dropdown-menu').dropdown('toggle');
+            //this.$('.dropdown-menu').toggle();
+            this.trigger('do-flush', $tgt.attr('data-value'))
+        },
+        _clickLi: function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var $tgt = $(e.target);
+            if(!$tgt.hasClass('dropdown-li')){
+                $tgt = $tgt.parents('.dropdown-li');
+            }
+            if($tgt.hasClass('active')){
+                return;
+            }
+
+            this.$('#selectedStatus').attr('data-value', $tgt.attr('data-value'));
+            this.status = $tgt.attr('data-value');
+            this.$('#selectedStatus').text($tgt.find('a span').text());
+            $tgt.siblings().removeClass('active');
+            $tgt.addClass('active');
+            this.$('li.dropdown').removeClass('open');
+            //this.$('.dropdown-menu').dropdown('toggle');
+            //this.$('.dropdown-menu').toggle();
+            this._fetchResults();
+        },
+        _fetchParams: function () {
+            this.params = {};
+            this.params.status = this.$('#selectedStatus').attr('data-value');
+            if(this.opts){
+                _.extend(this.params, this.opts);
+            }
+            return this.params;
+        },
+        // 获取结果
+        _fetchResults: function (page) {
+            page = page || 0;
+            // 删除所有已经存在的
+            this.removeView('tbody');
+            // 删除分页
+            if (this.pagination === true) {
+                this.pagination = false;
+                try {
+                    this.$('#pagination').pagination('destroy');
+                } catch (e) {
+                    //TODO
+                }
+                delete this.pagination;
+            }
+            // 展示加载行
+            this.$('.loading').show();
+            // 隐藏没有数据行
+            this.$('.non-items').hide();
+            this._fetchParams();
+            this.collection.fetch({
+                reset: true,
+                data: _.extend({orderBy: 'lastestmodifytime', sort: 'desc', page: page}, this.params)
+            }).done(_.bind(this._setItemViews, this)).done(_.bind(function () {
+                if (this.collection.page.totalPages < 1) {
+                    return;
+                }
+                var fetch = _.bind(this._fetchResults, this),
+                    page = this.collection.page;
+                this.pagination = true;
+                this.$('#pagination').pagination({
+                    startPage: page.number + 1,
+                    totalPages: page.totalPages,
+                    href: '/settings/agents?page={{number}}',
+                    onPageClick: function (e, page) {
+                        fetch(page - 1);
+                    }
+                });
+            }, this));
+        },
+        _setItemViews: function () {
+            if (this.collection.length > 0) { // 如果包含多个结果
+                // 设置表格内容
+                this.setViews({
+                    'tbody': this.collection.map(function (model) {
+                        return new HomeDevTableItemView({model: model});
+                    })
+                });
+                // 没有结果行隐藏。。。
+                // 渲染子视图，显示结果。。。
+                this.renderViews().promise().done(function () {
+                    // 隐藏加载行
+                    this.$('.loading').hide();
+                });
+            } else {// 没有结果。。。
+                this.$('.loading').hide();
+                this.$('.non-items').show();
+            }
+        }
     });
 
     var HomeView = Backbone.View.extend({
@@ -116,20 +202,49 @@ define([
         model: new HomePackageModel(),
         //此处拿到所有的数据
         initialize: function(){
+            this.intervalTime = 10;
+            //this.debounceFunc = _.debounce(this._flush, 100);
         },
         serialize: function(){
 
         },
         beforeRender: function(){
+            this.setView('#pie-chart-div', chartView = new ChartView());
+            this.setView('#information', homeDevTableView = new HomeDevTableView());
+            this.listenTo(homeDevTableView, 'do-flush', this._doFlush);
         },
         afterRender: function(){
-            this.model.fetch().done(_.bind(this.renderAllView, this));
+            this._doFlush();
         },
-        renderAllView: function(){
-            this.setView('.ticket-total', new TicketTotalView({model : this.model.get('totalTicket')})).render();
-            // 获取用户的信息 client 直接可获取返回一个model
-            this.setView('.information', new UserProfileView({model : client.profile()})).render();
-            this.setView('.activies', new ActiviesView()).render();
+        _doFlush: function(intervalTime){
+            var that = this;
+            intervalTime ? that.intervalTime = intervalTime : void(0);
+            intervalTime = parseInt(intervalTime);
+            if(intervalTime === 0){
+                clearInterval(that.currInterval);
+                that.currInterval = null;
+                return;
+            }
+            if(that.currInterval){
+                return;
+            }
+            var beginTime = _.now();
+            that.currInterval = setInterval(function(){
+                console.log('do interval');
+                var _onceTime = that.intervalTime - parseInt((_.now() -  beginTime)/1000);
+                that.$('#timer').text(_onceTime < 0 ? 0 : _onceTime);
+                if(_onceTime < 1){
+                    beginTime = _.now();
+                    that._flush();
+                }
+            }, 1000);
+        },
+        beforeRemove: function(){
+            clearInterval(this.currInterval);
+        },
+        _flush: function(){
+            chartView._renderChart();
+            homeDevTableView._fetchResults();
         }
     });
     return HomeView;

@@ -5,13 +5,13 @@
     {{id}}
 </td>
 <td class="dev">
-    {{#if name}}{{gettext 'Dev name'}}: {{name}}{{/if}}
-    {{#if deptname}}<br>{{gettext 'Dept name'}}: {{deptname}}{{/if}}
-    {{#if typename}}<br>{{gettext 'Dev type name'}}: {{typename}}{{/if}}
+    {{#if name}}<span title="{{gettext 'Dev name'}}: {{name}}">{{name}}</span>{{/if}}
+    {{#if deptname}}<br><span title="{{gettext 'Dept name'}}: {{deptname}}">{{deptname}}</span>{{/if}}
+    {{#if typename}}<br><span title="{{gettext 'Dev type name'}}: {{typename}}">{{typename}}</span>{{/if}}
 </td>
 <td class="dev">
-    {{#if createtime}}{{gettext 'Create time'}}: {{datetimeFormat createtime}}{{/if}}
-    {{#if lastestmodifytime}}<br>{{gettext 'Lastest modify time'}}: {{datetimeFormat lastestmodifytime}}{{/if}}
+    {{#if createtime}}<span title="{{gettext 'Create time'}}: {{datetimeFormat createtime}}">{{datetimeFormat createtime}}</span>{{/if}}
+    {{#if lastestmodifytime}}<br><span title="{{gettext 'Lastest modify time'}}: {{datetimeFormat lastestmodifytime}}">{{datetimeFormat lastestmodifytime}}</span>{{/if}}
 </td>
 <td class="text-right last-td">
 <a href="/settings/dev/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Look/Update'}}</a>

@@ -1,0 +1,39 @@
+<div style="width: 100%; text-align: right">
+    <span class="btn-group dropdown">
+        <a class="btn btn-primary btn-xs export-to-file" data-type="csv">{{gettext "Export"}}</a>
+        <a class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="min-width: 60px;">
+            <li><a class="export-to-file" href="javascript: void(0);"  data-type="csv">{{gettext "Export"}}csv</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="xls">{{gettext "Export"}}xls</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="json">{{gettext "Export"}}json</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="doc">{{gettext "Export"}}doc</a></li>
+            <li><a class="export-to-file" href="javascript: void(0);" data-type="txt">{{gettext "Export"}}txt</a></li>
+        </ul>
+    </span>
+</div>
+<table id="drug-period-expire-table" class="table table-striped data">
+    <thead>
+        <tr class="text-center">
+            <td class="text-left">{{gettext 'Serialize number'}}</td>
+            <td class="contacts">{{gettext 'Drug name'}}</td>
+            <td class="contacts">{{gettext 'Specifications'}}</td>
+            <td class="contacts">{{gettext 'Unit'}}</td>
+            <td class="contacts">{{gettext 'Amount'}}</td>
+            <td class="contacts">{{gettext 'Validity period'}}</td>
+            <td class="contacts">{{gettext 'Inpatient area'}}</td>
+            <td class="contacts">{{gettext 'Made from'}}</td>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="total text-center">
+            {{!--<td class="text-left">{{gettext 'total'}}</td>--}}
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr class="loading"><td colspan="8"><p>{{gettext 'Now Loading...'}}</p></td></tr>
+        <tr class="non-items"><td colspan="8"><p>{{gettext 'Non Items'}}</p></td></tr>
+    </tbody>
+</table>
+<ul id="pagination" class="pagination pagination-sm"></ul>

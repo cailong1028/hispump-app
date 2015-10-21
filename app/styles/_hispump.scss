@@ -1,97 +1,255 @@
-.agent-authority{
-    table#agent-authority-table{
-        thead{
+.agent-authority {
+    table#agent-authority-table {
+        thead {
             font-weight: bolder;
             background-color: #eee;
-            tr{
-                td{
-                    &.pick-all{
+            tr {
+                td {
+                    &.pick-all {
                         text-align: center;
                     }
                 }
             }
         }
-        tr{
-            td{
-                vertical-align: middle;
-                border: none;
-                &.pick{
-                    text-align: center;
-                }
-                &.memo{
-                    .memo-container{
-                        width: 100px;
-                        display: inline-block;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
+        tbody{
+            tr {
+                td {
+                    vertical-align: middle;
+                    border: none;
+                    &.pick {
+                        text-align: center;
+                    }
+                    &.memo {
+                        .memo-container {
+                            width: 100px;
+                            display: inline-block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
                     }
                 }
             }
         }
     }
 }
-.dev{
-    select#dev-types{
+
+.dev {
+    select#dev-types {
         width: 30%;
     }
-    table.dev-table{
-        thead{
+    table.dev-table {
+        thead {
             font-weight: bolder;
             background-color: #eee;
         }
-        tr{
+        tr {
             td{
                 vertical-align: middle;
                 border: none;
-                &.last-td{
-                    width: 20%;
+                &:nth-child(1){
+                    width: 5%;
+                }
+                &:nth-child(2){
+                    width: 25%;
+                }
+                &:nth-child(3){
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 200px;
+                }
+                &:nth-child(4){
+                    width: 30%;
+                }
+                //剩余的width全部分配给第四列
+                &:last-child{
+                    //text-align: right;
                 }
             }
         }
     }
 }
-.dept{
-    table.dept-table{
-        thead{
+
+.dept {
+    table.dept-table {
+        thead {
             font-weight: bolder;
             background-color: #eee;
         }
-        tr{
-            td{
+        tr {
+            td {
                 vertical-align: middle;
                 border: none;
+                &:nth-child(1){
+                    width: 5%;
+                }
+                &:nth-child(2){
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 200px;
+                }
             }
         }
     }
 }
-.dept-dev{
-    table.dept-dev-table{
-        thead{
+
+.dept-dev {
+    table.dept-dev-table {
+        thead {
             font-weight: bolder;
             background-color: #eee;
         }
-        tr{
-            td{
+        tr {
+            td {
+
                 vertical-align: middle;
                 border: none;
+                &:nth-child(1){
+                    width: 10%;
+                }
+                &:nth-child(3){
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 200px;
+                }
             }
         }
     }
 }
-.dept-dev-pop{
-    #dev-types{
+
+.dept-dev-pop {
+    #dev-types {
         width: 30%;
     }
-    table.dept-dev-pop-table{
-        thead{
+    table.dept-dev-pop-table {
+        thead {
             font-weight: bolder;
             background-color: #eee;
         }
-        tr{
-            td{
+        tr {
+            td {
+
                 vertical-align: middle;
                 border: none;
+
+                &:nth-child(4){
+                    display: inline-block;
+                    width: 200px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                //剩余的width全部分配给第四列
+            }
+        }
+    }
+}
+
+.statistics {
+    table.data {
+        thead {
+            background-color: #eee;
+        }
+        td {
+            vertical-align: middle;
+            border: none;
+
+        }
+    }
+
+    .drug-sepplement-detail {
+        table.data {
+            tr:not(.loading):not(.non-items) {
+                td {
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:not(:last-child){
+                        width: 10%;
+                    }
+                    &:last-child{
+                        width: 7%;
+                    }
+                }
+            }
+        }
+    }
+
+    .drug-period-expire {
+        table.data {
+            tr:not(.loading):not(.non-items) {
+                td {
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:not(:last-child){
+
+                        width: 12.5%;
+                    }
+                    &:last-child{
+                        display: inline-block;
+                        //width: 40px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 8%;
+                    }
+                }
+            }
+        }
+    }
+
+    .drug-stock-amount {
+        table.data {
+            tr:not(.loading):not(.non-items):not(.action) {
+                td {
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:not(:last-child){
+
+                        width: 14.2%;
+                    }
+                    &:last-child{
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    }
+
+    .drug-retention {
+        table.data {
+            tr:not(.loading):not(.non-items):not(.action) {
+                td {
+                    display: inline-block;
+                    //width: 40px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:not(:last-child){
+
+                        width: 12.5%;
+                    }
+                    &:last-child{
+                        width: 7%;
+                    }
+                }
             }
         }
     }

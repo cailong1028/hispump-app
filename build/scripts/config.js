@@ -17,8 +17,8 @@ require.config({
         'handlebars': '../../bower_components/handlebars/handlebars.amd',
 
         //vendor
-        'bootstrap-datetimepicker': '/jslib/bootstrap-datetimepicker/bootstrap-datetimepicker4',
-        'bootstrap-pagination' : '/jslib/bootstrap-pagination/bootstrap-pagination',
+        'bootstrap-datetimepicker': '/libs/jslib/bootstrap-datetimepicker/bootstrap-datetimepicker4',
+        'bootstrap-pagination' : '/libs/jslib/bootstrap-pagination/bootstrap-pagination',
         // bootstrapSwitch: '../../bower_components/bootstrap-switch/dist/js/bootstrap-switch',
         // custom jquery plugin
         'jquery.serialize-object': 'vendor/jquery.serialize-object',
@@ -32,18 +32,18 @@ require.config({
         'jquery.iframe-transport': '../../bower_components/jquery-file-upload/js/jquery.iframe-transport',
         'jquery.ui.widget': '../../bower_components/jquery-file-upload/js/vendor/jquery.ui.widget',
         // end
-        'dropzone': '/jslib/dropzone/dropzone-amd-module',
+        'dropzone': '/libs/jslib/dropzone/dropzone-amd-module',
 
         'numeral': '../../bower_components/numeral/numeral',
         // editor
-        'bootstrap.wysihtml5': '/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5',
-        'bootstrap.wysihtml5.templates': '/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5.templates',
-        'bootstrap.wysihtml5.commands': '/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5.commands',
-        'wysihtml5': '/jslib/bootstrap-wysihtml5/wysihtml5',
-        'rangy': '/jslib/rangy/rangy-core',
-        'rangy-selectionsaverestore': '/jslib/rangy/rangy-selectionsaverestore',
+        'bootstrap.wysihtml5': '/libs/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5',
+        'bootstrap.wysihtml5.templates': '/libs/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5.templates',
+        'bootstrap.wysihtml5.commands': '/libs/jslib/bootstrap-wysihtml5/bootstrap.wysihtml5.commands',
+        'wysihtml5': '/libs/jslib/bootstrap-wysihtml5/wysihtml5',
+        'rangy': '/libs/jslib/rangy/rangy-core',
+        'rangy-selectionsaverestore': '/libs/jslib/rangy/rangy-selectionsaverestore',
 
-        'jquery-select2': '/jslib/jquery-select2/jquery-select2'
+        'jquery-select2': '/libs/jslib/jquery-select2/jquery-select2'
     },
     shim: {
         bootstrap: {

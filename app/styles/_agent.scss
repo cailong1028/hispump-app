@@ -1,5 +1,6 @@
 .agenthome{
-    #tickets-total {
+    #pie-chart-div {
+        min-height: 480px;
         ul {
             li {
                 display: inline-block;
@@ -91,7 +92,8 @@
             margin: 0;
         }
     }
-    .panel-sidebar.information {
+    .information {
+        min-height: 480px;
         label {
             display: inline-block;
             width: 3em;
@@ -100,8 +102,40 @@
         p{
             word-break: break-all;
         }
-        ul{
-            border-top: 1px solid #f5f5ed;
+        .dropdown{
+            .dropdown-button{
+                border: 0;
+                background-color: inherit;
+            }
+            ul.dropdown-menu{
+
+                li:not(.active){
+                    i{
+                        visibility: hidden;
+                    }
+                }
+                border-top: 1px solid #f5f5ed;
+            }
+        }
+        table.dev-table {
+            thead {
+                font-weight: bolder;
+                background-color: #eee;
+            }
+            tr:not(.loading):not(.non-items) {
+                td{
+                    vertical-align: middle;
+                    border: none;
+                    &:not(:last-child){
+                        text-align: left;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 45%;
+                        display: inline-block;
+                    }
+                }
+            }
         }
     }
     .panel-sidebar.todos {

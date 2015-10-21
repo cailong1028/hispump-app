@@ -26,6 +26,9 @@ require.config({
         'wysihtml5': 'empty:',
         'rangy': 'empty:',
         'rangy-selectionsaverestore': 'empty:',
-        'jquery-select2': 'empty:'
+        'jquery-select2': 'empty:',
+        'Blob': 'empty:',
+        'FileSaver': 'empty:',
+        'amcharts': 'empty:'
     }
 });

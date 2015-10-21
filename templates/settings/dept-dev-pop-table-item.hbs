@@ -8,6 +8,6 @@
     {{id}}
 </td>
 <td class="pick">
-    {{#if name}}{{gettext 'Dev name'}}: {{name}}{{/if}}
-    {{#if typename}}<br>{{gettext 'Dev type name'}}: {{typename}}{{/if}}
+    {{#if name}}<span title="{{name}}">{{gettext 'Dev name'}}: {{name}}</span>{{/if}}
+    {{#if typename}}<br><span title="{{typename}}">{{gettext 'Dev type name'}}: {{typename}}</span>{{/if}}
 </td>

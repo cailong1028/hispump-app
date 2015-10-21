@@ -18,7 +18,10 @@
     "jquery-file-upload": "~9.9.2",
     "rangy": "~1.2.3",
     "underscore.string": "~3.0.3",
-    "moment-timezone": "~0.3.0"
+    "moment-timezone": "~0.3.0",
+    "Blob": "*",
+    "FileSaver": "*",
+    "amcharts2": "~2.9.0"
   },
   "devDependencies": {}
 }

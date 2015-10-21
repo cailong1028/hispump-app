@@ -27,7 +27,8 @@ module.exports = function(grunt) {
     // Configurable paths
     var config = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist',
+        hispumpdist: '../../workspace/hispump/public/linkdeskapp'
     };
     grunt.config.set('buildId', 'devlopment');
     // Define the configuration for all the tasks
@@ -186,6 +187,17 @@ module.exports = function(grunt) {
                     ]
                 }]
             },
+            //hispumpdist
+            //直接写文件夹的方式, Cannot delete files outside the current working directory
+            //clnhispump: '<%= config.hispumpdist %>',
+            clnhispump: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%= config.hispumpdist %>/**/*'
+                    ]
+                }]
+            },
             server: '.tmp'
         },
 
@@ -294,7 +306,7 @@ module.exports = function(grunt) {
         requirejs: {
             options: {
                 baseUrl: '<%= config.app %>/scripts',
-                optimize: 'none',
+                optimize: 'uglify',
                 uglify: {
                     // jshint -W106
                     toplevel: false,
@@ -574,6 +586,15 @@ module.exports = function(grunt) {
                 cwd: '<%= config.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            cpthispump: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: 'dist',
+                    dest: '<%= config.hispumpdist %>',
+                    src: ['**/*']
+                }]
             }
         },
 
@@ -725,8 +746,9 @@ module.exports = function(grunt) {
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
             return grunt.task.run(['build',
-                'configureProxies:dist',
-                'connect:dist:keepalive'
+                //'configureProxies:dist',
+                //'connect:dist:keepalive',
+                'copy:cpthispump'
             ]);
         }
 

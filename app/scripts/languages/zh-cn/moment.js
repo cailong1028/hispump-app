@@ -10,7 +10,7 @@ define([
         weekdaysMin : '日_一_二_三_四_五_六'.split('_'),
         longDateFormat : {
             LT : 'HH点mm',
-            LTS : 'HH点m分s秒',
+            LTS : 'HH点mm分ss秒',
             L : 'YYYY-MM-DD',
             LL : 'YYYY年MMMD日',
             LLL : 'YYYY年MMMD日LT',
@@ -18,7 +18,8 @@ define([
             l : 'YYYY-MM-DD',
             ll : 'YYYY年MMMD日',
             lll : 'YYYY年MMMD日LT',
-            llll : 'YYYY年MMMD日dddd LT'
+            llll : 'YYYY年MMMD日dddd LT',
+            llls : 'YYYY年MMMD日dddd LTS'
         },
         meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
         meridiemHour: function (hour, meridiem) {
