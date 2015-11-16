@@ -1,27 +1,29 @@
 /**
- * Created by cailong on 2015/10/12.
+ * Created by cailong on 2015/11/14.
  */
 /*global define*/
 'use strict';
 define([
     'backbone',
-    'settings/dev-type-collection'
+    'settings/dev-type-collection',
+    'helpers/tableExport'
 ], function(Backbone, DevTypeCollection){
 
-    var drugStockAmountTableView;
+    var appendSheetTableView;
     var queryView;
     var $dates = [];
 
-    var DrugStockAmountModel = Backbone.Model.extend({
+    var AppendSheetModel = Backbone.Model.extend({
         //urlRoot:
     });
 
-    var DrugStockAmountCollection = Backbone.Collection.extend({
-        model: DrugStockAmountModel
+    var AppendSheetCollection = Backbone.Collection.extend({
+        model: AppendSheetModel,
+        url: 'statistics/append-sheet'
     });
 
     var QueryView = Backbone.View.extend({
-        template: 'templates:statistics:drug-stock-amount-query',
+        template: 'templates:statistics:append-sheet-query',
         events: {
             'click #query': '_query'
         },
@@ -118,17 +120,17 @@ define([
         }
     });
 
-    var DrugStockAmountTableItemView = Backbone.View.extend({
+    var AppendSheetTableItemView = Backbone.View.extend({
         tagName: 'tr',
-        template: 'templates:statistics:drug-stock-amount-table-item',
+        template: 'templates:statistics:append-sheet-table-item',
         serialize: function() {
             return this.model.toJSON();
         }
     });
 
-    var DrugStockAmountTableView = Backbone.View.extend({
-        template: 'templates:statistics:drug-stock-amount-table',
-        collection: new DrugStockAmountCollection(),
+    var AppendSheetTableView = Backbone.View.extend({
+        template: 'templates:statistics:append-sheet-table',
+        collection: new AppendSheetCollection(),
         events: {
             'click .export-to-file': '_export'
         },
@@ -144,7 +146,7 @@ define([
             var $tgt = $(e.target);
             var type = $tgt.attr('data-type');
             //tableExport(domId, filename, exportType)
-            tableExport('drug-stock-amount-table', gettext('Drug stock amount')+'_'+new Date().getTime(), type);
+            tableExport('append-sheet-table', gettext('AppendSheet')+'_'+new Date().getTime(), type);
         },
         // 获取结果
         _fetchResults: function(page) {
@@ -160,43 +162,40 @@ define([
             this.$('.loading').show();
             // 隐藏没有数据行
             this.$('.non-items').hide();
-            this.collection.url = _.bind(function(){
-                return 'statistics/drug-stock-amount';
-            }, this);
             var paramsData = _.extend({page: page}, this.params);
             this.collection.fetch({
-                reset: true,
-                data: paramsData
-            }).done(_.bind(function () {
-                this._setItemViews();
-                /*if (this.collection.page.totalPages < 1) {
-                    return;
-                }
-                var fetch = _.bind(this._fetchResults, this);
-                var page = this.collection.page;
-                this.pagination = true;
-                this.$('#pagination').pagination({
-                    startPage: page.number + 1,
-                    totalPages: page.totalPages,
-                    href: '/statistics/drug-stock-amount?page={{number}}',
-                    onPageClick: function (e, page) {
-                        fetch(page - 1);
+                    reset: true,
+                    data: paramsData
+                })
+                .done(_.bind(this._setItemViews, this)).done(_.bind(function () {
+                    if (this.collection.page.totalPages < 1) {
+                        return;
                     }
-                });*/
-            }, this)).fail(_.bind(function(){
-                this.$('.loading').hide();
-                // 隐藏没有数据行
-                this.$('.non-items').hide();
-                $(window).info(gettext('Query error'));
-            }, this));
+                    var fetch = _.bind(this._fetchResults, this),
+                        page = this.collection.page;
+                    this.pagination = true;
+                    this.$('#pagination').pagination({
+                        startPage: page.number + 1,
+                        totalPages: page.totalPages,
+                        href: '/settings/agents?page={{number}}',
+                        onPageClick: function (e, page) {
+                            fetch(page - 1);
+                        }
+                    });
+                }, this)).fail(_.bind(function(){
+                    this.$('.loading').hide();
+                    // 隐藏没有数据行
+                    this.$('.non-items').hide();
+                    $(window).info(gettext('Query error'));
+                }, this));
         },
         _setItemViews: function() {
             if (this.collection.length > 0) { // 如果包含多个结果
                 // 设置表格内容
                 this.setViews({
                     'tbody': this.collection.map(function(model, i) {
-                        model.set('index', i + 1);
-                        return new DrugStockAmountTableItemView({model: model});
+                        model.set('index', i+1);
+                        return new AppendSheetTableItemView({model: model});
                     })
                 });
                 // 没有结果行隐藏。。。
@@ -212,38 +211,21 @@ define([
         }
     });
 
-    var DrugStockAmountView = Backbone.View.extend({
-        template: 'templates:statistics:drug-stock-amount',
-        events: {
-            'click #generate-append-sheet': '_generateAppendSheet'
-        },
+    var AppendSheetView = Backbone.View.extend({
+        template: 'templates:statistics:append-sheet',
         beforeRender: function(){
             this.setView('.query', queryView = new QueryView());
             this.listenTo(queryView, 'show:report', function(options) {
-                this.setView('.list', drugStockAmountTableView =  new DrugStockAmountTableView(options)).render();
+                this.setView('.list', appendSheetTableView =  new AppendSheetTableView(options)).render();
             });
         },
         afterRender: function(){
             //TODO 默认查询条件
             var options = {};
-            this.setView('.list', drugStockAmountTableView =  new DrugStockAmountTableView(options)).render();
-        },
-        _generateAppendSheet: function(){
-            this.$('#generate-append-sheet').attr('disabled', 'disabled');
-            var model = new Backbone.Model();
-            model.url = function(){
-                return 'statistics/generate-append-sheet';
-            };
-            model.fetch().done(_.bind(function(){
-                this.$('#generate-append-sheet').removeAttr('disabled');
-                //TODO 跳转到补药清单列表
-            }, this)).fail(_.bind(function(err){
-                this.$('#generate-append-sheet').removeAttr('disabled');
-                $('window').info('Fail to generate append sheet');
-            }, this));
+            this.setView('.list', appendSheetTableView =  new AppendSheetTableView(options)).render();
         }
     });
 
-    return DrugStockAmountView;
+    return AppendSheetView;
 
 });

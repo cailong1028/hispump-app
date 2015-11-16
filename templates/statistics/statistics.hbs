@@ -25,7 +25,7 @@
                                     <h1>
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-bar-chart fa-inverse fa-stack-1x"></i>
+                                            <i class="fa fa-exclamation-triangle fa-inverse fa-stack-1x"></i>
                                         </span>
                                     </h1>
                                     {{gettext 'Drug period expire'}}
@@ -39,30 +39,44 @@
                                     <h1>
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-bar-chart fa-inverse fa-stack-1x"></i>
+                                            <i class="fa fa-exclamation-triangle fa-inverse fa-stack-1x"></i>
                                         </span>
                                     </h1>
                                     {{gettext 'Drug stock amount'}}
                                 </a>
                             </div>
                         </li>
-                        <hr>
+                        <!--补药清单-->
+                        <li>
+                            <div class="text-center">
+                                <a href="statistics/append-sheet">
+                                    <h1>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-files-o fa-inverse fa-stack-1x"></i>
+                                        </span>
+                                    </h1>
+                                    {{gettext 'Append sheet'}}
+                                </a>
+                            </div>
+                        </li>
                         <!--补药记录明细-->
-                        {{!--<li>
+                        <li>
                             <div class="text-center">
                                 <a href="statistics/drug-supplement-detail">
                                     <h1>
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-bar-chart fa-inverse fa-stack-1x"></i>
+                                            <i class="fa fa-medkit fa-inverse fa-stack-1x"></i>
                                         </span>
                                     </h1>
                                     {{gettext 'Drug supplement recording details'}}
                                 </a>
                             </div>
                         </li>
+                        <hr>
                         <!--补药记录汇总-->
-                        <li>
+                        {{!--<li>
                             <div class="text-center">
                                 <a href="statistics/agentreports">
                                     <h1>
@@ -144,7 +158,7 @@
                                     {{gettext 'Stock change query'}}
                                 </a>
                             </div>
-                        </li>--}}
+                        </li>
                         <!--滞留药品查询-->
                         <li>
                             <div class="text-center">
@@ -158,7 +172,7 @@
                                     {{gettext 'Drug stranded query'}}
                                 </a>
                             </div>
-                        </li>
+                        </li>--}}
 
                     </ul>
                 </div>

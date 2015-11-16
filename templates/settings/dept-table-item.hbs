@@ -2,13 +2,16 @@
     <i class="fa fa-building"></i>
 </td>
 <td class="dept">
-    {{#if name}}<span title="{{gettext 'Dept name'}}: {{name}}">{{name}}</span>{{/if}}
+    {{#if dept_code}}<span title="{{gettext 'Dept code'}}: {{dept_code}}">{{dept_code}}</span>{{/if}}
 </td>
 <td class="dept">
-    {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}
+    {{#if dept_name}}<span title="{{gettext 'Dept name'}}: {{dept_name}}">{{dept_name}}</span>{{/if}}
 </td>
+{{!--<td class="dept">
+    {{#if createtime}} {{gettext 'Create Time'}}: {{datetimeFormat createtime}}{{/if}}
+</td>--}}
 <td class="text-right">
-<a href="/settings/dept/{{id}}/form" class="btn btn-default btn-xs">{{gettext 'Look/Update'}}</a>
-<a href="/settings/dept/{{id}}/dev" class="btn btn-default btn-xs">{{gettext 'Dev'}}</a>
+<a href="/settings/dept/{{dept_code}}/form" class="btn btn-default btn-xs">{{gettext 'Look/Update'}}</a>
+<a href="/settings/dept/{{dept_code}}/dev" class="btn btn-default btn-xs">{{gettext 'Dev'}}</a>
 <button class="btn btn-default btn-xs delete"><i class="fa fa-trash"></i></button>
 </td>

@@ -1,0 +1,59 @@
+<td class="devdrug">
+    {{#if deptname}}<span title="{{deptname}}">{{deptname}}</span>{{/if}}
+</td>
+<td class="devdrug">
+    {{#if cartname}}<span title="{{cartname}}">{{cartname}}</span>{{/if}}
+</td>
+<td class="devdrug">
+    {{#if drugname}}<span title="{{drugname}}">{{drugname}}</span>{{/if}}
+</td>
+<td class="devdrug">
+    {{#if drugspec}}<span title="{{drugspec}}">{{drugspec}}</span>{{/if}}
+</td>
+<td class="devdrug">
+    <span>
+        {{#if drugstock}}
+            {{drugstock}}
+        {{else}}
+            0
+        {{/if}}
+    </span>
+</td>
+<td class="devdrug">
+    {{#if suittype}}<span title="{{suittype}}">{{suittype}}</span>{{/if}}
+</td>
+<td class="devdrug">
+    <div class="input-parent">
+        <input class="number drug-warning-input" value="
+        {{#if drugwarning}}
+            {{drugwarning}}
+        {{else}}
+            0
+        {{/if}}
+        " maxlength="10">
+        <i class="fa fa-spinner fa-pulse hide"></i>
+    </div>
+</td>
+<td class="devdrug">
+    <div class="input-parent">
+        <input class="number drug-overflow-input" value="
+        {{#if drugoverflow}}
+            {{drugoverflow}}
+        {{else}}
+            0
+        {{/if}}
+        " maxlength="10">
+        <i class="fa fa-spinner fa-pulse hide"></i>
+        <i></i>
+    </div>
+</td>
+<td class="text-right last-td">
+<!--<a href="javascript: void(0);" class="btn btn-default btn-xs">{{gettext 'Supplement drug'}}</a>-->
+<button class="btn btn-default btn-xs delete"  {{#if drugstock}}
+    {{#if_eq drugstock 0}}
+    {{else}}
+        disabled
+    {{/if_eq}}
+{{else}}
+{{/if}}><i class="fa fa-trash"></i></button>
+</td>

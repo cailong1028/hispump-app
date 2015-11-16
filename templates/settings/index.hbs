@@ -78,6 +78,21 @@
                                 </div>
                             </li>
                         {{/permit}}
+                        {{#permit 'devdrug:setting'}}
+                            <li>
+                                <div class="text-center">
+                                    <a href="/settings/devdrug">
+                                        <h1>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-exclamation-triangle fa-inverse fa-stack-1x"></i>
+                                    </span>
+                                        </h1>
+                                        {{gettext 'Devdrug'}}
+                                    </a>
+                                </div>
+                            </li>
+                        {{/permit}}
                         {{!--<li>
                             <div class="text-center">
                                 <a href="/settings/roles">

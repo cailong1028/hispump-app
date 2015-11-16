@@ -5,8 +5,9 @@
 'use strict';
 define([
     'backbone',
+    'settings/dev-type-collection',
     'helpers/tableExport'
-], function(Backbone){
+], function(Backbone, DevTypeCollection){
 
     var drugPeriodExpireTableView;
     var queryView;
@@ -41,6 +42,63 @@ define([
                     showTodayButton: true
                 }));
             });
+            //药车类型
+            this.$('#dev-type').select2('val', null);
+            var col = new DevTypeCollection();
+            col.fetch({reset: true}).done(_.bind(function(){
+                var arr = _.map(col.models, function(model){
+                    return _.extend(model.attributes, {text: model.get('name')});
+                });
+                this.$('#dev-type').select2({
+                    multiple: true,
+                    placeholder: gettext('Select dev type'),
+                    data: arr
+                });
+            },this)).fail();
+            //药物名称
+            var suggest = function(quietMillis, url) {
+                var timeout;
+                return function(o) {
+                    window.clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        $.getJSON(app.buildUrl(url), {
+                            term: o.term
+                        }, function(res) {
+                            o.callback({more: false, results: res});
+                        });
+                    }, quietMillis);
+                };
+            };
+            this.$('#drug-name').select2({
+                multiple: true,
+                minimumInputLength: 1,
+                cache: true,
+                allowClear: true,
+                placeholder: gettext('Select a drug'),
+                // 保留query方法。。。这玩意会报错的。。
+                query: suggest(200, 'drug/list/suggest'),
+                formatResult: function(data){
+                    if (data.pinyin) {
+                        return data.name + ' / <small>' + data.pinyin +'</small>';
+                    } else{
+                        return data.name;
+                    }
+                },
+                formatSelection: function(data){
+                    if (data.pinyin) {
+                        return data.name + ' / <small>' + data.pinyin +'</small>';
+                    } else{
+                        return data.name;
+                    }
+                },
+                initSelection: function (e, callback) {
+                    /*if (requesterView.model) {
+                     callback(requesterView.model.toJSON());
+                     } else {
+                     callback();
+                     }*/
+                }
+            });
         },
         _query: function(){
             this.trigger('show:report', this._fetchOptions());
@@ -48,18 +106,16 @@ define([
         _fetchOptions: function(){
             var retObj = {};
             var devType = this.$('#dev-type').val();
-            var drugType = this.$('#drug-type').val();
-            var drugClass = this.$('#drug-class').val();
+            var drugName = this.$('#drug-name').val();
             var begintime = $dates[0].data('DateTimePicker').date();
             var endtime = $dates[1].data('DateTimePicker').date();
 
-            _.extend(retObj, devType === '0' ? {} : {drugList: devType});
-            _.extend(retObj, drugType === '0' ? {} : {drugType: drugType});
-            _.extend(retObj, drugClass === '0' ? {} : {drugName: drugClass});
-            _.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).toISOString()});
-            _.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).toISOString()});
+            _.extend(retObj, !devType || devType  === '' ? {} : {devType: devType});
+            _.extend(retObj, !drugName || drugName === '' ? {} : {drugid: drugName});
+            _.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
+            _.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
 
-            return /*retObj*/{};
+            return retObj;
         }
     });
 

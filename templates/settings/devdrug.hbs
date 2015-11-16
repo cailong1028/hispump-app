@@ -1,0 +1,96 @@
+<div class="container devdrug">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        <span class="pull-right">
+                            <a href="/settings/devdrug/form"
+                               class="btn btn-default btn-sm">{{gettext 'Create DevDrug'}}</a>
+                        </span>
+                        {{gettext 'DevDrug'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Query parameters'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" role="tabpanel">
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">
+                    <div class="panel panel-sidebar">
+                        <div class="panel-heading">
+                        </div>
+                        <div class="panel-body">
+                            <form id="devdrug-add-form" class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="">{{gettext 'Dept'}}</label>
+                                    <input id="deptid" class="group-select form-control" name="deptid" type="text">
+                                        <span id="requesterNameInvalid"
+                                              class="error-messages text-danger">{{gettext "Deptid required"}}</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="">{{gettext 'Dev'}}</label>
+
+                                    <input id="cartid" class="group-select form-control" name="cartid" type="text">
+                                        <span id="cartidInvalid"
+                                              class="error-messages text-danger">{{gettext "Cartid required"}}</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="">{{gettext 'Drug'}}</label>
+
+                                    <input id="drugid" class="group-select form-control" name="drugid" type="text">
+                                <span id="DrugInvalid"
+                                      class="error-messages text-danger">{{gettext "Drug required"}}</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="">{{gettext 'Drugwarning'}}</label>
+
+                                    <input id="drugwarning" class="number form-control" name="drugwarning"
+                                           maxlength="10">
+                                <span id="drugwarningInvalid"
+                                      class="error-messages text-danger">{{gettext "Drugwarning required"}}</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="">{{gettext 'Drugoverflow'}}</label>
+
+                                    <input id="drugoverflow" class="number form-control" name="drugoverflow"
+                                           type="text"
+                                           maxlength="10">
+                                <span id="drugoverflowInvalid"
+                                      class="error-messages text-danger">{{gettext "Drugoverflow Request"}}</span>
+                                <span id="DevdrugAlreadyExists"
+                                      class="error-messages text-danger">{{gettext "Devdrug already exists"}}</span>
+                                </div>
+
+                                <div class="form-group pull-right">
+                                    <button type="reset" id="reset"
+                                            class="btn btn-default reset">{{gettext 'Reset'}}</button>
+                                    <button type="submit" class="btn btn-primary">{{gettext 'Query'}}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>{{! panel-body end}}
+    </div>{{! panel end}}
+</div>
+<div class="confirm-view"></div>

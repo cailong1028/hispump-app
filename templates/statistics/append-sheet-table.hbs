@@ -13,18 +13,14 @@
         </ul>
     </span>
 </div>
-<table id="drug-supplement-detail-table" class="table table-striped data">
+<table id="append-sheet-table" class="table table-striped data">
     <thead>
         <tr class="text-center">
-            <td class="text-left">{{gettext 'Drug name'}}</td>
-            <td class="text-left">{{gettext 'Dev name'}}</td>
-            <!--<td class="contacts">{{gettext 'Specifications'}}</td>
-            <td class="contacts">{{gettext 'Unit'}}</td>-->
-            <td class="contacts">{{gettext 'Old value'}}</td>
-            <td class="contacts">{{gettext 'Drug supplement number'}}</td>
-            <td class="contacts">{{gettext 'Operator'}}</td>
-            <td class="contacts">{{gettext 'Period of validity'}}</td>
-            <td class="contacts">{{gettext 'Drug supplement date'}}</td>
+            <td>{{gettext 'Append sheet id'}}</td>
+            <td>{{gettext 'Dev name'}}</td>
+            <td>{{gettext 'Drug name'}}</td>
+            <td>{{gettext 'Append sheet drug count'}}</td>
+            <td>{{gettext 'Append sheet status'}}</td>
         </tr>
     </thead>
     <tfoot>
@@ -33,8 +29,8 @@
         </tr>
     </tfoot>
     <tbody>
-        <tr class="loading"><td colspan="10"><p>{{gettext 'Now Loading...'}}</p></td></tr>
-        <tr class="non-items"><td colspan="10"><p>{{gettext 'Non Items'}}</p></td></tr>
+        <tr class="loading"><td colspan="5"><p>{{gettext 'Now Loading...'}}</p></td></tr>
+        <tr class="non-items"><td colspan="5"><p>{{gettext 'Non Items'}}</p></td></tr>
     </tbody>
 </table>
 <ul id="pagination" class="pagination pagination-sm"></ul>

@@ -73,6 +73,54 @@
     }
 }
 
+.devdrug{
+    table.devdrug-table {
+        thead {
+            font-weight: bolder;
+            background-color: #eee;
+        }
+        thead>tr, tbody>tr:not(.loading):not(.non-items) {
+            td{
+                text-align: center;
+                display: inline-block;
+                //width: 40px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+                border: none;
+                &:not(:last-child){
+                    width: 10%;
+                }
+                &:last-child{
+                    width: 16%;
+                }
+                .input-parent{
+                    border-radius: 4px;
+                    border: 1px solid #eee;
+                    background-color: #ffffff;
+                    &:hover{
+                        border: 1px solid #aaa;
+                    }
+                    input.number{
+                        outline-style:none;
+                        background-color: #ffffff;
+                        border: none;
+                        width: 60%;
+                        border: none;
+                    }
+                    i.fa{
+                        width: 35%;
+                    }
+                }
+                &.last-td{
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
 .dept {
     table.dept-table {
         thead {
@@ -168,18 +216,14 @@
 
     .drug-sepplement-detail {
         table.data {
-            tr:not(.loading):not(.non-items) {
-                td {
-                    display: inline-block;
-                    //width: 40px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    &:not(:last-child){
-                        width: 10%;
-                    }
-                    &:last-child{
-                        width: 7%;
+            tbody{
+                tr:not(.loading):not(.non-items) {
+                    td.overflow-hide {
+                        //display: inline-block;
+                        width: 80px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
             }

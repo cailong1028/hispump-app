@@ -27,14 +27,17 @@ define([
     'settings/dept-view',
     'settings/dept-update-view',
     'settings/dept-add-view',
-    'settings/dept-dev-view'
+    'settings/dept-dev-view',
+    'settings/devdrug-view',
+    'settings/devdrug-update-view',
+    'settings/devdrug-add-view',
 ], function(Backbone, SettingsView, GeneralView,
         GroupView, GroupAddView, GroupUpdateView,
         AgentView, AgentsDeletedView, AgentAddView,AgentUpdateView,
         AgentInfoView, AgentResetpasswordView, AgentInvitationView, AgentRoleView,
         RoleView, RoleInfoView, TicketTypesView, MailView, SlaView, AgentAuthority,
         DevView, DevUpdateView, DevAddView, DeptView, DeptUpdateView, DeptAddView,
-        DeptDevView) {
+        DeptDevView, DevdrugView, DevdrugUpdateView, DevdrugAddView) {
     var activedLayoutNavigation = function() {
         app.vent.trigger('navbar:active', 'settings');
     };
@@ -66,7 +69,10 @@ define([
             'settings/dept': '_deptList',
             'settings/dept/form': '_createDept',
             'settings/dept/:id/form': '_modifyDept',
-            'settings/dept/:id/dev': '_deptDev'
+            'settings/dept/:id/dev': '_deptDev',
+            'settings/devdrug': '_devdrugList',
+            'settings/devdrug/form': '_createDevdrug',
+            'settings/devdrug/:id/form': '_modifyDevdrug'
         },
         _settings: function() {
             activedLayoutNavigation();
@@ -169,11 +175,23 @@ define([
         },
         _modifyDept: function(id){
             activedLayoutNavigation();
-            app.$layout.setMainView(new DeptUpdateView({id: id})).render();
+            app.$layout.setMainView(new DeptUpdateView({dept_code: id})).render();
         },
         _deptDev: function(id){
             activedLayoutNavigation();
-            app.$layout.setMainView(new DeptDevView({deptid: id})).render();
+            app.$layout.setMainView(new DeptDevView({dept_code: id})).render();
+        },
+        _devdrugList: function(term){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevdrugView(term ? {term: term} : void 0)).render();
+        },
+        _createDevdrug: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevdrugAddView()).render();
+        },
+        _modifyDevdrug: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new DevdrugUpdateView({id: id})).render();
         }
     });
     return SettingsRouter;

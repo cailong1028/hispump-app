@@ -1,31 +1,27 @@
-<td class="agentnames text-left">
-    <p>{{#if drugname}}{{drugname}}{{/if}}</p>
+<td class="overflow-hide text-left">
+    <span title="{{#if drugname}}{{drugname}}{{/if}}">{{#if drugname}}{{drugname}}{{/if}}</span>
+</td>
+<td class="text-left">
+    <span title="{{#if cartname}}{{cartname}}{{/if}}">{{#if cartname}}{{cartname}}{{/if}}</span>
+</td>
+{{!--<td class="text-center">
+    <span title="{{#if drugspec}}{{drugspec}}{{/if}}">{{#if drugspec}}{{drugspec}}{{/if}}</span>
 </td>
 <td class="text-center">
-    {{#if specifications}}{{specifications}}{{else}}0{{/if}}
+    <span title="{{#if suittype}}{{suittype}}{{else}}{{/if}}">{{#if suittype}}{{suittype}}{{else}}{{/if}}</span>
+</td>--}}
+<td class="text-center">
+    <span title="{{#if oldvalue}}{{oldvalue}}{{else}}0{{/if}}">{{#if oldvalue}}{{oldvalue}}{{else}}0{{/if}}</span>
 </td>
 <td class="text-center">
-    {{#if unit}}{{unit}}{{else}}0{{/if}}
-
+    <span title="{{#if drugcount}} {{drugcount}}{{else}}0{{/if}}">{{#if drugcount}} {{drugcount}}{{else}}0{{/if}}</span>
 </td>
 <td class="text-center">
-     {{#if stocksize}}{{stocksize}}{{else}}0{{/if}}
+    <span title="{{#if username}} {{username}}{{else}}{{/if}}">{{#if username}} {{username}}{{else}}{{/if}}</span>
 </td>
-<td class="text-center">
-    {{#if drugsupplementnumber}} {{drugsupplementnumber}}{{else}}0{{/if}}
+<td class="overflow-hide text-center">
+    <span title="{{#if expireddate}} {{expireddate}}{{else}}{{/if}}">{{#if expireddate}} {{expireddate}}{{else}}{{/if}}</span>
 </td>
-<td class="text-center">
-    {{#if periodofvalidity}} {{periodofvalidity}}{{else}}0{{/if}}
-</td>
-<td class="text-center">
-    {{#if operator}} {{operator}}{{else}}0{{/if}}
-</td>
-<td class="text-center">
-    {{#if operator}} {{operator}}{{else}}0{{/if}}
-</td>
-<td class="text-center">
-    {{#if operator}} {{operator}}{{else}}0{{/if}}
-</td>
-<td class="text-center">
-    {{#if operator}} {{operator}}{{else}}0{{/if}}
+<td class="overflow-hide text-center">
+    <span title="{{#if operdate}} {{operdate}}{{else}}{{/if}}">{{#if operdate}} {{operdate}}{{else}}{{/if}}</span>
 </td>

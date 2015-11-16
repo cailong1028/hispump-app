@@ -92,7 +92,7 @@ define([
             this.$('.non-items').hide();
             this.collection.fetch({
                 reset: true,
-                data: {orderBy: 'createtime', sort: 'desc', page: page}
+                data: {orderBy: 'dept_code', sort: 'asc', page: page}
             }).done(_.bind(this._setItemViews, this))
             .done(_.bind(function () {
                 if (this.collection.page.totalPages < 1) {

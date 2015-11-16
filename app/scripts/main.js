@@ -35,6 +35,8 @@ define([
         app.profile = profile;
         app.$layout = new LayoutView();
         app.$layout.render();
+        app.datetimeFormat = 'YYYY-MM-DD HH:mm:ss';
+        app.dateFormat = 'YYYY-MM-DD';
         // 首先加载语言文件
         console.log('app start');
         app.start();

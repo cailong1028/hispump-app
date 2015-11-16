@@ -55,7 +55,7 @@ define([
             var serObj = this.$('form').serializeObject();
 
             var model = new DeptModel(serObj);
-            model.set('id', this.model.get('id'));
+            model.set(this.model.idAttribute, this.model.get(this.model.idAttribute));
             this.$('.error-messages').removeClass('show');
             if (!model.isValid()) {
                 var errSpan = this.$('#' + model.validationError);
