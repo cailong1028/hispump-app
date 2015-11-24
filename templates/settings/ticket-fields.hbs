@@ -1,0 +1,115 @@
+<div class="container ticket-fields">
+    <div class="panel panel-content">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <h3>
+                        {{gettext 'Ticket fields'}}
+                    </h3>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h5>
+                        {{gettext 'Ticket fields Title'}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="tab-content">
+                        <div class="ticket-fields tab-pane fade in active" role="tabpanel">
+                            <div id="field-types">
+                                <h4>{{gettext "Add ticket type"}}</h4>
+                                <label>{{gettext "Drag below ticket types to add ticket type"}}</label><br>
+                                <a class="field-type btn btn-default" data-field-type="text">{{gettext 'Text'}}</a>
+                                <a class="field-type btn btn-default" data-field-type="textarea">{{gettext 'Textarea'}}</a>
+                                <a class="field-type btn btn-default" data-field-type="number">{{gettext 'Number'}}</a>
+                                <a class="field-type btn btn-default" data-field-type="select">{{gettext 'Select'}}</a>
+                                <a class="field-type btn btn-default" data-field-type="checkbox">{{gettext 'Checkbox'}}</a>
+                            </div>
+                            <div id="sort-zone">
+                                <label>{{gettext "Customized ticket panel"}}</label><br>
+                                <div class="sort-item" data-field-type="text">
+                                    <label class="required">{{gettext 'Search Requester'}} {{gettext 'or'}} <b><a class="addNewContacts" href="#add-new-contacts" data-bypass>{{gettext 'add new requester'}}</a></b></label>
+                                    <br>
+                                    <input id="requester" class="group-select form-control" name="requester" type="text" disabled>
+                                    <span id="requesterNameInvalid" class="error-messages text-danger">{{gettext "Requester Request"}}</span>
+                                </div>
+                                <div class="sort-item" data-field-type="text">
+                                    <label class="required">{{gettext "Subject"}}</label>
+                                    <br>
+                                    <input class="form-control" name="subject" maxlength="128" placeholder="{{gettext 'Subject'}}" type="text" disabled>
+                                    <span id="subjectCanNotBeNull" class="error-messages text-danger">{{gettext "Subject Can Not Be Null"}}</span>
+                                    <span id="subjectTooLang" class="error-messages text-danger">{{gettext "Too Many Words"}}</span>
+                                </div>
+                                <div class="sort-item half" data-field-type="select">
+                                    <label>{{gettext "Type"}}</label>
+                                    <br>
+                                    <select name="type" class="tickets-type form-control" disabled>
+                                        {{#each type}}
+                                            <option value="{{this}}">{{gettext this}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="sort-item half" data-field-type="select">
+                                    <label>{{gettext "Ticket State"}}</label>
+                                    <br>
+                                    <select name="state" class="form-control" disabled>
+                                        {{#each ticketState}}
+                                            <option value="{{agentDisplay}}">{{gettext agentDisplay}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="sort-item half" data-field-type="select">
+                                    <label>{{gettext "Priority"}}</label>
+                                    <br>
+                                    <select name="priority" class="tickets-priority form-control" disabled>
+                                        <option value="20">{{gettext 'Priority 20'}}</option>
+                                        <option value="40">{{gettext 'Priority 40'}}</option>
+                                        <option value="60">{{gettext 'Priority 60'}}</option>
+                                        <option value="80">{{gettext 'Priority 80'}}</option>
+                                    </select>
+                                </div>
+                                <div class="sort-item half" data-field-type="select">
+                                    <label>{{gettext "Group"}}</label>
+                                    <br>
+                                    <select name="group" class="tickets-group form-control" disabled>
+                                        <option value="">--</option>
+                                        {{#each groups}}
+                                            <option value="{{id}}">{{name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="sort-item half" data-field-type="select">
+                                    <label>{{gettext "Assignee Agent"}}</label>
+                                    <select name="assignee" class="assignee form-control" disabled>
+                                        <option value="">--</option>
+                                        {{#each agents}}
+                                            <option value="{{username}}" {{#if_eq ../currAgent.username username}}
+                                                    selected="selected"
+                                            {{/if_eq}}>{{name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="sort-item" data-field-type="textarea" >
+                                    <label>{{gettext "Description"}}</label>
+                                    <br>
+                                    <textarea id="ticket-description" name="description" row="10" class="form-control" placeholder="{{gettext 'Description'}}" disabled></textarea>
+                                    <span id="DescriptionSizeExceedsTheAllowableLimit" class="error-messages text-danger">{{gettext "Description length exceeds the allowable limit"}}</span>
+                                </div>
+                            </div>
+                            <div id="btn-group" class="text-right">
+                                <button class="cancel btn btn-default">{{gettext "Cancel"}}</button>
+                                <button class="reset btn btn-default">{{gettext "Reset"}}</button>
+                                <button type="submit" class="btn btn-primary">{{gettext "Save"}}</button>
+                            </div>
+                            <div id="pop-view"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-muted">{{{gettext 'Ticket fields help document'}}}</div>
+            </div>
+        </div>
+    </div>
+</div>

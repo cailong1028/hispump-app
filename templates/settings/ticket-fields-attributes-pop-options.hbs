@@ -1,0 +1,15 @@
+<div class="col-lg-12 col-md-12">
+    <label class="label-larger">{{gettext 'Field options'}}</label><br>
+    <ul id="sort-options" class="attrs-div">
+        {{#each options}}
+            <li data-index="{{@index}}" class="just-a-relative-parent">
+                <a class="option-sort fa-icon-a" href="javascript: void(0);"><i class="fa fa-sort" title="{{gettext 'Sort'}}"></i></a>
+                <a class="minus-option fa-icon-a" href="javascript: void(0);"><i class="fa fa-minus-circle" title="{{gettext 'Delete'}}"></i></a>
+                <input class="form-control option-input" type="text" value="{{value}}"><br>
+            </li>
+        {{/each}}
+        <li class="not-a-sortable-parent">
+            <a id="add-option" class="fa-icon-a" href="javascript: void(0);"><i class="fa fa-plus-circle"></i> {{gettext 'Add new option'}}</a>
+        </li>
+    </ul>
+</div>

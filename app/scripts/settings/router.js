@@ -31,13 +31,14 @@ define([
     'settings/devdrug-view',
     'settings/devdrug-update-view',
     'settings/devdrug-add-view',
+    'settings/ticket-fields-view'
 ], function(Backbone, SettingsView, GeneralView,
         GroupView, GroupAddView, GroupUpdateView,
         AgentView, AgentsDeletedView, AgentAddView,AgentUpdateView,
         AgentInfoView, AgentResetpasswordView, AgentInvitationView, AgentRoleView,
         RoleView, RoleInfoView, TicketTypesView, MailView, SlaView, AgentAuthority,
         DevView, DevUpdateView, DevAddView, DeptView, DeptUpdateView, DeptAddView,
-        DeptDevView, DevdrugView, DevdrugUpdateView, DevdrugAddView) {
+        DeptDevView, DevdrugView, DevdrugUpdateView, DevdrugAddView, TicketFieldsView) {
     var activedLayoutNavigation = function() {
         app.vent.trigger('navbar:active', 'settings');
     };
@@ -72,7 +73,8 @@ define([
             'settings/dept/:id/dev': '_deptDev',
             'settings/devdrug': '_devdrugList',
             'settings/devdrug/form': '_createDevdrug',
-            'settings/devdrug/:id/form': '_modifyDevdrug'
+            'settings/devdrug/:id/form': '_modifyDevdrug',
+            'settings/ticket-fields': '_ticketFields'
         },
         _settings: function() {
             activedLayoutNavigation();
@@ -192,6 +194,10 @@ define([
         _modifyDevdrug: function(){
             activedLayoutNavigation();
             app.$layout.setMainView(new DevdrugUpdateView({id: id})).render();
+        },
+        _ticketFields: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new TicketFieldsView()).render();
         }
     });
     return SettingsRouter;

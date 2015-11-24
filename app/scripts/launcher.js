@@ -53,7 +53,8 @@
             'jquery-select2': 'http://127.0.0.1:5000/jslib/jquery-select2/jquery-select2.min',
             'Blob': 'http://127.0.0.1:5000/jslib/Blob/Blob',
             'FileSaver': 'http://127.0.0.1:5000/jslib/FileSaver/FileSaver.min',
-            'amcharts': 'http://127.0.0.1:5000/jslib/amcharts2/amcharts/amcharts'
+            'amcharts': 'http://127.0.0.1:5000/jslib/amcharts2/amcharts/amcharts',
+            'jqueryui': 'http://127.0.0.1:5000/jslib/jqueryui/jquery-ui.min'
         },
         shim: {
             bootstrap: {
@@ -103,12 +104,15 @@
             },
             main: {
                 deps: [language]
+            },
+            'jqueryui': {
+                deps: ['jquery']
             }/*,
             'amcharts': {
                 exports: 'AmCharts'
             }*/
         }
     });
-    window.DEBUG = true;
+    //window.DEBUG = true;
     require(['main']);
 }).call(window, document);

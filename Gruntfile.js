@@ -306,7 +306,7 @@ module.exports = function(grunt) {
         requirejs: {
             options: {
                 baseUrl: '<%= config.app %>/scripts',
-                optimize: 'none',
+                optimize: 'uglify',
                 uglify: {
                     // jshint -W106
                     toplevel: false,

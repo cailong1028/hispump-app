@@ -21,7 +21,9 @@
     "moment-timezone": "~0.3.0",
     "Blob": "*",
     "FileSaver": "*",
-    "amcharts2": "~2.9.0"
+    "amcharts2": "~2.9.0",
+    "jqueryui": "~1.11.4"
+
   },
   "devDependencies": {}
 }

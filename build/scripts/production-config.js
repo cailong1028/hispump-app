@@ -29,6 +29,7 @@ require.config({
         'jquery-select2': 'empty:',
         'Blob': 'empty:',
         'FileSaver': 'empty:',
-        'amcharts': 'empty:'
+        'amcharts': 'empty:',
+        'jqueryui': 'empty:'
     }
 });

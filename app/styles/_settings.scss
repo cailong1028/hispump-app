@@ -173,3 +173,97 @@
         }
     }
 }
+.ticket-fields{
+    #field-types{
+        background-color: rgb(243, 243, 243);
+        padding: 15px;
+        .field-type{
+
+        }
+    }
+    #sort-zone{
+        background-color: rgb(248, 248, 248);
+        padding: 15px;
+        margin-top: 15px;
+        vertical-align: top;
+        .sort-item {
+            display: inline-block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid rgb(248, 248, 248);
+            cursor: move;
+            width: 100%;
+            *{
+                cursor: inherit;
+            }
+            &:hover{
+                background-color: rgb(247, 247, 220);
+                border-color: rgb(247, 247, 220);
+                *{
+                    background-color: inherit;
+                    border-color: inherit;
+                }
+            }
+            &.half{
+                width: 40%;
+                margin-right: 5%;
+            }
+        }
+    }
+    #btn-group{
+        padding-top: 15px;
+    }
+    #pop-view{
+        .pop-view{
+            .row-margin-top-10{
+                margin-top: 10px;
+            }
+            .label-larger{
+                font-size: larger
+            }
+            .fr{
+                float: right;
+            }
+            .btn-groups{
+                display: inline-block;
+            }
+            @mixin attrs-div{
+                width: 45%;
+                display: inline-block;
+            }
+            .attrs-div{
+                @include  attrs-div;
+            }
+            ul.attrs-div{
+                list-style: none;
+                padding-left: 0;
+                @include  attrs-div;
+                li{
+                    /*TODO 不要这样做, 还没改完*/
+                    height: 34px;
+                }
+                @mixin field-options-relative-parent{
+                    position: relative;
+                    margin-top: 10px;
+                }
+                .not-a-sortable-parent{
+                    @include field-options-relative-parent;
+                }
+                .just-a-relative-parent{
+                    @include field-options-relative-parent;
+                    .fa-icon-a{
+                        position: relative;
+                        top: 20%;
+                    }
+                    .option-sort{
+                        cursor: move;
+                    }
+                    .option-input{
+                        width: 85%;
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}
