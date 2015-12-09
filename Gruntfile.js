@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     var config = {
         app: 'app',
         dist: 'dist',
-        hispumpdist: '../../workspace/hispump/public/linkdeskapp'
+        hispumpdist: '../hispump/public/hispumpapp'
     };
     grunt.config.set('buildId', 'devlopment');
     // Define the configuration for all the tasks
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
                     middleware: function(connect, options, middlewares) {
                         return [
                             // Include the proxy first
-                            connect().use('/linkdeskapp', connect.static('dist')),
+                            connect().use('/hispumpapp', connect.static('dist')),
                             connect.static('libs')
                         ].concat(middlewares);
                     }
@@ -180,7 +180,7 @@ module.exports = function(grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        'linkdeskapp-*.zip',
+                        'hispumpapp-*.zip',
                         '.tmp',
                         '<%= config.dist %>/*',
                         '!<%= config.dist %>/.git*'
@@ -719,7 +719,7 @@ module.exports = function(grunt) {
         compress: {
             nightly: {
                 options: {
-                    archive: 'linkdeskapp-<%= buildId %>.zip'
+                    archive: 'hispumpapp-<%= buildId %>.zip'
                 },
                 files: [{
                     expand: true,
