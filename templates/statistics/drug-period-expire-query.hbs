@@ -2,8 +2,9 @@
     <div class="panel-heading">
         <h5>{{gettext 'Report query parameters'}}</h5>
     </div>
+    <p>
     <div class="panel-body">
-        <div class="form-group">
+        <div class="form-group hide">
             <label for="begin-time">{{gettext 'Date'}}</label>
             <div class='input-group date'>
                 <input id="begin-time" name="begintime" readonly class="form-control">
@@ -21,10 +22,10 @@
         </div>
         <label for="dev-type">{{gettext 'Dev type'}}</label>
         <input id="dev-type" class="form-control">
-        <br>
+        <br><br>
         <label for="drug-name">{{gettext 'Drug name'}}</label>
         <input id="drug-name" class="form-control">
-        <p>
+        <br><br>
         <div class="form-group text-right">
             <button id="query" class="btn btn-primary">{{gettext 'Query'}}</button>
         </div>

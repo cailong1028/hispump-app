@@ -729,7 +729,10 @@ define([
                 "Confirm Delete devdrug Title": [null, "删除设备药品配置"],
                 "Confirm Delete devdrug Content": [null, "不可恢复, 请谨慎操作"],
                 "Select dev type": [null, "选择设备类型"],
-                "Actions": [null, "操作"]
+                "Actions": [null, "操作"],
+                "generate all append sheet": [null, "生成所有补药清单"],
+                "generate append sheet by query": [null, "根据查询条件生成补药清单"],
+                "generate append sheet by check": [null, "根据选中条目生成补药清单"]
             }
         }
     };

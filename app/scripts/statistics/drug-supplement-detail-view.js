@@ -14,7 +14,7 @@ define([
             'click button[type="submit"]': '_query'
         },
         afterRender: function(){
-            _.each(this.$('.date'), function(oneDatePicker){
+            /*_.each(this.$('.date'), function(oneDatePicker){
                 $dates.push($(oneDatePicker).datetimepicker({
                     format: 'lll',
                     //Set this to true to allow the picker to be used even if the input field is readonly
@@ -28,7 +28,7 @@ define([
                     showClose: true,
                     showTodayButton: true
                 }));
-            });
+            });*/
             //药车类型
             this.$('#dev-type').select2('val', null);
             var col = new DevTypeCollection();
@@ -94,13 +94,13 @@ define([
             var retObj = {};
             var devType = this.$('#dev-type').val();
             var drugName = this.$('#drug-name').val();
-            var begintime = $dates[0].data('DateTimePicker').date();
-            var endtime = $dates[1].data('DateTimePicker').date();
+            //var begintime = $dates[0].data('DateTimePicker').date();
+            //var endtime = $dates[1].data('DateTimePicker').date();
 
             _.extend(retObj, devType === '0' ? {} : {devType: devType});
             _.extend(retObj, drugName === '0' ? {} : {drugid: drugName});
-            _.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
-            _.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
+            //_.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
+            //_.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
 
             return retObj;
         }
