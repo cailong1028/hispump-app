@@ -26,6 +26,19 @@ define([
             'click #query': '_query'
         },
         afterRender: function(){
+            var suggest = function(quietMillis, url) {
+                var timeout;
+                return function(o) {
+                    window.clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        $.getJSON(app.buildUrl(url), {
+                            term: o.term
+                        }, function(res) {
+                            o.callback({more: false, results: res});
+                        });
+                    }, quietMillis);
+                };
+            };
             _.each(this.$('.date'), function(oneDatePicker){
                 $dates.push($(oneDatePicker).datetimepicker({
                     format: 'lll',
@@ -41,6 +54,30 @@ define([
                     showTodayButton: true
                 }));
             });
+            this.$('#deptid').select2({
+                multiple: true,
+                minimumInputLength: 1,
+                cache: true,
+                allowClear: true,
+                placeholder: gettext('Select a dept'),
+                // 保留query方法。。。这玩意会报错的。。
+                query: suggest(200, 'dept/suggest'),
+                formatResult: function(data){
+                    //data.id = data.dept_code;
+                    return data.dept_code+' / '+data.dept_name;
+                },
+                formatSelection: function(data){
+                    //data.id = data.dept_code;
+                    return data.dept_code+' / '+data.dept_name;
+                },
+                initSelection: function (e, callback) {
+                    /*if (requesterView.model) {
+                     callback(requesterView.model.toJSON());
+                     } else {
+                     callback();
+                     }*/
+                }
+            });
             //药车类型
             this.$('#dev-type').select2('val', null);
             var col = new DevTypeCollection();
@@ -55,19 +92,6 @@ define([
                 });
             },this)).fail();
             //药物名称
-            var suggest = function(quietMillis, url) {
-                var timeout;
-                return function(o) {
-                    window.clearTimeout(timeout);
-                    timeout = setTimeout(function() {
-                        $.getJSON(app.buildUrl(url), {
-                            term: o.term
-                        }, function(res) {
-                            o.callback({more: false, results: res});
-                        });
-                    }, quietMillis);
-                };
-            };
             this.$('#drug-name').select2({
                 multiple: true,
                 minimumInputLength: 1,
@@ -104,15 +128,17 @@ define([
         },
         _fetchOptions: function(){
             var retObj = {};
+            var deptid = this.$('#deptid').val();
             var devType = this.$('#dev-type').val();
             var drugName = this.$('#drug-name').val();
-            var begintime = $dates[0].data('DateTimePicker').date();
-            var endtime = $dates[1].data('DateTimePicker').date();
+            //var begintime = $dates[0].data('DateTimePicker').date();
+            //var endtime = $dates[1].data('DateTimePicker').date();
 
+            _.extend(retObj, !deptid || deptid  === '' ? {} : {deptid: deptid});
             _.extend(retObj, !devType || devType  === '' ? {} : {devType: devType});
             _.extend(retObj, !drugName || drugName === '' ? {} : {drugid: drugName});
-            _.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
-            _.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
+            //_.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
+            //_.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
 
             return retObj;
         }
@@ -120,9 +146,21 @@ define([
 
     var DrugStockAmountTableItemView = Backbone.View.extend({
         tagName: 'tr',
+        className: 'one-stock-amount',
         template: 'templates:statistics:drug-stock-amount-table-item',
+        events: {
+            'click .pick': '_pick'
+        },
         serialize: function() {
             return this.model.toJSON();
+        },
+        afterRender: function(){
+        },
+        _pick: function(){
+            var pick_all = $('.pick-all-input');
+            var tds = $('.one-stock-amount');
+            var picks = $('.pick-input:checked');
+            pick_all.prop('checked', picks.length === tds.length);
         }
     });
 
@@ -215,7 +253,10 @@ define([
     var DrugStockAmountView = Backbone.View.extend({
         template: 'templates:statistics:drug-stock-amount',
         events: {
-            'click #generate-append-sheet': '_generateAppendSheet'
+            'click #generate-all-append-sheet': '_generateAllAppendSheet',
+            'click #generate-append-sheet-by-query': '_generateAppendSheetByQuery',
+            'click #generate-append-sheet-by-check': '_generateAppendSheetByCheck',
+            'click .pick-all': '_pickAll'
         },
         beforeRender: function(){
             this.setView('.query', queryView = new QueryView());
@@ -228,17 +269,57 @@ define([
             var options = {};
             this.setView('.list', drugStockAmountTableView =  new DrugStockAmountTableView(options)).render();
         },
-        _generateAppendSheet: function(){
-            this.$('#generate-append-sheet').attr('disabled', 'disabled');
+        _pickAll: function () {
+            var pick_all = this.$('.pick-all-input');
+            drugStockAmountTableView.getViews('tbody').forEach(function(one){
+                one.$('.pick-input').prop('checked', pick_all.prop('checked'));
+            });
+        },
+        _generateAllAppendSheet: function(){
+            this.$('.generate-append-sheet').attr('disabled', 'disabled');
             var model = new Backbone.Model();
             model.url = function(){
-                return 'statistics/generate-append-sheet';
+                return 'statistics/generate-all-append-sheet';
             };
             model.fetch().done(_.bind(function(){
-                this.$('#generate-append-sheet').removeAttr('disabled');
+                this.$('.generate-append-sheet').removeAttr('disabled');
                 //TODO 跳转到补药清单列表
             }, this)).fail(_.bind(function(err){
-                this.$('#generate-append-sheet').removeAttr('disabled');
+                this.$('.generate-append-sheet').removeAttr('disabled');
+                $('window').info('Fail to generate append sheet');
+            }, this));
+        },
+        _generateAppendSheetByQuery: function(){
+            this.$('.generate-append-sheet').attr('disabled', 'disabled');
+            var model = new Backbone.Model();
+            model.url = function(){
+                return 'statistics/generate-append-sheet-by-query';
+            };
+            model.fetch({data: queryView._fetchOptions()}).done(_.bind(function(){
+                this.$('.generate-append-sheet').removeAttr('disabled');
+                //TODO 跳转到补药清单列表
+            }, this)).fail(_.bind(function(err){
+                this.$('.generate-append-sheet').removeAttr('disabled');
+                $('window').info('Fail to generate append sheet');
+            }, this));
+        },
+        _generateAppendSheetByCheck: function(){
+            this.$('.generate-append-sheet').attr('disabled', 'disabled');
+            var checkedWarnList = [];
+            drugStockAmountTableView.getViews('tbody').forEach(function(one){
+                if(one.$('.pick-input').prop('checked')){
+                    checkedWarnList.push(one.model.attributes);
+                }
+            });
+            var model = new Backbone.Model();
+            model.url = function(){
+                return 'statistics/generate-append-sheet-by-check';
+            };
+            model.save({checkedWarnList: checkedWarnList}).done(_.bind(function(){
+                this.$('.generate-append-sheet').removeAttr('disabled');
+                //TODO 跳转到补药清单列表
+            }, this)).fail(_.bind(function(err){
+                this.$('.generate-append-sheet').removeAttr('disabled');
                 $('window').info('Fail to generate append sheet');
             }, this));
         }

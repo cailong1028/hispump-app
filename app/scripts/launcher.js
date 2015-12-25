@@ -54,7 +54,8 @@
             'Blob': 'http://127.0.0.1:5000/jslib/Blob/Blob',
             'FileSaver': 'http://127.0.0.1:5000/jslib/FileSaver/FileSaver.min',
             'amcharts': 'http://127.0.0.1:5000/jslib/amcharts2/amcharts/amcharts',
-            'jqueryui': 'http://127.0.0.1:5000/jslib/jqueryui/jquery-ui.min'
+            'jqueryui': 'http://127.0.0.1:5000/jslib/jqueryui/jquery-ui.min',
+            'socket.io': 'http://127.0.0.1:5000/jslib/socket.io/socket.io-1.3.7'
         },
         shim: {
             bootstrap: {
@@ -113,6 +114,6 @@
             }*/
         }
     });
-    //window.DEBUG = true;
+    window.DEBUG = true;
     require(['main']);
 }).call(window, document);

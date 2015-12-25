@@ -28,7 +28,7 @@ define([
             'click #query': '_query'
         },
         afterRender: function(){
-            _.each(this.$('.date'), function(oneDatePicker){
+            /*_.each(this.$('.date'), function(oneDatePicker){
                 $dates.push($(oneDatePicker).datetimepicker({
                     format: 'lll',
                     //Set this to true to allow the picker to be used even if the input field is readonly
@@ -42,6 +42,18 @@ define([
                     showClose: true,
                     showTodayButton: true
                 }));
+            });*/
+            //清单状态
+            this.$('#sheetstatus').select2('val', null);
+            this.$('#sheetstatus').select2({
+                multiple: true,
+                placeholder: gettext('Append sheet status'),
+                data: [{
+                    id: '0', text: gettext('Generated')
+                },{
+                    id: '6', text: gettext('End')
+                }
+                ]
             });
             //药车类型
             this.$('#dev-type').select2('val', null);
@@ -108,13 +120,15 @@ define([
             var retObj = {};
             var devType = this.$('#dev-type').val();
             var drugName = this.$('#drug-name').val();
-            var begintime = $dates[0].data('DateTimePicker').date();
-            var endtime = $dates[1].data('DateTimePicker').date();
+            var sheetstatus = this.$('#sheetstatus').val();
+            //var begintime = $dates[0].data('DateTimePicker').date();
+            //var endtime = $dates[1].data('DateTimePicker').date();
 
             _.extend(retObj, !devType || devType  === '' ? {} : {devType: devType});
             _.extend(retObj, !drugName || drugName === '' ? {} : {drugid: drugName});
-            _.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
-            _.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
+            _.extend(retObj, !sheetstatus || sheetstatus === '' ? {} : {sheetstatus: sheetstatus});
+            //_.extend(retObj, !begintime || begintime === '' ? {} : {beginTime: moment(begintime).format(app.datetimeFormat)});
+            //_.extend(retObj, !endtime || endtime  === '' ? {} : {endTime: moment(endtime).format(app.datetimeFormat)});
 
             return retObj;
         }

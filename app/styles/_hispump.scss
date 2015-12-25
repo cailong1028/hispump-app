@@ -259,7 +259,7 @@
     .drug-stock-amount {
         table.data {
             tr:not(.loading):not(.non-items):not(.action) {
-                td {
+                /*td {
                     display: inline-block;
                     //width: 40px;
                     white-space: nowrap;
@@ -267,12 +267,12 @@
                     text-overflow: ellipsis;
                     &:not(:last-child){
 
-                        width: 14.2%;
+                        width: 13%;
                     }
                     &:last-child{
                         width: 10%;
                     }
-                }
+                }*/
             }
         }
     }

@@ -30,6 +30,7 @@ require.config({
         'Blob': 'empty:',
         'FileSaver': 'empty:',
         'amcharts': 'empty:',
-        'jqueryui': 'empty:'
+        'jqueryui': 'empty:',
+        'socket.io': 'empty:'
     }
 });

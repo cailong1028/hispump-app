@@ -43,7 +43,9 @@ require.config({
         'rangy': '/libs/jslib/rangy/rangy-core',
         'rangy-selectionsaverestore': '/libs/jslib/rangy/rangy-selectionsaverestore',
 
-        'jquery-select2': '/libs/jslib/jquery-select2/jquery-select2'
+        'jquery-select2': '/libs/jslib/jquery-select2/jquery-select2',
+        //此文件不再更新
+        'socket.io': '/libs/jslib/jquery-select2/jquery-select2'
     },
     shim: {
         bootstrap: {

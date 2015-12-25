@@ -22,8 +22,8 @@
     "Blob": "*",
     "FileSaver": "*",
     "amcharts2": "~2.9.0",
-    "jqueryui": "~1.11.4"
-
+    "jqueryui": "~1.11.4",
+    "socket.io": "~1.3.7"
   },
   "devDependencies": {}
 }

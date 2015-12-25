@@ -14,7 +14,8 @@ define([
     'bootstrap-pagination',
     'helpers/notify-osd',
     'moment-timezone',
-    'vendor/backbone.cache'
+    'vendor/backbone.cache',
+    'socket.io'
 ], function($, _, Backbone, HandlebarsEnv, moment, numeral) {
     'use strict';
     var DEFAULT_OPTIONS = {
