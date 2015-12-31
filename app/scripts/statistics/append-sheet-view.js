@@ -227,6 +227,8 @@ define([
 
     var AppendSheetView = Backbone.View.extend({
         template: 'templates:statistics:append-sheet',
+        events: {
+        },
         beforeRender: function(){
             this.setView('.query', queryView = new QueryView());
             this.listenTo(queryView, 'show:report', function(options) {

@@ -8,9 +8,10 @@ define([
     'statistics/drug-period-expire-view',
     'statistics/drug-stock-amount-view',
     'statistics/drug-retention-view',
-    'statistics/append-sheet-view'
+    'statistics/append-sheet-view',
+    'statistics/append-sheet-generate-view'
 ], function(Backbone, moment, StatisticsView, DrugSupplementDetailView, DrugPeriodExpireView,
-            DrugStockAmountView, DrugRetentionView, AppendSheetView) {
+            DrugStockAmountView, DrugRetentionView, AppendSheetView, AppendSheetGenerateView) {
     var activedLayoutNavigation = function() {
         app.vent.trigger('navbar:active', 'statistics');
     };
@@ -21,7 +22,8 @@ define([
             'statistics/drug-period-expire': '_drugPeriodExpire',
             'statistics/drug-stock-amount': '_drugStockAmount',
             'statistics/drug-retention': '_drugRetention',
-            'statistics/append-sheet': '_appendSheet'
+            'statistics/append-sheet': '_appendSheet',
+            'statistics/append-sheet-generate': '_appendSheetGenerate'
         },
         _statistics: function() {
             activedLayoutNavigation();
@@ -46,6 +48,10 @@ define([
         _appendSheet: function(){
             activedLayoutNavigation();
             app.$layout.setMainView(new AppendSheetView()).render();
+        },
+        _appendSheetGenerate: function(){
+            activedLayoutNavigation();
+            app.$layout.setMainView(new AppendSheetGenerateView()).render();
         }
     });
     return StatisticsRouter;
