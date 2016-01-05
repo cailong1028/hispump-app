@@ -201,7 +201,7 @@ define([
             var cartcodeList = [];
             appendSheetGenerateTableView.getViews('tbody').forEach(function(one){
                 if(one.$('.pick-input').prop('checked')){
-                    cartcodeList.push(one.model.get('id'));
+                    cartcodeList.push(one.model.get('cartcode'));
                 }
             });
             if(cartcodeList.length === 0){
